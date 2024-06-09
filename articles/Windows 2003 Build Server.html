@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<p id="ember667"> To Build Windows Server 2003 RTM which was released on my birthday April 24th.</p>
+<p id="ember668"> You need the source from the
+<a target="_self" href="https://archive.org/details/microsoft-leaked-source-code-archive-2020-09-24" data-test-app-aware-link="">SSLIP Leak Account</a> on the Internet archive from
+<a target="_self" href="https://archive.org/details/nt5src" data-test-app-aware-link="">Microsoft's own Leak account.</a> I'm not happy the way this is on the internet it used to be on Microsoft webiste heres the 
+<a target="_self" href="https://news.microsoft.com/2002/02/21/microsoft-announces-major-expansion-of-shared-source-initiativeproviding-source-code-to-systems-integrators/" data-test-app-aware-link="">press release</a>.   If you were able to sign up for the contract in 2002 like me there is a   loophole of 700 resource hours. I do have a valid contract my System   Integrator case is still open at Microsoft. Which is XP and 2003 SP1   Source. Only keep the 3.5, 4.0, XP/2003, Microsoft Patents and 
+<a target="_self" href="https://computerhistory.org/blog/microsoft-ms-dos-early-source-code/" data-test-app-aware-link="">MS-DOS Source</a>. Delete the rest. 2000 Source is only 33%. </p>
+<p id="ember669"> For the Build Drive Install Windows Server 2003 R2 Enterprise   32-bit for SUA with 600GB 2 partition Oracle's Virtual Box Virtual   Machine on Windows 10 2019 Enterprise LTSC. With 2048 MB of RAM and the   I/0 AIPC setting checked. I haven't tested it on 2000 yet. In the D:\   Drive you need a Debug, Retail, VS, cpvsbuild, xpclient and depot shares   for the Virtual Labs. The Microsoft Research Kernel You can get from my 
+<a target="_self" href="https://github.com/jonathanlyonmoore/Microsoft-Windows-Research-Kernel" data-test-app-aware-link="">Github</a> or from your Universities College of Mathematics and Computer Science   System Admin. I added UK UNIX Bringingham Postscript Lectures. </p>
+<p id="ember670"> You may want to try DR-DOS 7.03 from 
+<a target="_self" href="https://en.wikipedia.org/wiki/Santa_Cruz_Operation" data-test-app-aware-link="">Caldera</a> Licensing or
+<a target="_self" href="https://en.wikipedia.org/wiki/Novell" data-test-app-aware-link="">Novell</a> DR-DOS 7.0 from 1999 a updated from MS-DOS as the operating system stayed up   to date until 2011 at Novell. and fetch the latest Perl distribution   from the NT Sources Perl distribution and start DOS Globbing. I'm   working on a Alpha, VAX or MIPS server and I hope I can boot something   from the 
+<a target="_self" href="https://en.wikipedia.org/wiki/DECUS" data-test-app-aware-link="">DECUS</a> archive. 
+<a target="_self" href="https://www.itprotoday.com/compute-engines/mipsnt-allied-birth" data-test-app-aware-link="">MIPS/NT allied at birth</a>. <a target="_self" href="https://www.itprotoday.com/compute-engines/windows-nt-and-vms-rest-story" data-test-app-aware-link="">Windows NT and VMS: The Rest of the Story</a>. Visual Studio 2019 is in support until 2029 with Windows XP only for 
+<a target="_self" href="https://learn.microsoft.com/en-us/visualstudio/releases/2019/compatibility" data-test-app-aware-link="">Visual Studio 2019 Compatibility</a>. </p>
+<p id="ember671"> The Official Build Number of the SSILP is 5.1.2600.6000 </p>
+<p id="ember672"> If you need to use 'expand /r' to X:\ENGLISH\WIN2003\ENT\I386\* D:\binaries.x86fre from a retail DVD. </p>
+<pre>1. Build or find xcopy and findstr from the RTM DVD and place on path</pre>
+<p id="ember673"> 2. Setting the Path:</p>
+<pre>path %path%;D:\NT\tools\perl\bin;D:\binaries.x86fre;D:\NT\tools\sp;D:\NT\tools\x86</pre>
+<pre>set sdxroot=D:\NT </pre>
+<pre>enlist projects ex: sdx enlist com -c 
+
+SET THE OFFICIAL BUILD MACHINE and BUILD NAME.    
+
+tools\ntnewver.cmd</pre>
+<p id="ember674"> 3. Set the Signing Certificate </p>
+<pre>certmgr -add D:\NT\tools\testpca.cer -r localMachine -s ca</pre>
+<pre>Run tools\checktestroot.cmd and checktestca.cmd </pre>
+<p id="ember675"> 4. Setting Razzle </p>
+<pre>tools\razzle free offline or tools\razzle win64 amd64 free offline    
+
+or for checked     
+
+tools\razzle offline or tools\razzle win64 and64 offline </pre>
+<pre>perl xcopy2binplace.pl</pre>
+<p id="ember676"> build individual projects </p>
+<pre>in the directory of a makefile with BUILD -cz</pre>
+<p id="ember677"> or </p>
+<p id="ember678"> build the whole operating system </p>
+<pre>perl tools\timebuild. pl -NOCLEANBUILD -NOSYNC -NOSCORCH</pre>
+<pre>BUILD /ZP</pre>
+<p id="ember679"> POSTBUILD: </p>
+<p id="ember680"> We only create boot floppy images on fre compressed i386 builds. </p>
+<pre>tools\postbuildscripts\sanitycheckunicodefiles.cmd</pre>
+<p id="ember681"> Generate the winnt32.msi for different SKUs </p>
+<pre>tools\postbuildscripts\winnt32msi.cmd</pre>
+<pre>tools\postbuildscripts\makebuildname.cmd</pre>
+<pre>tools\postbuildscripts\cdimage.cmd -d Release</pre>
+<pre>move delobj.cmd the the tools directory to the NT Root and clean the source tree by deleting all the object files. after the build</pre>
+<p id="ember682">Close Razzle Window run the VC7 vcvars32.bat from the VCBuilt share and set _NTTREE environment variable. Which is the binaries   directory. </p>
+<pre>path %path%;D:\binaries.x86fre\bldtools</pre>
+<p id="ember683">Copy the 'copyddkfiles.cmd' the the NT\base\ddk directory for the tools directory run: </p>
+<pre>copyddkfiles.cmd ddk_base.ini ddk D:\NT\base</pre>
+<p id="ember684">It should begin to copy the ddk files you will need to edit the ddk, hal, IFS INI files to fit your kit needs. </p>
+<p id="ember685">After the build run the post build batch file in the tools   directory and read the error log you shouldn't get any errors in Windows XP/2003 Professional Edition. </p>
+<p id="ember686"> 5. certmgr.msc, go to Trusted Root Certification   Authorities\Certificates and remove the Microsoft Test Root Authority   certificate, Sign out and Sign in again. </p>
+<p id="ember687"> It takes 6 hours to build a Free Build and 12 hrs a Checked. </p>
+<p id="ember688"> After the build the Active Directory Migration Tools and Debugging   Tools should be built. After the post build very edition and every   supported language should be built. In the binaries directory the usa   default build should be revision 6000 leading up to Windows Embedded   2009. After the Windows 6000 revision source build you might want to use   the SLD files in the 'mantis' folder with XP embedded and make a   Embedded Windows repository and engineer 2003 revision 6000 which was   released in Embedded 2009. </p>
+<p id="ember693"> A <strong>build lab</strong> (or simply a <strong>lab</strong>) commonly refers to a <a target="_self" href="https://betawiki.net/wiki/Microsoft_Windows" data-test-app-aware-link="">Microsoft Windows</a> source code branch. By extension, it can also refer to the team that works on this branch. </p>
+<p id="ember694"> Historically, the build lab was a physical room populated with machines that periodically produced mainline builds of <a target="_self" href="https://betawiki.net/wiki/Windows_NT" data-test-app-aware-link="">Windows NT</a>.   At first, there was a single build lab for the entire project that all   developers submitted their changes to. As the number of developers grew,   the concept of virtual build labs was introduced, where each team   developing a subset of the feature set works on its own separate branch   and has one or more machines compiling periodic builds of that branch.   Each developer submits their changes first to their team's branch, and   they are merged to the mainline only after they meet its acceptance   criteria. Other teams can then pull the changes from the mainline into   their branches. </p>
+<p id="ember695"> Builds that were not built by the build lab machines, but are   rather compiled by individual Microsoft employees, are called private   builds. They are identified by having the VS_FF_PRIVATEBUILD file flag   set in the executable's version information and by including the account   name of the individual or service that initiated the build in the   branch part of the build tag. </p>
+<p id="ember696"> Microsoft has used several branching systems since the start of <a target="_self" href="https://betawiki.net/wiki/Windows_XP" data-test-app-aware-link="">Windows XP</a> development,   which differ in the hierarchy of labs as well as in the naming scheme.   However, there are some specifics common to most schemes, such as the   presence of a top-most main branch, or the use of special branches for   important development milestones. </p>
+
+<h3 id="ember697"> Whistler and pre-reset Longhorn </h3>
+<p id="ember698"> The top-most branch was called <strong>main</strong>,   which integrated changes from all labs. Under it were several numbered   labs, each of which was working on a separate part of Windows, such as:</p>
+<ul>
+  <li><strong>Lab01</strong>: Kernel</li>
+  <li><strong>Lab02</strong>: Networking</li>
+  <li><strong>Lab03</strong>: Server<a target="_self" href="https://betawiki.net/wiki/Build_lab#cite_note-3" data-test-app-aware-link="">[c]</a></li>
+  <li><strong>Lab04</strong>: Terminal Services<a target="_self" href="https://betawiki.net/wiki/Build_lab#cite_note-4" data-test-app-aware-link="">[1]</a></li>
+  <li><strong>Lab06</strong>: User interface</li>
+  <li><strong>Lab07</strong>: Internet Information Services/COM+</li> 
+</ul>
+   These labs also had a "_N" branch, which served as a buffer   between main and the actual branch. For example, changes from the main   branch would first get integrated into Lab06_N before later being   integrated into Lab06 in a process called forward integration. The same   applied for reverse integration, where the lab would first integrate   changes into its N-branch before integrating them into the main branch.
+<p id="ember701"> There were also <strong>idx</strong> (internal   development workstation/server) branches, builds from which are usually   recompilations intended for TAP/OEM partners. However, they were also   occasionally released for public testing, e.g. <a target="_self" href="https://betawiki.net/wiki/Windows_Longhorn_build_4074" data-test-app-aware-link="">Windows Longhorn build 4074</a> or <a target="_self" href="https://betawiki.net/wiki/Windows_XP_build_2257" data-test-app-aware-link="">Windows XP build 2257</a>. </p>
+<p id="ember702"> Before the release of <a target="_self" href="https://betawiki.net/wiki/Windows_XP" data-test-app-aware-link="">Windows XP</a>, the main branch was forked into the <strong>xpclient</strong> branch while the main branch moved on to track <a target="_self" href="https://betawiki.net/wiki/Windows_Server_2003" data-test-app-aware-link="">Windows Server 2003</a> development.   After the final version was shipped, new branches were created for   updates, hotfixes and Service Pack development. Similarly, the <strong>dnsrv</strong> branch   (short for Dot NET Server, i.e. Windows .NET Server) was forked from   the main branch before the release of Windows Server 2003. </p>
+<h3 id="ember703"> Since Longhorn reset </h3>
+<p id="ember704"> The lab hierarchy was overhauled after the development reset of <a target="_self" href="https://betawiki.net/wiki/Windows_Vista" data-test-app-aware-link="">Longhorn</a> to   address the flaws that plagued most of the pre-reset period. Instead of   having a small amount of general virtual build labs each focusing on a   different general scope of Windows functionality, a new hierarchical   model with considerably more feature branches was introduced, which   helped reduce the amount of code to reverse integrate for branch.   Microsoft also set stricter criteria for reverse integrating changes   from the labs into the main branch, which was now renamed to <strong>winmain</strong>. </p>
+<p id="ember705"> The main branch was later renamed to <strong>rsmain</strong> at some point after the release of <a target="_self" href="https://betawiki.net/wiki/Windows_10" data-test-app-aware-link="">Windows 10</a>, and then to <strong>rsmaster</strong> after   the Windows source repository's conversion to Git, likely to comply   with the Git convention of calling the top-most branch the master   branch. At some point after February 2021,
+<a target="_self" href="https://betawiki.net/wiki/Build_lab#cite_note-5" data-test-app-aware-link="">[2]</a> the branch was renamed back to <strong>main</strong>. This was likely done in order to follow suit with other Microsoft   projects after the master/slave terminology became a subject of   controversy in 2020 due to slavery connotations.
+<a target="_self" href="https://betawiki.net/wiki/Build_lab#cite_note-6" data-test-app-aware-link="">[3]</a>
+<a target="_self" href="https://betawiki.net/wiki/Build_lab#cite_note-7" data-test-app-aware-link="">[4]</a></p>
+<h3 id="ember706"> Feature branch prefixes </h3>
+<p id="ember707"> Microsoft has used multiple prefixes to refer to feature branches over time:</p>
+<ul>
+  <li><strong>vbl</strong> (virtual build lab) - <a target="_self" href="https://betawiki.net/wiki/Windows_Vista" data-test-app-aware-link="">Windows Vista</a></li>
+  <li><strong>fbl</strong> (feature branch level) - <a target="_self" href="https://betawiki.net/wiki/Windows_7" data-test-app-aware-link="">Windows 7</a> up to <a target="_self" href="https://betawiki.net/wiki/Windows_10_(original_release)" data-test-app-aware-link="">Windows 10 (original release)</a></li>
+  <li><strong>rs</strong> (Redstone) - <a target="_self" href="https://betawiki.net/wiki/Windows_10_Creators_Update" data-test-app-aware-link="">Windows 10 Creators Update</a> up to now</li>
+  <li><strong>fs</strong> (Firesteel) - <a target="_self" href="https://betawiki.net/wiki/Windows_11_(original_release)" data-test-app-aware-link="">Windows 11 (original release)</a><a target="_self" href="https://betawiki.net/wiki/Build_lab#cite_note-8" data-test-app-aware-link="">[d]</a></li>
+  <li><a target="_self" href="https://betawiki.net/wiki/Windows_10_November_Update" data-test-app-aware-link="">Windows 10 November Update</a> and <a target="_self" href="https://betawiki.net/wiki/Windows_10_Anniversary_Update" data-test-app-aware-link="">Windows 10 Anniversary Update</a> used their respective release branch prefix for feature branches - <strong>th2</strong> and <strong>rs1</strong>, respectively. </li>
+</ul>
+<h3 id="ember710"> Release branch prefixes </h3>
+<p id="ember711"> Similarly to the previous system, the main branch is forked off   before release to contain update development. The following is the list of known prefixes:</p>
+<ul>
+  <li><strong>vista</strong>, <strong>longhorn</strong>, <strong>lh</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_Vista" data-test-app-aware-link="">Windows Vista</a>, <a target="_self" href="https://betawiki.net/wiki/Windows_Server_2008" data-test-app-aware-link="">Windows Server 2008</a></li>
+  <li><strong>win7</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_7" data-test-app-aware-link="">Windows 7</a>, <a target="_self" href="https://betawiki.net/wiki/Windows_Server_2008_R2" data-test-app-aware-link="">Windows Server 2008 R2</a></li>
+  <li><strong>win8</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_8" data-test-app-aware-link="">Windows 8</a>, <a target="_self" href="https://betawiki.net/wiki/Windows_Server_2012" data-test-app-aware-link="">Windows Server 2012</a></li>
+  <li><strong>winblue</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_8.1" data-test-app-aware-link="">Windows 8.1</a>, <a target="_self" href="https://betawiki.net/wiki/Windows_Server_2012_R2" data-test-app-aware-link="">Windows Server 2012 R2</a></li>
+  <li><strong>th1</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_10_(original_release)" data-test-app-aware-link="">Windows 10 (original release)</a></li>
+  <li><strong>th2</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_10_November_Update" data-test-app-aware-link="">Windows 10 November Update</a></li>
+  <li><strong>rs1</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_10_Anniversary_Update" data-test-app-aware-link="">Windows 10 Anniversary Update</a>, <a target="_self" href="https://betawiki.net/wiki/Windows_Server_2016" data-test-app-aware-link="">Windows Server 2016</a></li>
+  <li><strong>rs2</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_10_Creators_Update" data-test-app-aware-link="">Windows 10 Creators Update</a></li>
+  <li><strong>rs3</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_10_Fall_Creators_Update" data-test-app-aware-link="">Windows 10 Fall Creators Update</a></li>
+  <li><strong>rs4</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_10_April_2018_Update" data-test-app-aware-link="">Windows 10 April 2018 Update</a></li>
+  <li><strong>rs5</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_10_October_2018_Update" data-test-app-aware-link="">Windows 10 October 2018 Update</a>, <a target="_self" href="https://betawiki.net/wiki/Windows_Server_2019" data-test-app-aware-link="">Windows Server 2019</a></li>
+  <li><strong>19h1</strong> - <a target="_self" href="https://betawiki.net/wiki/Windows_10_May_2019_Update" data-test-app-aware-link="">Windows 10 May 2019 Update</a>, <a target="_self" href="https://betawiki.net/wiki/Windows_10_November_2019_Update" data-test-app-aware-link="">Windows 10 November 2019 Update</a></li>
+  <li><strong>vb</strong> (Vibranium) - <a target="_self" href="https://betawiki.net/wiki/Windows_10_May_2020_Update" data-test-app-aware-link="">Windows 10 May 2020 Update</a> and later cumulative updates</li>
+  <li><strong>mn</strong> (<a target="_self" href="https://betawiki.net/wiki/Manganese" data-test-app-aware-link="">Manganese</a>)</li>
+  <li><strong>fe</strong> (<a target="_self" href="https://betawiki.net/wiki/Iron" data-test-app-aware-link="">Iron</a>) - <a target="_self" href="https://betawiki.net/wiki/Windows_Server_2022" data-test-app-aware-link="">Windows Server 2022</a></li>
+  <li><strong>co</strong> (<a target="_self" href="https://betawiki.net/wiki/Cobalt" data-test-app-aware-link="">Cobalt</a>) - <a target="_self" href="https://betawiki.net/wiki/Windows_11_(original_release)" data-test-app-aware-link="">Windows 11 (original release)</a></li>
+  <li><strong>ni</strong> (<a target="_self" href="https://betawiki.net/wiki/Nickel" data-test-app-aware-link="">Nickel</a>) - <a target="_self" href="https://betawiki.net/wiki/Windows_11_2022_Update" data-test-app-aware-link="">Windows 11 2022 Update</a>, <a target="_self" href="https://betawiki.net/wiki/Windows_11_2023_Update" data-test-app-aware-link="">Windows 11 2023 Update</a></li>
+  <li><strong>zn</strong> (<a target="_self" href="https://betawiki.net/wiki/Zinc" data-test-app-aware-link="">Zinc</a>) - <a target="_self" href="https://betawiki.net/wiki/Windows_Server,_version_23H2" data-test-app-aware-link="" data-artdeco-is-focused="true">Windows Server, version 23H2</a></li>
+</ul>
+</p>
+<p id="ember713"> </p>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<html>
+	<head>
+		<title>Sphinx Logic</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+		<meta name="msvalidate.01" content="0B5DE814D1B72425017969DF373EF31E" />
+		<meta name="Jonathan Chapman Moore" content="Software Engineer.">
+		<meta name="Jonathan Lyon Moore" content="Software Engineer.">
+		<meta name="Sphinx Logic" content="A Computer Science Startup Looking for Funding and Only Hiring Computer Science Gradutates."> 
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			    <!-- Header -->
+				<div id="header-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<header id="header">
+									<h1><a href="default.html" id="logo">Sphinx Logic</a></h1>
+									<nav id="nav">
+										<a href="index.html">Homepage</a>
+										<a href="whoweare.html">Who We Are</a>
+										<a href="products.html">Products</a>
+										<a href="articles.html">Articles</a>										
+										<a href="games.html" class="current-page-item">Games</a>
+										<a href="w2k3.html">System Integrator</a>	
+										<a href="netbio.html">Biology</a>
+																			
+									</nav>
+								</header>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			    <!-- Main -->
+			    <div id="main">
+					<div class="container">
+						<div class="row main-row">
+							<div class="col-8 col-12-medium">
+							<section>
+<h2>Work at Nindendo and Id Software</h2>	
+<p>Making a quick mod is very straightforward. This document assumes Microsoft Visual C++ v6.xx. It covers making a slight mod to the game source, recompiling for debugging and rebuilding the vm's for distribution.
+
+<p>Slow Rockets - TestMod</p>
+<ul>
+<li>1. Open up the Q3AGame.dsw in Microsoft Visual C++.</li>
+<li>2. Set the "game" project as the active project.</li>
+<li>3. Open the "g_local.h" file and change the GAMEVERSION define from "baseq3" to "TestMod"</li>
+<li>4. Save "g_local.h"</li>
+<li>5. Open the "g_missile.c" file.</li>
+<li>6. Go to line 389 and change the 900 to 300. The old line reads:</li>
+</ul>	
+<pre>VectorScale( dir, 900, bolt->s.pos.trDelta );</pre>
+
+<p>The new line should read</p>
+
+<pre>VectorScale( dir, 300, bolt->s.pos.trDelta );</pre>
+<ul>
+<li>7. Save "g_missile.c"</li>
+<li>8. Perform a Build All command and it should build a DLL for the game.</li> 
+</ul>
+
+<p>At this point you have two options. You can run the debugger, choosing 'Quake3.exe' as the executable host which will load your DLL for debugging or you can build the vm's for distribution. When you release mods, you will want to build new vm's.</p>
+
+<p>Building the vm's requires two things.</p>
+<ul>
+<li>1. The files contained in the bin_nt path must be available for execution ( lcc.exe and q3asm.exe )</li>
+<li>2. There must be environment variables set for proper lib and include paths. Microsoft Visual C++ installs a batch file that does this for you called "VCVARS32.bat"</li>
+</ul>
+<p>To build the sample vm for the slow rocket test, do the following:</p>
+<ul>
+<li>1. Open a DOS window.</li>
+<li>2. Make sure lcc.exe and q3asm.exe are available on the path.</li>
+<li>3. Run VCVARS32.bat</li>
+<li>4. Go to your mods game directory and run the 'game.bat' file.</li>
+</ul>
+<p>This ultimately produces a 'qagame.qvm' in the \baseq3\vm\ path.</p> 
+<ul>
+<li>5. Make a "TestMod" path under your Quake3 directory. This will be a sibling to 'baseq3'</li>
+<li>6. Move 'qagame.qvm' to "\YourQuake3Path\TestMod\vm\"</li>
+<li>7. Run Quake3 with the following command line "Quake3 +set fs_game TestMod"</li>
+<li>8. "TestMod" should be the referenced game and you should be able to catch up with and outrun your rockets.</li>
+</ul>
+
+																	
+									<ul class="link-list">
+										<li><a href="https://www.idsoftware.com/">ID Software</a>
+										<li><a href="https://sphinxlogic-my.sharepoint.com/:f:/g/personal/jonathanmoore_sphinxlogic_onmicrosoft_com/EnFdBqL52DJOvwKCUJqu63QB4JIz-_IR7SYutN3B5wOKDw?e=fLl1ch">Nintendo 64 Game SDKs</a>
+										<li><a href="https://sphinxlogic-my.sharepoint.com/:f:/g/personal/jonathanmoore_sphinxlogic_onmicrosoft_com/Elx5p2xzO21Fh0FVGpMYe_cBl0kj2uKH8hwpoazA38Wfiw?e=BgS9Dr">Id Software Source Kits</a>
+								    </ul>
+							</section>
+							</div>
+							<div class="col-4 col-12-medium">
+								<section>
+									<img src="images/pic05.png" alt="" class="left" />
+								</section>
+							</div>
+						</div>
+						<footer class="controls">
+							
+						</footer>		
+					</div>
+				</div>
+				<!-- Footer -->
+				<div id="footer-wrapper">
+		 <div class="row">
+					<div class="column">
+						<img src="images/Apple-Music.jpg" >
+					</div>
+					<div class="column">
+						<img src="images/12870907-microsoft-gold-partner-logo.png" >
+					</div>
+					<div class="column">
+						 <img src="images/rn-logo_1200x630.png" >
+				</div>
+		</div> 		
+		 <div class="row">							
+			<div class="row">
+							<div class="col-12">
+								<div id="copyright">
+									&copy; Sphinx Logic. All rights reserved. <a href="https://www.microsoft.com/en-us/legal">Microsoft Legal</a>
+								</div>
+							</div>
+						</div>
+		</div>
+		</div>
+				</div>			
+
+		    <!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+		
+	</body>
+</html>
