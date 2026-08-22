@@ -1,0 +1,892 @@
+﻿@page "/AI"
+@attribute [StreamRendering]
+<!-- Copyright IBM Corp. 2018  All Rights Reserved.-->
+
+    <link rel="shortcut icon" href="$utils.blogsIconUrl" type="image/x-icon" /> 
+    <link rel="alternate" type="application/atom+xml" title="Atom Entries"  href="https://www.ibm.com/developerworks/community/blogs/InsideSystemStorage/feed/entries/atom?lang=en" />
+    <link rel="alternate" type="application/atom+xml" title="Atom Comments" href="https://www.ibm.com/developerworks/community/blogs/InsideSystemStorage/feed/comments/atom?lang=en" />
+    <link rel="replies" type="application/atom+xml" title="Atom Entry Comments"  href="" />
+    <link rel="service" class="preferred" type="application/atomsvc+xml" title="Atom Publishing Protocol" href="https://www.ibm.com/developerworks/community/blogs/api" />
+    <link rel="EditURI"   type="application/rsd+xml" title="RSD" href="https://www.ibm.com/developerworks/community/blogs/InsideSystemStorage/rsd"/>
+    <style type="text/css">
+/* ----------------------------------------------------------------------
+   CSS
+---------------------------------------------------------------------- */
+/* Copyright IBM Corp. 2012  All Rights Reserved.              */
+#featured {
+      width:100%; 
+      height:auto;
+      margin:0px;
+      padding:0px;  
+      margin-top:30px;
+      margin-bottom:0px;
+      margin-left:5px;
+      line-height:1.2em;
+      border-bottom: solid 2px #555555;  
+}
+
+#featured th {
+     text-transform:uppercase;
+     font-weight:bold;
+     padding-left:0px;
+}
+
+#featured td {
+     width:33%;
+     font-family:  Arial, Helvetica Neue, Helvetica, sans-serif; 
+     font-size:95%; 
+     padding-top:20px;
+     padding-bottom:30px;
+     border-top: solid 1px #FFFFFF !important;  
+}
+
+#featured div {
+    max-width:100px; 
+    max-height:100px;
+    padding-left:5px;
+    padding-right:5px;
+    float:left;
+}
+
+#featured img {
+    max-width:85px; 
+    max-height:85px;
+    padding-right:15px;
+    padding-bottom:5px;
+}
+
+#post-preview {
+      width:140px;
+      height:140px;
+      float:left; 
+      padding-top:25px;
+      padding-right:25px;
+}
+
+#post-preview img {
+    max-width:135px; 
+    max-height:135px;
+    vertical-align:text-top;
+}
+
+/* removed in IC5*/
+//.min-lotusInner{
+//padding:10px 0 0 35px !important;
+//}
+
+.min-h4-padding{
+border-top:1px solid #EEEEEE !important;
+}
+#hero-img img { max-width:1150px; max-height:200px; }
+#trends a {
+        padding: 7px;
+        margin-left:12px;
+        margin-bottom:1px;
+        font-family:  Georgia, Arial, Helvetica Neue, Helvetica, sans-serif;
+        font-size: 12pt; 
+        font-style:italic;  
+        color:#FFFFFF;
+        text-decoration:none; 
+        display:block;
+}
+
+a.trends     { border-style: none; }
+a.trends.s1  { background-color:#008abf !important; width:55% !important; }
+a.trends.s2  { background-color:#006ea7 !important; width:65% !important; }
+a.trends.s3  { background-color:#025287 !important; width:75% !important; }
+a.trends.s4  { background-color:#003f69 !important; width:85% !important; }
+a.trends.s5  { background-color:#002e51 !important; width:95% !important; }
+#section_bio {padding-top:0px !important;}
+#section_bio img{float:left; padding-right:5px;}
+#css-widget-banner-tags {
+       height: auto;
+       width:auto;
+       margin: 0px;
+       float:right;
+       font-size: 115%;
+       line-height: 24px; 
+       word-spacing: 8pt;
+       text-align: right; 
+}
+
+a.tag     { border-style: none; }
+a.tag.s1  { color: #008abf; font-size: 90%; letter-spacing: 1px; text-decoration:none;  }
+a.tag.s2  { color: #006ea7; font-size: 110%; text-decoration:none; }
+a.tag.s3  { color: #025287; font-size: 130%; text-decoration:none; }
+a.tag.s4  { color: #003f69; font-size: 150%; text-decoration:none; }
+a.tag.s5  { color: #002e51; font-size: 170%; letter-spacing: -1px; text-decoration:none; }
+
+#twitter_update_list {
+	font-family:  Arial, Helvetica Neue, Helvetica, sans-serif; 
+        font-size: 100%;
+        line-height: 18px;
+	list-style: none;
+        padding-top:8px;
+        margin-left:10px;
+        margin-right:6px;
+}
+
+#twitter_update_list li {
+        list-style-type:none; 
+	padding-bottom: 9px;
+        margin-bottom: 12px;
+}
+
+#twitter_update_list span {
+       color: #666666;
+}
+
+#twitter_update_list span a {
+	color: #486891;
+	text-decoration: none;
+}
+
+#twitter_update_list a {
+        white-space: nowrap;
+	color: #486891;
+        text-decoration : none;
+}
+.css-widget-related-resources {
+      position: relative; top:+5px; left: +5px; 
+      width:180px; 
+      height:auto; 
+      margin-top: 25px; 
+      padding: 5px; 
+      background-color:#E0E8F8; 
+      border: solid 1px #649DE0;       
+      font-family:  Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 95%; 
+      color:#666666;
+}
+.dw-blog-share ul li a.dw-blog-facebook-share-link:hover{background: url("//www.ibm.com/developerworks/lc/images/socialmedia_share_icons.png") no-repeat scroll 0 0 transparent !important;}
+.dw-blog-share ul li a {background:url("//www.ibm.com/developerworks/lc/images/socialmedia_share_icons.png") no-repeat scroll 0 -30px transparent ! important;}
+.dw-blog-share ul li a.dw-blog-twitter-share-link{background-position: 0 -390px ! important;}
+.dw-blog-share ul li a.dw-blog-twitter-share-link:hover{background-position: 0 -360px ! important;}
+.dw-blog-share ul li a.dw-blog-google-share-link{background-position: 0 -150px ! important;}
+.dw-blog-share ul li a.dw-blog-google-share-link:hover{background-position: 0 -120px ! important;}
+.dw-blog-share ul li a.dw-blog-linkedin-share-link{background-position: 0 -209px ! important;}
+.dw-blog-share ul li a.dw-blog-linkedin-share-link:hover{background-position: 0 -179px ! important;}
+.dw-blog-share ul li a.dw-blog-rss-share-link{background-position: 0 -329px ! important;}
+.dw-blog-share ul li a.dw-blog-rss-share-link:hover{background-position: 0 -299px ! important;}
+.dw-blog-share ul li a.dw-blog-youtube-share-link{background-position: 0 -450px ! important;}
+.dw-blog-share ul li a.dw-blog-youtube-share-link:hover{background-position: 0 -420px ! important;}
+
+#css-widget-related-other-resources {
+      width:98%; 
+      height:auto; 
+      padding:5px;
+      margin-top:15px; 
+      font-family:  Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 90% !important;   
+      color: #666666;
+      border: solid 1px #E5E5E5;
+      -moz-border-radius: .5em; 
+      -webkit-border-radius: .5em;
+      line-height:1.2em;
+      color:#848484 !important;  
+}
+
+#css-widget-related-other-resources img {
+      vertical-align:middle;
+      margin-right:5px;
+      width:16px;
+      height:16px;
+      padding:0px;
+}
+#syn-bar img{float:right;padding-right:5px;}
+#syn-bar {padding-top:20px;}
+
+#syn-box div{padding-bottom:3px !important;}
+#syn-box span{padding-bottom:3px !important;}
+#related_entry{
+	padding-top:10px;
+}
+    
+</style> 
+
+            							
+<!-- ASP Disclaimer -->
+<div class="lotusSection" role="complementary" aria-label="Disclaimer" aria-labelledby="section_disclaimer_label">
+			<h2>
+				<span id="section_disclaimer_label" class="lotusLeft">Disclaimer</span>
+				
+			</h2>
+<p>
+"The postings on this site solely reflect the personal views of each author and do not necessarily represent the views, positions, strategies or opinions of IBM or IBM management."
+</p><p>
+(c) Copyright Tony Pearson and IBM Corporation.  
+All postings are written by Tony Pearson unless noted otherwise.
+</p><p>
+Tony Pearson is employed by IBM.  Mentions of IBM Products, solutions or services might be deemed as "paid
+endorsements" or "celebrity endorsements" by the US Federal Trade Commission.
+</p><p>
+This blog complies with the
+<a href="http://www.ibm.com/investor/governance/business-conduct-guidelines.wss">IBM Business Conduct Guidelines</a>, 
+ <a href="http://www.ibm.com/blogs/zz/en/guidelines.html?cmp=101J4&ct=101J412W&cr=stgsocial&csr=storage&cm=h&ccy=us&cpb=stg&S_TACT=101J412W">IBM Social Computing Guidelines</a>, and
+IBM Social Brand Governance.  This blog is admistered by Tony Pearson and Sarochin Tollette.
+</p><p>
+Safe Harbor Statement: The information on IBM products is intended to outline IBM's general product direction and it should not be relied on in making a purchasing decision. The information on the new products is for informational purposes only and may not be incorporated into any contract. The information on IBM products is not a commitment, promise, or legal obligation to deliver any material, code, or functionality. The development, release, and timing of any features or functionality described for IBM products remains at IBM's sole discretion.
+</p><p>
+Tony Pearson is a an active participant in local, regional, and industry-specific interests, and does not receive any special payments to mention them on this blog.  
+</p><p>
+Tony Pearson receives part of the revenue proceeds from sales of books he has authored listed in the side panel.
+</p>
+<p>
+Tony Pearson is not a medical doctor, and this blog does not reference any IBM product or service that is intended for use in the diagnosis, treatment, cure, prevention or monitoring of a disease or medical condition, unless otherwise specified on individual posts.</p>
+</div>
+
+
+	
+<!-- Tags -->
+
+
+ 
+
+		<!-- content -->
+		<!-- <td valign="top"> -->
+				    <div id="lotusContent" class="lotusContent min-Content" role="main">
+		         <a id="mainContent" name="mainContent"></a><div class="lotusMessage2 lotusWarning"><img class="lotusIcon" title="IC Sunset" alt="IC Sunset" src="https://dw1.s81c.com/developerworks/community/groups/nav/common/styles/images/iconWarning.gif"><span style="font-size: 0.85rem">The developerWorks Connections Platform is now in read-only mode and content is only available for viewing. No new wiki pages, posts, or messages may be added. Please see our FAQ for more information. The developerWorks Connections platform will officially shut down on March 31, 2020 and content will no longer be available. <a href="https://developer.ibm.com/code/dw-connections-sunset-faq/"><strong>More details available on our FAQ.</strong></a> (<a href="https://developer.ibm.com/jp/dw-connections-sunset-faq/"><strong>Read in Japanese.</strong></a>)</span></div>
+		
+           <script type="text/javascript">
+var renderMessagesOnLoad = function() {
+			}
+</script>
+
+<script>
+	if(dojo.byId('lotusColLeft')!=null && dojo.byId('lotusContent')!=null){
+		var has = lconn.core.config.features;
+		if(!has("hikari-default-theme"))
+			dojo.byId('lotusContent').style.marginLeft="220px";
+		else
+			dojo.byId('lotusContent').style.marginLeft="250px";
+	}
+</script>
+		    		      		             
+		     <div id="entries">
+	              		        				<!-- Dont show paging when there are no entries -->
+									                                                                       
+             <div style="clear:both"></div>
+
+                                            
+			  
+	           			                              
+				<!-- Dont show sort control when there are no entries -->
+				 		        			   
+		       
+    
+        <div>
+	    <table class="lotusTable blogsFixedTable" border="0" cellspacing="0" cellpadding="0" summary="" role="presentation"></table>
+		<tbody>
+	
+	
+	
+	        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			    <tr  class="lotusFirst" ></tr>
+	    <!-- Entry title and info -->
+		<td  class="min-h4-padding min-entry entryContentContainerTD blogsWrapText" ><a name="ibm_watson_how_to_build_your_own_watson_jr_in_your_basement7" id="ibm_watson_how_to_build_your_own_watson_jr_in_your_basement7"></a>
+							<h4 class="min-h4">
+					IBM Watson -- How to replicate Watson hardware and systems design for your own use in your basement
+				</h4>
+						<!-- User name, date, meta info -->
+			<div class="lotusMeta min-blogdetail" role="list">
+											<span class="lotusDivider" role="img" aria-hidden="true">|</span>
+				<span role="listitem">
+					<time datetime="2011-02-18 20:21:57.0">
+						<script type='text/javascript'> document.write(blogsDate.date.localize (1298078517000));</script> 
+                    </time>
+				</span>
+														<span class="lotusDivider" role="img" aria-hidden="true">|</span>
+					<span role="listitem">
+																					Comments (12)
+																		</span>
+													                	<span class="lotusDivider" role="img" aria-hidden="true">|</span>
+                	<span role="listitem">
+													Visits (289899)
+						                	</span>
+                               
+									</div></td>
+<!-- Rating -->
+<span class="rating lotusRating min-rating" id="entry_rating_c970326e-7835-44ed-babd-ec861fbafcbe" >
+<div id="entry_rating_c970326e-7835-44ed-babd-ec861fbafcbe_widget"></div>
+<script language="javascript">
+	dojo.addOnLoad(function(){
+	var store_data = {
+	id: currentLogin.extid,
+	identifier: "userId",
+	items: [
+						{userId: "270000JFDG",name: 'JFDG_Mircea_Bidian' ,
+					userState:  "active" ,
+					mail: ""},
+							{userId: "120000727U",name: 'Jamesco' ,
+					userState:  "active" ,
+					mail: ""},
+							{userId: "120000G9S6",name: 'Michael_OConnell' ,
+					userState:  "active" ,
+					mail: ""},
+							{userId: "270002STA5",name: 'Patricio M Dorantes' ,
+					userState:  "active" ,
+					mail: ""},
+							{userId: "270000CN12",name: 'bobleah' ,
+					userState:  "active" ,
+					mail: ""},
+							{userId: "270002FPW0",name: 'jaltacol' ,
+					userState:  "active" ,
+					mail: ""}
+				]
+	};
+	var store = new lconn.blogs.recommend.RecommendDataStore({
+		data:store_data, 
+		type:'entry', 
+		itemId:'c970326e-7835-44ed-babd-ec861fbafcbe', 
+		currentLogin: currentLogin,
+		recommendationsCount: 6
+	});
+	objRecommend = new lconn.blogs.recommend.Inline(
+			{
+				debug: false,
+				editable: true,
+				loadIndividualStyles: false,
+									currentUserId: currentLogin.extid,
+								dataStore: store			
+			},
+			dojo.byId('entry_rating_c970326e-7835-44ed-babd-ec861fbafcbe_widget')
+	);
+	});
+</script>
+
+
+</span>
+			         
+	        </tbody></div>
+	        <!-- Entry content -->
+	                 <div id="css-entry">                
+ 		                                                         	      	        			                             <p dir="ltr">
+	For the longest time, people thought that humans could not run a mile in less than four minutes. Then, in 1954, [<a href="http://en.wikipedia.org/wiki/Roger_Bannister">Sir Roger Bannister</a>] beat that perception, and shortly thereafter, once he showed it was possible, many other runners were able to achieve this also. The same is being said now about the IBM Watson computer which appeared this week against two human contestants on <i>Jeopardy!</i></p>
+<blockquote dir="ltr" style="padding:20px;">
+	(<b>2014 Update:</b> A lot has happened since I originally wrote this blog post! I intended this as a fun project for college students to work on during their summer break. However, IBM is concerned that some businesses might be led to believe they could simply stand up their own systems based entirely on open source and internally developed code for business use. IBM recommends instead the [<a href="http://www-01.ibm.com/software/data/infosphere/biginsights/?ce=ISM0461&amp;ct=stg&amp;cmp=ibmsocial&amp;cm=h&amp;cr=storage&amp;ccy=us">IBM InfoSphere BigInsights</a>] which packages much of the software described below. IBM has also launched a new &quot;Watson Group&quot; that has [<a href="http://www-03.ibm.com/press/us/en/pressrelease/42869.wss?ce=ISM0461&amp;ct=stg&amp;cmp=ibmsocial&amp;cm=h&amp;cr=storage&amp;ccy=us">Wat<wbr>son-<wbr>as-a<wbr>-Ser<wbr>vic<wbr>e</a>] capabilities in the Cloud. To raise awareness to these developments, IBM has asked me to rename this post from <b><u>IBM Watson - How to build your own &quot;Watson Jr.&quot; in your basement</u></b> to the new title <b><u>IBM Watson -- How to replicate Watson hardware and systems design for your own use in your basement</u></b>. I also took this opportunity to improve the formatting layout.)</blockquote>
+<div dir="ltr" style="width: 500px; height: 374px; float: left;padding:20px;">
+	<a href="http://www.flickr.com/photos/26449036@N06/5453986577/" title="POWER7-EnergyStar by az990tony, on Flickr"><img alt="POWER7-EnergyStar" src="http://farm6.static.flickr.com/5016/5453986577_476e1dc1c3.jpg" /></a></div>
+<p dir="ltr">
+	Often, when a company demonstrates new techology, these are prototypes not yet ready for commercial deployment until several years later. IBM Watson, however, was made mostly from commercially available hardware, software and information resources. As several have noted, the 1TB of data used to search for answers could fit on a single USB drive that you buy at your local computer store.</p>
+<p dir="ltr">
+	But could you fit an entire Watson in your basement? The IBM Power 750 servers used in IBM Watson earned the [<a href="http://www.informationweek.com/news/infrastructure/management/showArticle.jhtml?articleID=224201064">EPA Energy Star</a>] rating, and is substantially [<a href="http://www.slideshare.net/BMartinIBMLSE/ibm-power-7">more energy-efficient than comparable 4-socket x86, Itanium, or SPARC servers</a>]. However, having <i>ninety</i> of them in your basement would drive up your energy bill.</p>
+<div dir="ltr" style="float:right;padding:20px;">
+	<a href="http://www.flickr.com/photos/26449036@N06/5456600793/" title="sj43-3s by az990tony, on Flickr"><img alt="sj43-3s" height="195" src="http://farm6.static.flickr.com/5095/5456600793_4a11503e21_o.jpg" width="145" /></a></div>
+<p dir="ltr">
+	That got me thinking, would it be possible to build your own question-answering system, something less fancy, less sophisticated, scaled-down for personal use? John Pultorak explained [<a href="http://klabs.org/history/build_agc/">how to build your own Apollo Guidance Computer (AGC) in your basement</a>]. Jay Shafer explains [<a href="http://www.tumbleweedhouses.com/books/">how to build your own house for $20K</a>]. And a 17-year-old George Hotz figured out a [<a href="http://en.wikipedia.org/wiki/George_Hotz">hack to unlock your Apple iPhone</a>] over the summer in his basement.</p>
+<p dir="ltr">
+	It turns out that much of the inner workings of IBM Watson were written in a series of articles in [<a href="http://researchweb.watson.ibm.com/journal/sj43-3.html">IBM Systems Journal, Vol. 43, No. 3</a>]. You can also read the [<a href="http://en.wikipedia.org/wiki/Watson_%28artificial_intelligence_software%29">Wikipedia article</a>]. Eric Brown from IBM Research will be presenting &quot;Jeopardy: Under the Hood of IBM Watson Supercomputer&quot; at next month&#39;s [<a href="http://events.linuxfoundation.org/events/end-user-summit/schedule">The Linux Foundation End User Summit</a>].</p>
+<p dir="ltr">
+	Take a look at the [<a href="http://www-943.ibm.com/innovation/us/watson/research-team/index.html">IBM Research Team</a>] to determine how the project was organized. Let&#39;s decide what we need, and what we don&#39;t in our <i>version for personal use</i>:</p>
+<table border="2" cellspacing="5" dir="ltr">
+	<tbody>
+		<tr bgcolor="#cccccc">
+			<td>
+				Role:</td>
+			<td>
+				Do we need it for <i>personal use</i>?</td>
+		</tr>
+		<tr bgcolor="#99ff33">
+			<td>
+				Team Lead</td>
+			<td>
+				Yes, That&#39;s you. Assuming this is a one-person project, you will act as Team Lead.</td>
+		</tr>
+		<tr bgcolor="#99ff33">
+			<td>
+				Algorithms</td>
+			<td>
+				Yes, I hope you know computer programming!</td>
+		</tr>
+		<tr bgcolor="#ff6666">
+			<td>
+				Game Strategy</td>
+			<td>
+				No, since <i>this version for personal use</i> won&#39;t be appearing on Jeopardy, we won&#39;t need strategy on wager amounts for the Daily Double, or what clues to pick next. Let&#39;s focus merely on a computer that can accept a question in text, and provide an answer back, in text.</td>
+		</tr>
+		<tr bgcolor="#99ff33">
+			<td>
+				Systems</td>
+			<td>
+				Yes, this team focused on how to wire all the hardware together. We need to do that, although <i>this version for personal use</i> will have fewer components.</td>
+		</tr>
+		<tr bgcolor="#ffff66">
+			<td>
+				Speech Synthesis</td>
+			<td>
+				Optional. For now, let&#39;s have <i>this version for personal use</i> just return its answer in plain text. Consider this <i>Extra Credit</i> after you get the rest of the system working. Consider using [<a href="http://espeak.sourceforge.net/">eSpeak</a>], [<a href="http://freetts.sourceforge.net/docs/index.php">FreeTTS</a>], or the Modular Architecture for Research on speech sYnthesis [<a href="http://mary.dfki.de/">MARY</a>] Text-to-Speech synthesizers.</td>
+		</tr>
+		<tr bgcolor="#99ff33">
+			<td>
+				Annotations</td>
+			<td>
+				Yes, I will explain what this is, and why you need it.</td>
+		</tr>
+		<tr bgcolor="#99ff33">
+			<td>
+				Information Sources</td>
+			<td>
+				Yes, we will need to get information for <i>personal use</i> to process</td>
+		</tr>
+		<tr bgcolor="#99ff33">
+			<td>
+				Question Parsing</td>
+			<td>
+				Yes, this team developed a system for parsing the question being asked, and to attach meaning to the different words involved.</td>
+		</tr>
+		<tr bgcolor="#ff6666">
+			<td>
+				Search Optimization</td>
+			<td>
+				No, this team focused on making IBM Watson optimized to answer in 3 seconds or less. We can accept a slower response, so we can skip this.</td>
+		</tr>
+		<tr bgcolor="#99ff33">
+			<td>
+				Project Management</td>
+			<td>
+				Yes, even for a one-person project, having a little &quot;project management&quot; never hurt anyone. I highly recommend the book [<a href="http://search.barnesandnoble.com/Getting-Things-Done/David-Allen/e/9780142000281/?itm=2&amp;USRI=getting+things+done">Getting Things Done: The Art of Stress-Free Productivity</a>] by <a href="http://www.davidco.com/">David Allen</a>].</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<blockquote dir="ltr">
+	(<b>Disclaimer:</b> As with any Do-It-Yourself (DIY) project, I am not responsible if you are not happy with your <i>version for personal use</i> I am basing the approach on what I read from publicly available sources, and my work in Linux, supercomputers, XIV, and SONAS. For our purposes, <i>this version for personal use</i> is based entirely on commodity hardware, open source software, and publicly available sources of information. Your <i>implementation</i> will certainly not be as fast or as clever as the IBM Watson you saw on television.)</blockquote>
+<dl dir="ltr">
+	<dt>
+		<b>Step 1: Buy the Hardware</b></dt>
+	<dd>
+		<div style="float:left;padding:20px;">
+			<a href="http://www.flickr.com/photos/26449036@N06/5454292829/" title="three-tier by az990tony, on Flickr"><img alt="three-tier" src="http://farm6.static.flickr.com/5176/5454292829_9fd1d8dfda.jpg" style="width: 500px; height: 256px; float: left;" /></a></div>
+		<p>
+			Supercomputers are built as a cluster of identical compute servers lashed together by a network. You will be installing Linux on them, so if you can avoid paying extra for Microsoft Windows, that would save you some money. Here is your shopping list:</p>
+		<ul>
+			<li>
+				Three x86 hosts, with the following:
+				<ul>
+					<li>
+						64-bit quad-core processor, either Intel-VT or AMD-V capable,</li>
+					<li>
+						8GB of DRAM, or larger</li>
+					<li>
+						300GB of hard disk, or larger</li>
+					<li>
+						CD or DVD Read/Write drive</li>
+					<li>
+						1GbE Ethernet</li>
+				</ul>
+			</li>
+			<li>
+				Computer Monitor, mouse and keyboard</li>
+			<li>
+				Ethernet 1GbE 4-port hub, and appropriate RJ45 cables</li>
+			<li>
+				Surge protector and Power strip</li>
+			<li>
+				Local Console Monitor (LCM) 4-port switch (formerly known as a KVM switch) and appropriate cables. This is optional, but will make it easier during the development. Once your <i>implementation</i> is operational, you will only need the monitor and keyboard attached to one machine. The other two machines can remain &quot;headless&quot; servers.</li>
+		</ul>
+		<div>
+			&nbsp;</div>
+	</dd>
+	<dt>
+		<b>Step 2: Establish Networking</b></dt>
+	<dd>
+		<p>
+			IBM Watson used Juniper switches running at 10Gbps Ethernet (10GbE) speeds, but was not connected to the Internet while playing <i>Jeopardy!</i> Instead, these Ethernet links were for the POWER7 servers to talk to each other, and to access files over the Network File System (NFS) protocol to the internal customized SONAS storage&nbsp; I/O nodes.</p>
+		<p>
+			The <i>implementation</i> will be able to run &quot;disconnected from the Internet&quot; as well. However, you will need Internet access to download the code and information sources. For our purposes, 1GbE should be sufficient. Connect your Ethernet hub to your DSL or Cable modem. Connect all three hosts to the Ethernet switch. Connect your keyboard, video monitor and mouse to the LCM, and connect the LCM to the three hosts.</p>
+	</dd>
+	<dt>
+		<b>Step 3: Install Linux and Middleware</b></dt>
+	<dd>
+		<p>
+			To say I use Linux on a daily basis is an understatement. Linux runs on my Android-based cell phone, my laptop at work, my personal computers at home, most of our IBM storage devices from SAN Volume Controller to XIV to SONAS, and even on my Tivo at home which recorded my televised episodes of <i>Jeopardy!</i></p>
+		<p>
+			For this project, you can use any modern Linux distribution that supports KVM. IBM Watson used Novel SUSE Linux Enterprise Server [<a href="http://www.novell.com/products/server/">SLES 11</a>]. Alternatively, I can also recommend either Red Hat Enterprise Linux [<a href="http://www.redhat.com/rhel/">RHEL 6</a>] or Canonical [<a href="http://www.ubuntu.com/">Ubuntu v10</a>]. Each distribution of Linux comes in different orientations. Download the the 64-bit &quot;ISO&quot; files for each version, and burn them to CDs.</p>
+		<ul>
+			<li>
+				Graphical User Interface (GUI) oriented, often referred to as &quot;Desktop&quot; or &quot;HPC-Head&quot;</li>
+			<li>
+				Command Line Interface (CLI) oriented, often referred to as &quot;Server&quot; or &quot;HPC-Compute&quot;</li>
+			<li>
+				Guest OS oriented, to run in a Hypervisor such as KVM, Xen, or VMware. Novell calls theirs &quot;Just Enough Operating System&quot; [<a href="http://www.novell.com/products/jeos/">JeOS</a>].</li>
+		</ul>
+		<p>
+			For <i>this version for personal use</i>, I have chosen a [<a href="http://en.wikipedia.org/wiki/Multitier_architecture">multitier architecture</a>], sometimes referred to as an &quot;n-tier&quot; or &quot;client/server&quot; architecture.</p>
+		<dl>
+			<dt>
+				<b>Host 1 - Presentation Server</b></dt>
+			<dd>
+				<p>
+					For the Human-Computer Interface [<a href="http://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction">HCI</a>], the IBM Watson received categories and clues as text files via TCP/IP, had a [<a href="http://www-943.ibm.com/innovation/us/watson/what-is-watson/the-face-of-watson.html">beautiful avatar</a>] representing a planet with 42 circles streaking across in orbit, and text-to-speech synthesizer to respond in a computerized voice. Your <i>implementation</i> will not be this sophisticated. Instead, we will have a simple text-based Query Panel web interface accessible from a browser like Mozilla Firefox.</p>
+				<p>
+					Host 1 will be your Presentation Server, the connection to your keyboard, video monitor and mouse. Install the &quot;Desktop&quot; or &quot;HPC Head Node&quot; version of Linux. Install [<a href="http://www.serverwatch.com/tutorials/article.php/2203891/Integrating-Tomcat-with-Apache.htm">Apache Web Server and Tomcat</a>] to run the Query Panel. Host 1 will also be your &quot;programming&quot; host. Install the [<a href="http://java.sun.com/j2se/1.5.0/download.jsp">Java SDK</a>] and the [<a href="http://www.eclipse.org/downloads/index.php">Eclipse IDE for Java Developers</a>]. If you always wanted to learn Java, now is your chance. There are plenty of books on Java if that is not the language you normally write code.</p>
+				<p>
+					While three little systems doesn&#39;t constitute an &quot;Extreme Cloud&quot; environment, you might like to try out the &quot;Extreme Cloud Administration Tool&quot;, called [<a href="http://xcat.sourceforge.net/">xCat</a>], which was used to manage the many servers in IBM Watson.</p>
+			</dd>
+			<dt>
+				<b>Host 2 - Business Logic Server</b></dt>
+			<dd>
+				<p>
+					Host 2 will be driving most of the &quot;thinking&quot;. Install the &quot;Server&quot; or &quot;HPC Compute Node&quot; version of Linux. This will be running a server virtualization Hypervisor. I recommend KVM, but you can probably run Xen or VMware instead if you like.</p>
+			</dd>
+			<dt>
+				<b>Host 3 - File and Database Server</b></dt>
+			<dd>
+				<p>
+					Host 3 will hold your information sources, indices, and databases. Install the &quot;Server&quot; or &quot;HPC Compute Node&quot; version of Linux. This will be your NFS server, which might come up as a question during the installation process.</p>
+			</dd>
+		</dl>
+		<p>
+			Technically, you could run different Linux distributions on different machines. For example, you could run &quot;Ubuntu Desktop&quot; for host 1, &quot;RHEL 6 Server&quot; for host 2, and &quot;SLES 11&quot; for host 3. In general, Red Hat tries to be the best &quot;Server&quot; platform, and Novell tries to make SLES be the best &quot;Guest OS&quot;.</p>
+		<p>
+			My advice is to pick a single distribution and use it for everything, Desktop, Server, and Guest OS. If you are new to Linux, choose Ubuntu. There are plenty of books on Linux in general, and Ubuntu in particular, and Ubuntu has a helpful community of volunteers to answer your questions.</p>
+	</dd>
+	<dt>
+		<b>Step 4: Download Information Sources</b></dt>
+	<dd>
+		<p>
+			You will need some documents for <i>your implementation</i> to process.</p>
+		<p>
+			IBM Watson used a modified SONAS to provide a highly-available clustered NFS server. For <i>this version</i>, we won&#39;t need that level of sophistication. Configure Host 3 as the NFS server, and Hosts 1 and 2 as NFS clients. See the [<a href="http://nfs.sourceforge.net/nfs-howto/">Linux-NFS-HOWTO</a>] for details. To optimize performance, host 3 will be the &quot;official master copy&quot;, but we will use a Linux utility called <i>rsync</i> to copy the information sources over to the hosts 1 and 2. This allows the task engines on those hosts to access local disk resources during question-answer processing.</p>
+		<p>
+			We will also need a relational database. You won&#39;t need a high-powered IBM DB2. <i>Your implementation</i> can do fine with something like [<a href="http://db.apache.org/derby/">Apache Derby</a>] which is the open source version of IBM CloudScape from its Informix acquisition. Set up Host 3 as the Derby Network Server, and Hosts 1 and 2 as Derby Network Clients. For more about structured content in relational databases, see my post [<a href="https://www.ibm.com/developerworks/mydeveloperworks/blogs/InsideSystemStorage/entry/ibm_watson_business_intelligence_data_retrieval_and_text_mining5?lang=en">IBM Watson - Business Intelligence, Data Retrieval and Text Mining</a>].</p>
+		<p>
+			Linux includes a utility called <i>wget</i> which allows you to download content from the Internet to your system. What documents you decide to download is up to you, based on what types of questions you want answered. For example, if you like Literature, check out the vast resources at [<a href="http://www.fullbooks.com/">FullBooks.com</a>]. You can automate the download by writing a shell script or program to invoke <i>wget</i> to all the places you want to fetch data from. Rename the downloaded files to something unique, as often they are just &quot;index.html&quot;. For more on <i>wget</i> utility, see [<a href="http://www.ibm.com/developerworks/linux/library/l-friendfeed/index.html">IBM Developerworks</a>].</p>
+	</dd>
+	<dt>
+		<b>Step 5: The Query Panel - Parsing the Question</b></dt>
+	<dd>
+		<div style="float:right;padding:20px;">
+			<a href="http://www.flickr.com/photos/26449036@N06/5456837509/" title="Screenshot-4 by az990tony, on Flickr"><img alt="Query Panel" src="http://farm6.static.flickr.com/5092/5456837509_c600c0c269_m.jpg" style="width: 240px; height: 212px; float: left;" /></a></div>
+		<p>
+			Next, we need to parse the question and have some sense of what is being asked for. For this we will use [<a href="http://incubator.apache.org/opennlp/">OpenNLP</a>] for Natural Language Processing, and [<a href="http://www.opencyc.org/doc">OpenCyc</a>] for the conceptual logic reasoning. See Doug Lenat presenting this 75-minute video [<a href="http://www.youtube.com/watch?v=KTy601uiMcY">Computers versus Common Sense</a>]. To learn more, see the [<a href="http://www.opencyc.org/doc/tut/?expand_all=1">CYC 101 Tutorial</a>].</p>
+		<p>
+			Unlike <i>Jeopardy!</i> where Alex Trebek provides the answer and contestants must respond with the correct question, we will do normal Question-and-Answer processing. To keep things simple, we will limit questions to the following formats:</p>
+		<ul>
+			<li>
+				Who is ...?</li>
+			<li>
+				Where is ...?</li>
+			<li>
+				When did ... happen?</li>
+			<li>
+				What is ...?</li>
+			<li>
+				Which ...?</li>
+		</ul>
+		<p>
+			Host 1 will have a simple Query Panel web interface. At the top, a place to enter your question, and a &quot;submit&quot; button, and a place at the bottom for the answer to be shown. When &quot;submit&quot; is pressed, this will pass the question to &quot;main.jsp&quot;, the Java servlet program that will start the Question-answering analysis. Limiting the types of questions that can be posed will simplify hypothesis generation, reduce the candidate set and evidence evaluation, allowing the analytics processing to continue in reasonable time.</p>
+	</dd>
+	<dt>
+		<b>Step 6: Unstructured Information Management Architecture</b></dt>
+	<dd>
+		<p>
+			The &quot;heart and soul&quot; of IBM Watson is Unstructured Information Management Architecture [<a href="http://uima.lti.cs.cmu.edu:8080/UCR/pages/static/basics.html">UIMA</a>]. IBM developed this, then made it available to the world as open source. It is maintained by the [<a href="http://apache.org/">Apache Software Foundation</a>], and overseen by the Organization for the Advancement of Structured Information Standards [<a href="http://www.oasis-open.org/who/">OASIS</a>].</p>
+		<a href="http://www.flickr.com/photos/26449036@N06/5455752519/" title="UIMA-bridge by az990tony, on Flickr"><img alt="UIMA-bridge" height="302" src="http://farm6.static.flickr.com/5297/5455752519_37a780c5c7.jpg" width="500" /></a>
+		<p>
+			Basically, UIMA lets you scan unstructured documents, gleam the important points, and put that into a database for later retrieval. In the graph above, DBs means &#39;databases&#39; and KBs means &#39;knowledge bases&#39;. See the 4-minute YouTube video of [<a href="http://www.youtube.com/user/IBMECM#p/u/4/cM-sYcYlhP4">IBM Content Analytics</a>], the commercial version of UIMA.</p>
+		<a href="http://www.flickr.com/photos/26449036@N06/5455752577/" title="UIMA-Collection-Processing by az990tony, on Flickr"><img alt="UIMA-Collection-Processing" height="202" src="http://farm6.static.flickr.com/5136/5455752577_19f6cfb37e.jpg" width="500" /></a>
+		<p>
+			Starting from the left, the <i>Collection Reader</i> selects each document to process, and creates an empty <i>Common Analysis Structure (CAS)</i> which serves as a standardized container for information. This CAS is passed to <i>Analysis Engines</i> , composed of one or more <i>Annotators</i> which analyze the text and fill the CAS with the information found. The CAS are passed to <i>CAS Consumers</i> which do something with the information found, such as enter an entry into a database, update an index, or update a vote count.</p>
+		<p>
+			&nbsp;</p>
+		<blockquote>
+			(<b>Note: </b> This point requires, what we in the industry call a small matter of programming, or [<a href="http://en.wikipedia.org/wiki/Small_matter_of_programming">SMOP</a>]. If you&#39;ve always wanted to learn Java programming, XML, and JDBC, you will get to do plenty here. )</blockquote>
+		<p>
+			&nbsp;</p>
+		<p>
+			If you are not familiar with UIMA, consider this [<a href="http://www.fing.edu.uy/%7Egmonce/ws-uima-a4.pdf">UIMA Tutorial</a>].</p>
+	</dd>
+	<dt>
+		<b>Step 7: Parallel Processing</b></dt>
+	<dd>
+		<p>
+			People have asked me why IBM Watson is so big. Did we really need 2,880 cores of processing power? As a supercomputer, the 80 TeraFLOPs of IBM Watson would place it only in 94th place on the [<a href="http://www.top500.org/">Top 500 Supercomputers</a>]. While IBM Watson may be the [<a href="https://www.ibm.com/developerworks/mydeveloperworks/blogs/InsideSystemStorage/entry/watson_what_is_the_smartest_machine_on_earth7?lang=en">Smartest Machine on Earth</a>], the most powerful supercomputer at this time is the Tianhe-1A with more than 186,000 cores, capable of 2,566 TeraFLOPs.</p>
+		<p>
+			To determine how big IBM Watson needed to be, the IBM Research team ran the DeepQA algorithm on a single core. It took 2 hours to answer a single Jeopardy question! Let&#39;s look at the performance data:</p>
+		<table border="2" cellpadding="10">
+			<tbody>
+				<tr>
+					<td>
+						Element</td>
+					<td>
+						Number of cores</td>
+					<td>
+						Time to answer one Jeopardy question</td>
+				</tr>
+				<tr>
+					<td>
+						Single core</td>
+					<td align="right">
+						1</td>
+					<td align="right">
+						2 hours</td>
+				</tr>
+				<tr>
+					<td>
+						Single IBM Power750 server</td>
+					<td align="right">
+						32</td>
+					<td align="right">
+						&lt; 4 minutes</td>
+				</tr>
+				<tr>
+					<td>
+						Single rack (10 servers)</td>
+					<td align="right">
+						320</td>
+					<td align="right">
+						&lt; 30 seconds</td>
+				</tr>
+				<tr>
+					<td>
+						IBM Watson (90 servers)</td>
+					<td align="right">
+						2,880</td>
+					<td align="right">
+						&lt; 3 seconds</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			The old adage applies, [<a href="http://www.usingenglish.com/reference/idioms/many+hands+make+light+work.html">many hands make for light work</a>]. The idea is to divide-and-conquer. For example, if you wanted to find a particular street address in the Manhattan phone book, you could dispatch fifty pages to each friend and they could all scan those pages at the same time. This is known as &quot;Parallel Processing&quot; and is how supercomputers are able to work so well. However, not all algorithms lend well to parallel processing, and the phrase [<a href="http://www.followsteph.com/2007/07/26/nine-woman-cant-have-a-baby-in-one-month/">nine women can&#39;t have a baby in one month</a>] is often used to remind us of this.</p>
+		<p>
+			Fortuantely, UIMA is designed for parallel processing. You need to install UIMA-AS for Asynchronous Scale-out processing, an add-on to the base UIMA Java framework, supporting a very flexible scale-out capability based on JMS (Java Messaging Services) and ActiveMQ. We will also need Apache Hadoop, an open source implementation used by Yahoo Search engine. Hadoop has a &quot;MapReduce&quot; engine that allows you to divide the work, dispatch pieces to different &quot;task engines&quot;, and the combine the results afterwards.</p>
+		<p>
+			Host 2 will run Hadoop and drive the MapReduce process. Plan to have three KVM guests on Host 1, four on Host 2, and three on Host 3. That means you have 10 task engines to work with. These task engines can be deployed for <i>Content Readers</i>, <i>Analysis Engines</i>, and <i>CAS Consumers</i>. When all processing is done, the resulting votes will be tabulated and the top answer displayed on the Query Panel on Host 1.</p>
+	</dd>
+	<dt>
+		<b>Step 8: Testing</b></dt>
+	<dd>
+		<p>
+			To simplify testing, use a batch processing approach. Rather than entering questions by hand in the Query Panel, generate a long list of questions in a file, and submit for processing. This will allow you to fine-tune the environment, optimize for performance, and validate the answers returned.</p>
+	</dd>
+</dl>
+<p dir="ltr">
+	There you have it. By the time you get your <i>implementation</i> fully operational, you will have learned a lot of useful skills, including Linux administration, Ethernet networking, NFS file system configuration, Java programming, UIMA text mining analysis, and MapReduce parallel processing. Hopefully, you will also gain an appreciation for how difficult it was for the IBM Research team to accomplish what they had for the Grand Challenge on <i>Jeopardy!</i> Not surprisingly, IBM Watson is making IBM [<a href="http://it-jobs.fins.com/Articles/SB129796746009287545/IBM-s-Watson-Becomes-Big-Man-on-Campus-With-Jeopardy-Win?Mod=MKTW">as sexy to work for as Apple, Google or Facebook</a>], all of which started their business in a garage or a basement with a system as small as <i>this version for personal use</i>.</p>
+<p dir="ltr">
+	<img src="http://www.ibm.com/developerworks/blogs/resources/InsideSystemStorage/technorati.gif" /><b>technorati tags:</b> <a href="http://www.technorati.com/tags/IBM" rel="tag">IBM</a>, <a href="http://www.technorati.com/tags/Watson" rel="tag">Watson</a>, <a href="http://www.technorati.com/tags/Jeopardy" rel="tag">Jeopardy</a>, <a href="http://www.technorati.com/tags/Challenge" rel="tag">Challenge</a>, <a href="http://www.technorati.com/tags/POWER7" rel="tag">POWER7</a>, <a href="http://www.technorati.com/tags/EPA" rel="tag">EPA</a>, <a href="http://www.technorati.com/tags/Energy+Star" rel="tag">Energy Star</a>, <a href="http://www.technorati.com/tags/RHEL" rel="tag">RHEL</a>, <a href="http://www.technorati.com/tags/SLES" rel="tag">SLES</a>, <a href="http://www.technorati.com/tags/Ubuntu" rel="tag">Ubuntu</a>, <a href="http://www.technorati.com/tags/Linux" rel="tag">Linux</a>, <a href="http://www.technorati.com/tags/UIMA" rel="tag">UIMA</a>, <a href="http://www.technorati.com/tags/Hadoop" rel="tag">Hadoop</a>, <a href="http://www.technorati.com/tags/MapReduce" rel="tag">MapReduce</a>, <a href="http://www.technorati.com/tags/KVM" rel="tag">KVM</a>, <a href="http://www.technorati.com/tags/DeepQA" rel="tag">DeepQA</a>, <a href="http://www.technorati.com/tags/Roger+Bannister" rel="tag">Roger Bannister</a>, <a href="http://www.technorati.com/tags/John+Pultorak" rel="tag">John Pultorak</a>, <a href="http://www.technorati.com/tags/Jay+Shafer" rel="tag">Jay Shafer</a>, <a href="http://www.technorati.com/tags/George+Hotz" rel="tag">George Hotz</a></p>   	              		            			
+			
+</div>
+<style type="text/css">
+/* ----------------------------------------------------------------------
+   CSS
+---------------------------------------------------------------------- */
+/* Copyright IBM Corp. 2012  All Rights Reserved.              */
+#featured {
+      width:100%; 
+      height:auto;
+      margin:0px;
+      padding:0px;  
+      margin-top:30px;
+      margin-bottom:0px;
+      margin-left:5px;
+      line-height:1.2em;
+      border-bottom: solid 2px #555555;  
+}
+
+#featured th {
+     text-transform:uppercase;
+     font-weight:bold;
+     padding-left:0px;
+}
+
+#featured td {
+     width:33%;
+     font-family:  Arial, Helvetica Neue, Helvetica, sans-serif; 
+     font-size:95%; 
+     padding-top:20px;
+     padding-bottom:30px;
+     border-top: solid 1px #FFFFFF !important;  
+}
+
+#featured div {
+    max-width:100px; 
+    max-height:100px;
+    padding-left:5px;
+    padding-right:5px;
+    float:left;
+}
+
+#featured img {
+    max-width:85px; 
+    max-height:85px;
+    padding-right:15px;
+    padding-bottom:5px;
+}
+
+#post-preview {
+      width:140px;
+      height:140px;
+      float:left; 
+      padding-top:25px;
+      padding-right:25px;
+}
+
+#post-preview img {
+    max-width:135px; 
+    max-height:135px;
+    vertical-align:text-top;
+}
+
+/* removed in IC5*/
+//.min-lotusInner{
+//padding:10px 0 0 35px !important;
+//}
+
+.min-h4-padding{
+border-top:1px solid #EEEEEE !important;
+}
+#hero-img img { max-width:1150px; max-height:200px; }
+#trends a {
+        padding: 7px;
+        margin-left:12px;
+        margin-bottom:1px;
+        font-family:  Georgia, Arial, Helvetica Neue, Helvetica, sans-serif;
+        font-size: 12pt; 
+        font-style:italic;  
+        color:#FFFFFF;
+        text-decoration:none; 
+        display:block;
+}
+
+a.trends     { border-style: none; }
+a.trends.s1  { background-color:#008abf !important; width:55% !important; }
+a.trends.s2  { background-color:#006ea7 !important; width:65% !important; }
+a.trends.s3  { background-color:#025287 !important; width:75% !important; }
+a.trends.s4  { background-color:#003f69 !important; width:85% !important; }
+a.trends.s5  { background-color:#002e51 !important; width:95% !important; }
+#section_bio {padding-top:0px !important;}
+#section_bio img{float:left; padding-right:5px;}
+#css-widget-banner-tags {
+       height: auto;
+       width:auto;
+       margin: 0px;
+       float:right;
+       font-size: 115%;
+       line-height: 24px; 
+       word-spacing: 8pt;
+       text-align: right; 
+}
+
+a.tag     { border-style: none; }
+a.tag.s1  { color: #008abf; font-size: 90%; letter-spacing: 1px; text-decoration:none;  }
+a.tag.s2  { color: #006ea7; font-size: 110%; text-decoration:none; }
+a.tag.s3  { color: #025287; font-size: 130%; text-decoration:none; }
+a.tag.s4  { color: #003f69; font-size: 150%; text-decoration:none; }
+a.tag.s5  { color: #002e51; font-size: 170%; letter-spacing: -1px; text-decoration:none; }
+
+#twitter_update_list {
+	font-family:  Arial, Helvetica Neue, Helvetica, sans-serif; 
+        font-size: 100%;
+        line-height: 18px;
+	list-style: none;
+        padding-top:8px;
+        margin-left:10px;
+        margin-right:6px;
+}
+
+#twitter_update_list li {
+        list-style-type:none; 
+	padding-bottom: 9px;
+        margin-bottom: 12px;
+}
+
+#twitter_update_list span {
+       color: #666666;
+}
+
+#twitter_update_list span a {
+	color: #486891;
+	text-decoration: none;
+}
+
+#twitter_update_list a {
+        white-space: nowrap;
+	color: #486891;
+        text-decoration : none;
+}
+.css-widget-related-resources {
+      position: relative; top:+5px; left: +5px; 
+      width:180px; 
+      height:auto; 
+      margin-top: 25px; 
+      padding: 5px; 
+      background-color:#E0E8F8; 
+      border: solid 1px #649DE0;       
+      font-family:  Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 95%; 
+      color:#666666;
+}
+.dw-blog-share ul li a.dw-blog-facebook-share-link:hover{background: url("//www.ibm.com/developerworks/lc/images/socialmedia_share_icons.png") no-repeat scroll 0 0 transparent !important;}
+.dw-blog-share ul li a {background:url("//www.ibm.com/developerworks/lc/images/socialmedia_share_icons.png") no-repeat scroll 0 -30px transparent ! important;}
+.dw-blog-share ul li a.dw-blog-twitter-share-link{background-position: 0 -390px ! important;}
+.dw-blog-share ul li a.dw-blog-twitter-share-link:hover{background-position: 0 -360px ! important;}
+.dw-blog-share ul li a.dw-blog-google-share-link{background-position: 0 -150px ! important;}
+.dw-blog-share ul li a.dw-blog-google-share-link:hover{background-position: 0 -120px ! important;}
+.dw-blog-share ul li a.dw-blog-linkedin-share-link{background-position: 0 -209px ! important;}
+.dw-blog-share ul li a.dw-blog-linkedin-share-link:hover{background-position: 0 -179px ! important;}
+.dw-blog-share ul li a.dw-blog-rss-share-link{background-position: 0 -329px ! important;}
+.dw-blog-share ul li a.dw-blog-rss-share-link:hover{background-position: 0 -299px ! important;}
+.dw-blog-share ul li a.dw-blog-youtube-share-link{background-position: 0 -450px ! important;}
+.dw-blog-share ul li a.dw-blog-youtube-share-link:hover{background-position: 0 -420px ! important;}
+
+#css-widget-related-other-resources {
+      width:98%; 
+      height:auto; 
+      padding:5px;
+      margin-top:15px; 
+      font-family:  Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 90% !important;   
+      color: #666666;
+      border: solid 1px #E5E5E5;
+      -moz-border-radius: .5em; 
+      -webkit-border-radius: .5em;
+      line-height:1.2em;
+      color:#848484 !important;  
+}
+
+#css-widget-related-other-resources img {
+      vertical-align:middle;
+      margin-right:5px;
+      width:16px;
+      height:16px;
+      padding:0px;
+}
+#syn-bar img{float:right;padding-right:5px;}
+#syn-bar {padding-top:20px;}
+
+#syn-box div{padding-bottom:3px !important;}
+#syn-box span{padding-bottom:3px !important;}
+#related_entry{
+	padding-top:10px;
+}
+    
+  </style> 
+  
+
+	<link rel="stylesheet" href="//www.ibm.com/developerworks/lc/html/dw-mf-lc.css" type="text/css" title="www" />
+	<link rel="stylesheet" href="//www.ibm.com/developerworks/lc/html/dw-ic-global.css" type="text/css" />
+	
+ 
+
+@code {
+
+}
+</div>

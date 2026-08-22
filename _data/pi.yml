@@ -1,0 +1,20 @@
+- name: Mr Jonathan Moore FRSA
+  photo: headshot.jpg
+  info: Jonathan David Allen Moore, IEEE University of Virginia
+  email: jonathanmoore@coputer.org
+  github: https://github.com/jonathanpepinmoore
+  researchgate: https://www.researchgate.net/
+  scholar: https://scholar.google.com/citations?user=aBc-Oc8AAAAJ&hl=en
+  cv: cv/cv.pdf
+  # Change the number below to the number of "educations" you have (up to 6)
+  number_educ: 1
+  education2: "(2004) B.S. Computer Science, University Of Virginia, Darden College"
+  # education3: 
+  # education4: 
+  # education5: 
+  # education6: 
+  education1short: (2004) B.S. Computer Science, UVa  
+  # education3short: 
+  # education4short: 
+  # education5short: 
+  # education6short: 

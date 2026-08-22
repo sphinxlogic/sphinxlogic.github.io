@@ -1,0 +1,11 @@
+install it like this:
+
+1 - Make sure lynx is installed
+
+2 - Run lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
+
+        lynx -source https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
+
+3 - Run install apt-cyg /bin
+
+That's it!
