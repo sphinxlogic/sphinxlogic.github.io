@@ -1,0 +1,35 @@
+    App Compatibility and Device Compatibility
+    App Store
+    Applications and Media Experience
+    App Experience
+    Core Experience Evolved
+    Device Connectivity
+    Devices & Networking Experience
+    Ecosystem Fundamentals
+    Engineer Desktop
+    Engineering System
+    Enterprise Networking
+    Global Experience
+    Graphics Platform
+    Hardware Developer Experience
+    Human Interaction Platform
+    Hyper-V
+    In Control of Your PC
+    Kernel Platform
+    Licensing and Deployment
+    Media Platform
+    Networking Core
+    Performance
+    Presentation and Composition
+    Reliability, Security, and Privacy
+    Runtime Experience
+    Search, View, and Command
+    Security & Identity
+    Storage & Files Systems
+    Sustained Engineering
+    Telemetry
+    User-Centered Experience
+    Windows Online
+    Windows Update
+    Wireless and Networking services
+    XAML
