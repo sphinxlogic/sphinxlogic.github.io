@@ -6,13 +6,13 @@ sidebar: windows_sidebar
 permalink: index.html
 summary: 
 ---
-<!DOCTYPE HTML>
+
 <html>
 	<head>
 		<title>System Intergrator Contract</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-		<link rel="stylesheet" href="../rotor.css"/>		
+				
  		
 		 
 		<!--<script type="text/JavaScript">				

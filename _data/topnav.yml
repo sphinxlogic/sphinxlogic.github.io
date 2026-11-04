@@ -12,23 +12,15 @@ topnav:
 topnav_dropdowns:
 - title: Topnav dropdowns
   folders:
-    - title: Jekyll Help
+    - title: Windows Help
       folderitems:
-        - title: Jekyll Talk
-          external_url: https://talk.jekyllrb.com
-        - title: Jekyll documentation
-          external_url: http://jekyllrb.com/docs/home/
-        - title: Jekyll on Stack Overflow
-          external_url: http://stackoverflow.com/questions/tagged/jekyll
+        - title: Windows Dev Center
+          external_url: https://developer.microsoft.com/en-us/windows
+        - title: Windows Developer Support
+          external_url: https://developer.microsoft.com/en-us/windows/support?tabs=Contact-us
+        - title: Windows Priemer Support
+          external_url: https://partner.microsoft.com/en-us/support/microsoft-services-premier-support
         - title: Jekyll on my blog
-          external_url: http://idratherbewriting.com/category-jekyll/
-    - title: Products
-      folderitems:
-        - title: Microsoft Windows Build Documentation
-          url: /mydoc_introduction.html
-        - title: Product 1
-          url: /p1_landing_page.html
-        - title: Product 2
-          url: /p2_landing_page.html
+          external_url: http://idratherbewriting.com/category-jekyll/    
 
 # Copyright 2026 Google LLC
