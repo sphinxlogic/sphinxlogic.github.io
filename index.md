@@ -120,7 +120,7 @@ If you don't declare a sidebar, the `home_sidebar` file gets used as the default
     layout: "page"
     comments: true
     search: true
-    sidebar: home_sidebar
+    sidebar: windows_sidebar
     topnav: topnav
 ```
 
@@ -129,13 +129,13 @@ If you want to set different sidebar defaults based on different folders for you
 ```
 -
   scope:
-    path: "pages/mydoc"
+    path: "pages/windowsbuilding"
     type: "pages"
   values:
     layout: "page"
     comments: true
     search: true
-    sidebar: mydoc_sidebar
+    sidebar: windows_sidebar
     topnav: topnav
 ```
 
@@ -164,7 +164,7 @@ Because most topnav options will be the same, the `_config.yml` file specifies t
     layout: "page"
     comments: true
     search: true
-    sidebar: home_sidebar
+    sidebar: windows_sidebar
     topnav: topnav
 ```
 
