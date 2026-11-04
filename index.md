@@ -3,6 +3,7 @@ title: "Microsoft Windows Build Instructions"
 keywords: sample homepage
 tags: [getting_started]
 sidebar: windows_sidebar
+theme: jekyll-theme-slate
 permalink: index.html
 summary: 
 ---
