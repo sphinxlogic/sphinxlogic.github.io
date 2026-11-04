@@ -4,411 +4,449 @@ keywords: sample homepage
 tags: [getting_started]
 sidebar: windows_sidebar
 permalink: index.html
-summary: These brief instructions will help you get started quickly with the theme. The other topics in this help provide additional information and detail about working with other aspects of this theme and Jekyll.
+summary: 
 ---
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>System Intergrator Contract</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+		<link rel="stylesheet" href="../rotor.css"/>		
+ 		
+		 
+		<!--<script type="text/JavaScript">				
+				function killCopy(e){
+				return false
+				}
+				function reEnable(){
+				return true
+				}
+				document.onselectstart=new Function ("return false")
+					if (window.sidebar){
+						document.onmousedown=killCopy
+						document.onclick=reEnable
+				}
+        </script>-->
 
-{% include note.html content="If you're cloning this theme, you're probably writing documentation of some kind. I have a blog on technical writing here called <a alt='technical writing blog' href='http://idratherbewriting.com'>I'd Rather Be Writing</a>. If you'd like to stay updated with the latest trends, best practices, and other methods for writing documentation, consider <a href='https://tinyletter.com/tomjoht'>subscribing</a>. I also have a site on <a href='http://idratherbewriting.com/learnapidoc'>writing API documentation</a>." %}
+	</head>
+	<body>
+		<div id="page-wrapper">
+			<!-- Main -->
+				<div id="main">
+					<div class="container">
+						<div class="row main-row">
+							<div class="col-12">
+								<section>			
 
-## Build the Theme
 
-Follow these instructions to build the theme.
+<h2>Internal Developer Server or Workstation for Windows Server 2000/2003</h2>
 
-### 1. Download the theme
 
-First, download or clone the theme from the [Github repo](https://github.com/tomjoht/documentation-theme-jekyll). Most likely you won't be pulling in updates once you start customizing the theme, so downloading the theme (instead of cloning it) probably makes the most sense. In Github, click the **Clone or download** button, and then click **Download ZIP**.
 
-### 2. Install Jekyll
+<p>You need a 600 gigabyte virtual machine to complete this turorial. Windows 10 Enterprise LTSC 2019. In support until 2029, please check product lifecycle.</p><a href="2003VM.html">here</a></p>
+<p>I'm still reading all on the XP/2003 Batch files for all the shares and source depot views. You need Partiton Magic for XP from Win World or make you two partitions a build drive and your C Drive at the begining of Setup on XP/2003.</p>
+<p>The Original Code Center Priemium Site had a Site had a Source Directory. Put your Windows SDK's, DDK's, OPK's, AIK's in eack coresponding version from Windows 1.0 to 2022. Until Russia hacks Code Center Primeium some more. Or until Microsoft gives Sphinx Logic's Founder a MVP for Building XP/2003. We are taking courses in ethical hacking.</p>
 
-If you've never installed or run a Jekyll site locally on your computer, follow these instructions to install Jekyll:
+<h3>Microsoft UNIX Code Migration Guide</h3>
 
-* [Install Jekyll on Mac][mydoc_install_jekyll_on_mac]
-* [Install Jekyll on Windows][mydoc_install_jekyll_on_windows]
+<p>You need the 1999 Rapshody Developer preview found on the Macintosh Garden. Extract the ISO and find the the Source in the Packages folder with the PAX extention.</p>
 
-### 3. Install Bundler
+<p><a href="https://archive.org/details/mac-os-x-server-1.0">Apple Macintosh Rapshody Developer</a></p>
 
-In case you haven't installed Bundler, install it:
+<h3><a href="interix.html">Setting up Interix</a></h3>
 
-```
-gem install bundler
-```
-
-You'll want [Bundler](http://bundler.io/) to make sure all the Ruby gems needed work well with your project. Bundler sorts out dependencies and installs missing gems or matches up gems with the right versions based on gem dependencies.
-
-### 4. Option 1: Build the Theme (*without* the github-pages gem) {#option1}
-
-Use this option if you're not planning to publish your Jekyll site using [Github Pages](https://pages.github.com/).
-
-Bundler's Gemfile specifies how project dependencies are managed. Although this project includes a Gemfile, this theme doesn't have any dependencies beyond core Jekyll. The Gemfile is used to list gems needed for publishing on Github Pages. **If you're not planning to have Github Pages build your Jekyll project, delete these two files from the theme's root directory:**
-
-* Gemfile
-* Gemfile.lock
-
-If you've never run Jekyll on your computer (you can check with `jekyll --version`), you may need to install the jekyll gem:
-
-```
-gem install jekyll
-```
-
-Now run jekyll serve (first change directories (`cd`) to where you downloaded the project):
-
-```
-jekyll serve
-```
-
-### 4. Option 2: Build the Theme (*with* the github-pages gem) {#option2}
-
-If you *are* in fact publishing on Github Pages, leave the Gemfile and Gemfile.lock files in the theme.The Gemfile tells Jekyll to use the github-pages gem. **However, note that you cannot use the normal `jekyll serve` command with this gem due to dependency conflicts between the latest version of Jekyll and Github Pages** (which are noted [briefly here](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/)).
-
-You need Bundler to resolve these dependency conflicts. Use Bundler to install all the needed Ruby gems:
-
-```
-bundle update
-```
-
-Then *always* use this command to build Jekyll:
-
-```
-bundle exec jekyll serve
-```
-
-If you want to shorten this long command, you can put this code in a file such as jekyll.sh (on a Mac) and then simply type `. jekyll.sh` to build Jekyll.
-
-## Running the site in Docker
-
-You can also use Docker to directly build and run the site on your local machine. Just clone the repo and run the following from your working dir:
-```
-docker-compose build --no-cache && docker-compose up
-```
-The site should now be running at [http://localhost:4000/](http://localhost:4000/).
-
-This is perhaps the easiest way to see how your site would actually look.
-
-## Configure the sidebar
-
-There are several products in this theme. Each product uses a different sidebar. This is the essence of what makes this theme unique -- different sidebars for different product documentation. The idea is that when users are reading documentation for a specific product, the sidebar navigation should be specific to that product. (You can read more of my thoughts on why multiple sidebars are important in this [blog post](http://idratherbewriting.com/2016/03/23/release-of-documentation-theme-for-jekyll-50/).)
-
-The top navigation usually remains the same, because it allows users to navigate across products. But the sidebar navigation adapts to the product.
-
-In each page's frontmatter, you must specify the sidebar you want that page to use. Here's an example of the page frontmatter showing the sidebar property:
+<h3>If you using Windows 2000 you need to set the USEUNSUPPORTEDOS=2195 for Windows 2000 SP4 and then run razzle</h3>
 
 <pre>
----
-title: Alerts
-tags: [formatting]
-keywords: notes, tips, cautions, warnings, admonitions
-last_updated: July 3, 2016
-summary: "You can insert notes, tips, warnings, and important alerts in your content. These notes are stored as shortcodes made available through the linksrefs.hmtl include."
-<span class="red">sidebar: mydoc_sidebar</span>
-permalink: mydoc_alerts
----
+@rem
+@rem the script engines write some keys that cause signing errors during postbuild
+@rem unless they're whacked.  Just do it here if the build # is between 2410 and 2480.
+@rem
+for /f "tokens=3 delims=.]" %%i in ('ver') do set OS_BUILDNUMBER=%%i
+@rem Previous line doesn't work on NT4.  [Some ancient build machines still use NT4.]
+if "%OS_BUILDNUMBER%" == "" set OS_BUILDNUMBER=1381
+
+if %OS_BUILDNUMBER% GEQ 2410 (
+    if %OS_BUILDNUMBER% LEQ 2480 (
+        regini %RazzleToolPath%\delsip.ini
+    )
+)
+</pre>
+<p><a href="https://archive.org/details/windows-whistler-collection">The Whilster Build Collection</a></p>
+
+<p>The Windows 2000 source code contains .eml files which might be patches using source depot or git am to apply the patch.</p>
+
+<p>Extract the build collection to the 'Dbg' and 'retail' shares of the build server. Checked is debug and free is retail. And organize the build numbers in alpha numeric order or major and minor versioning.</p>
+
+<p>To build the Operating System you first must install the DDK to make sure the NTMAKEENV environment vartible is set. Or set it yourself.</p>
+
+<p>Before you run razzle decide if you want a managed or unmanged environment. By defualt it is managed and and it does use the Just In Time Compiler or prejit the environment. We'll get into the Shared Source Common Langauge Infustructure.</p>
+
+<p>The following sets the unmangaed environment. You might want to make a standard URT. The .NET Framework is also called COM+</p>
+
+<pre>razzle no_urt offline</pre>
+
+<pre>@if "%_echo%"=="" echo off
+set URTBASE=%RazzleToolPath%\%PROCESSOR_ARCHITECTURE%\managed
+set COMPLUS_InstallRoot=%URTBASE%\urt
+
+set COMPLUS_MAJORVERSION=v1.0
+set URT_VERSION=3705
+set COMPLUS_VERSION=%COMPLUS_MAJORVERSION%.%URT_VERSION%
+call :InstallUrt</pre>
+
+<p>You might want to build the 'buildnum' sdk tool to determine the build version</p> 
+
+<p>After further research you can build Windows from this source code from Windows NT 4.0 build number 1381 Up to the first Longhorn build 3683. Please read razzle.cmd but do not edit it, edit your developer->setenv.cmd after you run razzle.</p>
+
+<p>In developer->setenv.cmd you may wish to start with he Windows Research Kernel and build up the IDW or SDK in SDKTOOLS make sure to port UNIX programs to Win32 or MFC or another Microsoft framework and rename it.</p>
+
+<pre>set BUILD_PRODUCT_VER=5.0.2195 for Windows 2000 RTM in ntenv.cmd look for common.ver the build tools use the common.ver product_verion_str to set the properties for the application.</pre>  
+
+<p>The Offical Build Number of the XP/2003 leak or SSILP if the truth be known; source is 5.1.2535.0 is revision 6000 the same as the 2009 Embedded RTM.</p>
+
+<p>This revision does not come with sdinit.cmd the source depot initalization script, so therefore source depot might not be fuctional. You may read razzle.cmd for further details.</p>
+
+<p>You might also need Cygnus-2.7.2-970404 for XP/2003</p>
+
+<p>You might want to cache sorceware.org and have a cache or Code Plex from the internet archive.</p>
+
+<p>Go to Active State and my buy Perl 5.28 installer for enterprise.</p>
+
+<h3>Setting up Windows Server 2003</h3>
+
+<p>If you need to use 'expand /r' to X:\ENGLISH\WIN2003\ENT\I386\* D:\binaries.x86fre from a retail DVD.</p>
+
+<ul>
+<li><a href="https://web.archive.org/web/20110527022943/http://www.microsoft.com/resources/sharedsource/windowsacademic/default.mspx">Microsoft Acedemic Program</a></li>
+<li><a href="https://docs.oracle.com/cd/E19957-01/819-5134/osp-win-setup/index.html">Setting Up a Windows Remote Installation Services Server</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Remote_Installation_Services">Remote Installation Services</a></li>
+<p>Make a Boot Floppy and build Goliath</p>
+<li><a href="../pdf/Microsoft/goliath.pdf">Building Goliath</a></li>
+<li><a href="https://winworldpc.com/product/turbo-assembler/5x">Borland Turbo Assembler</a></li>
+<li>coming soon....</li>
+</ul>
+<h2>Setting up the folder shares</h2>
+<p>depot,fxdev,retail,vsbuilt,symbols,vs,debug,xpclient,sdkdrop</p>
+<h3>Setting up VSBUILT</h3>
+
+<p>Use my 2000 Lab03_n as a buffer lab as a XP/2003 guide</p>
+
+<p>In the root of %NTROOT% make a 'vsbuilt' directory and copy every VC or Visual C/C++ Tools directory to 'VSBuilt' with the coresponding 'PlatformSDK' in the same ex. 'Vc7' directory for each version of Visual C/C++ 4.0-2008
+You may search the revision for a directory called 'crts' and use windiff or sdkdiff and put together a nice C Runtime from the revision. Compare it to the 2003 VC++ RTM In the 'crts' directory you can study algorithms like heap sort and standard input and output. The revision is just a build, the 2003 VC++ CRT RTM is more recent and the 2002 VC++ RTM is too old. All of the files are in the build you just have to put together a SDK, DDK, Ifskit, and VC drop.
+The 'lib' files are in the 'NT' public sdk and ddk directories.</p>
+
+<p>Make a 'ntbld' virual directory for the NT directory, in Internet Information Services or IIS with is a 80's freeware project for virual browsing and source depot.</p>
+
+<p>You might be missing four $ files the 'checkclr.c', 'nochkclr.c' and 2 printer files. You might want to hook up your professors printer on UNIX/LINUX per Donald Knuth. These files are only in the RTM Gold Visual Studio master. There should be no copying from the RTM files only copy to 'VSBuilt' from the NT Directory or revsion. and maybe make a Vc7b directory. If you have betas of Visual Studio 2002 make a beta drop, just be careful not to make incomaptable versions.</p>
+
+<p>sdkdiff is in the Begin directory of the Platform SDK Samples and windiff is in SDKTools use build utility to built windiff and the vsvar32.bat to set the VC Tools and use namke to build sdkdiff and your off and running. Vc7 (2002 Platform SDK) Vc8 (2005 Platform SDK).</p>
+
+<p>The point being the Samples are a good spring board on learning Windows Technologies to Build Windows in your career.</p> 
+
+<ul>
+<li>Change the 127.0.0.1 localhost to 127.0.0.1 sourcedepot the the machines host file.</li>
+<li>You might want to try and use Perl ISAPI to configure the Source Depot Documentation in the tools/x86/perl directory.</li>
+<li>In the enlistment directory there are source depot templates sd.ini.txt and sdclient.ini.txt. Rename appropriately and place them in the /tools directory.</li>
+<li>Copy intlview.map from the tools directory and rename it SD.MAP and place it in the NT Root or %SDXROOT%</li>
+</ul> 
+<p>Once you set a razzle window you can open up 'alias' and see a list of your projects and codebases and start building projects. You might was to build the ddk and sdk first.</p>
+<p>The BAK series of projects is for personal NT projects the public->internel is a skelecton on the source tree made for Freebsd 4.0, SCO sources and Longhorn or Vista Samples.</p>
+<pre>set sdxroot=D:\NT</pre>
+<pre>You can try to run sdx.cmd</pre>
+<pre>Rename 'projects.map' in the tools directory to 'sd.map' and place in the root of the NT directory.</pre>
+
+<pre>enlist projects ex: sdx enlist NT main com -c</pre>
+
+<h2>Making a new Version of NT</h2>
+
+<p>The batch file ntnewver.cmd needs to be modified to build and copy the NTOS, HALS, & SDK Tools to a private directory and built.</p> 
+<pre>tools\ntnewver.cmd in a razzle window.</pre>
+<p>Fix the errors in dpfiltercm.c and rebuild there should be about 200 errors.</p>
+<ul>
+<li>Start in the NT\sdktools\vs\enlistment directory. Read the envvs.cmd file and make a Visual Studio Drop from VSBUILT And Visual Studio 2002 or 2003 VC7</li>
+<li>Start in the debuggers directory after you leave the enlistment directory there are source depot templates.</li>
+</ul>
+
+<pre>run envvs.cmd The default background is green.</pre>
+
+<img src="../psd/source/VirtualBox_Windows Server 2003 32-bit_15_11_2023_07_42_46.png" alt="Windows VS ENV" width="600" height="300">
+
+<h2>Building the Internal IDW</h2>
+<a href="symbols.html">Building the Internal IDW SDK</a>
+
+<pre>Build or find xcopy and findstr from the RTM DVD and place on path</pre>
+<p>Setting the Path:</p>
+
+<pre>path %path%;D:\NT\tools\perl\bin;D:\binaries.x86fre;D:\NT\tools\sp;D:\NT\tools\x86</pre>
+ 
+<p>Set the Signing Certificate</p>
+<pre>run buildnum.exe in sdktools you may have to build it, to get the machine name and build number of the operating system.</pre>
+<pre>certmgr -add D:\NT\tools\testpca.cer -r localMachine -s ca</pre>
+<pre>cd D:\NT</pre>
+
+<pre>Begin building 'Diff' in SDK tools, 'SDKdiff' and 'Windiff' to merge DDK and SDK include and lib directories.</pre>
+
+<pre>set the date to 4/24/2000 with the daste utility as administrator.</pre>
+
+<pre>tools\checktestroot.cmd and tools\checktestpca.cmd</pre>
+<p>In your developer directory</p>
+<pre>cp cue.pub cue.pri</pre>
+<p>2. Setting Razzle</p>
+<pre>tools\razzle free offline or tools\razzle win64 amd64 free offline    
+
+or for checked     
+
+tools\razzle offline or tools\razzle win64 amd64 offline
+
+or
+
+tools\razzle offline or tools\razzle win32 free offline
+
+on Windows 10
+
 </pre>
 
-The `sidebar: mydoc_sidebar` refers to the \_data/sidebars/mydoc_sidebar.yml file.
-
-Note that your sidebar can only have 2 levels (expand the **Tag archives** option to see an example of the second level). Given that each product has its own sidebar, this depth should be sufficient (it's really like 3 levels). Deeper nesting goes against usability recommendations.
-
-You can optionally turn off the sidebar on any page (e.g. landing pages). To turn off the sidebar for a page, you should set the page frontmatter tag as `hide_sidebar: true`.
-
-If you don't declare a sidebar, the `home_sidebar` file gets used as the default because this is the default specified in the config file:
-
-```yaml
--
-  scope:
-    path: ""
-    type: "pages"
-  values:
-    layout: "page"
-    comments: true
-    search: true
-    sidebar: windows_sidebar
-    topnav: topnav
-```
-
-If you want to set different sidebar defaults based on different folders for your pages, specify your defaults like this:
-
-```
--
-  scope:
-    path: "pages/windowsbuilding"
-    type: "pages"
-  values:
-    layout: "page"
-    comments: true
-    search: true
-    sidebar: windows_sidebar
-    topnav: topnav
-```
-
-This would load the `mydoc_sidebar` for each file in **pages/mydoc**. You could set different defaults for different path scopes.
-
-For more detail on the sidebar, see [Sidebar navigation][mydoc_sidebar_navigation].
-
-## Top navigation
-
-The top navigation works just like the sidebar. You can specify which topnav data file should load by adding a `topnav` property in your page, like this:
-
-```yaml
-topnav: topnav
-```
-
-Here the topnav refers to the `_data/topnav.yml` file.
-
-Because most topnav options will be the same, the `_config.yml` file specifies the topnav file as a default:
-
-```yaml
--
-  scope:
-    path: ""
-    type: "pages"
-  values:
-    layout: "page"
-    comments: true
-    search: true
-    sidebar: windows_sidebar
-    topnav: topnav
-```
-
-## Sidebar syntax
-
-The sidebar data file uses a specific YAML syntax that you must follow. Follow the sample pattern shown in the theme, specically looking at `mydoc_sidebar.yml` as an example: Here's a code sample showing all levels:
-
-```yaml
-entries:
-- title: sidebar
-  product: Jekyll Doc Theme
-  version: 6.0
-  folders:
-  - title: Overview
-    output: web, pdf
-    folderitems:
-
-    - title: Get started
-      url: /index.html
-      output: web, pdf
-      type: homepage
-
-    - title: Introduction
-      url: /mydoc_introduction.html
-      output: web, pdf
-
-  - title: Release Notes
-    output: web, pdf
-    folderitems:
-
-    - title: 6.0 Release notes
-      url: /mydoc_release_notes_60.html
-      output: web, pdf
-
-    - title: 5.0 Release notes
-      url: /mydoc_release_notes_50.html
-      output: web, pdf
-
-  - title: Tag archives
-    output: web
-    folderitems:
+<pre>alias -f alias.sdx</pre>
+
+<pre>\\PATSTYLESVS.main.x86.fre</pre>
+<pre>\\%COMPUTERNAME%.main.x86.fre in BuildMachine.txt</pre>    
+<p>We look in BuildMachines.txt for the machine name, branch, architecture,and build type. If we find a match, then we set OFFICIAL_BUILD_MACHINE to the appropriate value ("primary" or "secondary") look for the the offical build machine client in sdktools->debuggers->vs->enlistment->sd.ini.txt.
+</p>
+<pre>tools\verifybuildmachine.cmd</pre>
+<pre>perl xcopy2binplace.pl</pre>
+<p>You can compile the Lab 01 down to about 8 errors the rest of the Labs and Operating System shouldn't have any errors. You should have the research kernel to muck around with also from college, 
+	needing to comment out the Longhorn additions in revision 6000, files beginning with 'dp' are Longhorn files. The 'dp' files are not in the 'Longhorn' beta LDK they maybe in a IDW or internal developer workstation release if I can find one. 
+	Maybe look in Embedded 2009 for supported hardware and maybe learning what PCI hardware and coding the plug n' play to support in the NT Kernel. 
+	The PCI codes you can use now a days in 2024 is Linux and you might want to remove some of the cheap hardware.</p>
 
-    - title: Tag archives overview
-      url: /mydoc_tag_archives_overview.html
-      output: web
+<h2>Lab01: Base Services</h2>
+<pre>Copy the base\ntos directory and all of it's files to Lab01 it might be a virtual lab in source depot and it is a physical lab.</pre>
+<pre>CD to base\busdrv\isapnp and use the message compiler to generate 'message.h'</pre>
+<pre>Make pcicodes.h using the message compiler too. This file goes in base\busdrv\pci</pre>
+<pre>build -cz </pre> 
+<pre>delobj.cmd to clean the source tree</pre>	
 
-      subfolders:
-      - title: Tag archive pages
-        output: web
-        subfolderitems:
+<h2>Lab02: Networking</h2>
+<p>For OS/2-based servers, the Net functions supported by Microsoft LAN Manager provided much of the functionality required for a network operating system; this functionality was missing from the local operating system. Windows NT, Windows 95, and Windows 98 have much of this network functionality built in. Therefore, some of the original Net functions are no longer supported. </p>
 
-        - title: Formatting pages
-          url: /tag_formatting.html
-          output: web
+<p>Windows NT, Windows 95, and Windows 98 support a variety of networking functions. The set of Net functions provide additional capability not covered by other networking functions. In addition, you may use these functions to monitor and administer OS/2-based LAN Manager servers</p>
 
-        - title: Navigation pages
-          url: /tag_navigation.html
-          output: web
+	<pre>Copy the NT\net directory to Lab02. The Network Stack or Lab will build without error in the Vitrual Lab. 
+     You might have issues in the Pysical Lab</pre>		
+	<pre>build -cz</pre>
+	<pre>delobj.cmd to clean the source tree</pre>	
+<h2>Lab03: Server</h2>
+	<pre>Copy the Entire Server folder from nt5src.7z to Lab03</pre>
+	<pre>The entire Server build should build with about 20 shipping errors and take about 6 hrs for a free build and 12 hrs for a checked.</pre>
+	<pre>build -cz</pre>
+	<pre>delobj.cmd to clean the source tree</pre>
+<h2>Lab04: Terminal Services</h2>
+	<pre>Copy NT\termsrv directory to Lab04. The Terminal Services Stack should build without error in the Virtual Lab.
+	     You might have issues in the Physical Lab.
+	</pre>
+	<pre>build -cz</pre>
+	<pre>delobj.cmd to clean the source tree</pre>
 
-        - title: Content types pages
-          url: /tag_content_types.html
-          output: web
-```
+<h2>Lab05: The Component Object Model Stack Including the Common Language Infustructure</h2>
+<p>The Component Object Model
+The Component Object Model (COM) is a platform-independent, distributed, object-oriented, system for creating binary software components that can interact. COM is the foundation technology for Microsoft's OLE (compound documents), ActiveX (internet enabled components), as well as others.</p>
 
-Each `folder` or `subfolder` must contain a `title` and `output` property. Each `folderitem` or `subfolderitem` must contain a `title`, `url`, and `output` property.
+<p>To understand COM (and therefore all COM-based technologies), it is crucial to bear in mind that it is not an object-oriented language, but a standard. Nor does COM specify how an application should be structured. Language, structure, and implementation details are left to the application programmer. COM does specify an object model and programming requirements that enable COM objects (also called COM components, or sometimes simply objects) to interact with other objects. These objects can be within a single process, in other processes, even on remote machines. They can have been written in other languages, and may be structurally quite dissimilar. That is why COM is referred to as a binary standard - it is a standard that applies after a program has been translated to binary machine code.</p>
 
-The two outputs available are `web` and `pdf`. (Even if you aren't publishing PDF, you still need to specify `output: web`).
+<p>The only language requirement for COM is that code is generated in a language that can create structures of pointers and, either explicitly or implicitly, call functions through pointers. Object-oriented languages such as C++ and Smalltalk provide programming mechanisms that simplify the implementation of COM objects, but languages such as C, Pascal, Ada, Java, and even BASIC programming environments can create and use COM objects. </p>
 
-The YAML syntax depends on exact spacing, so make sure you follow the pattern shown in the sample sidebars. See my [YAML tutorial](mydoc_yaml_tutorial) for more details about how YAML works.
+<p>COM defines the essential nature of a COM object. In general, a software object is made up of a set of data and the functions that manipulate the data. A COM object is one in which access to an object's data is achieved exclusively through one or more sets of related functions. These function sets are called interfaces, and the functions of an interface are called methods. Further, COM requires that the only way to gain access to the methods of an interface is through a pointer to the interface. </p>
 
-{% include note.html content="If you have just one character of spacing off, Jekyll won't build due to the YAML syntax error. You'll see an error message in your console that says \"Error ... did not find expected key while parsing a block mapping at line 22 column 5. Error: Run jekyll build --trace for more information.\" If you encounter this, it usually refers to incorrect indentation or spacing in the YAML file. See the example mydoc_sidebar.yml file to see where your formatting went wrong." %}
+<p>Besides specifying the basic binary object standard, COM defines certain basic interfaces that provide functions common to all COM-based technologies. It also provides a small number of API functions that all components require. COM has now expanded its scope to define how objects work together over a distributed environment, and added security features to ensure system and component integrity.</p>
 
-Each level must have at least one topic before the next level starts. You can't have a second level that contains multiple third levels without having at least one standalone topic in the second level. If you need a hierarchy that has a folder that contains other folders and no loose topics, use a blank `-` item like this:
+<pre>However the Beta Wiki doesn't list a Lab 05 I believe it's either the SSCLI or the COM Stack. With the .NET Framework.</pre>
+	<pre>To build the SSCLI you need Visual Studio 2005 Professional or higher in a 2000 or 2003 Virtual Machine. And Active State 
+	Perl ActivePerl-5.16.3.1603-MSWin32-x86-296746.msi or ActivePerl-5.16.3.1603-MSWin32-x64-296746.msi for 64-Bit
+	</pre>
+	<pre>extract the sscli20_20060311.tgz for 2.0 or 1.0 sscli_20021101.tgz sscli_ref_20021101.tgz and and Gyro Genetrics with 1.0 
+	and execute env.bat at the root of the directory. To set the free or checked environment then execute buildall.cmd.</pre>
+	<pre>To build the COM stack run build -cz in the root of the COM directory or lab.</pre>
 
-```yaml
-entries:
-- title: sidebar
-  product: Jekyll Doc Theme
-  version: 6.0
-  folders:
-  - title: Overview
-    output: web, pdf
-    folderitems:
 
-    -
+<h2>Lab06: User interface</h2>
+<pre>Copy NT\shell directory to Lab06. The UI Stack should build without error in the Virtual Lab.
+	 You might have issues in the Physical Lab. With the GNUmakfile
+</pre>
+<pre>build -cz</pre>
+<pre>delobj.cmd to clean the source tree</pre>
+
+<h2>Lab07: Internet Information Services/COM+</h2>:  
+<pre>Copy NT\inetsrv directory to Lab07. The IIS Stack should build without error in the Virtual Lab.
+		You might have issues in the Physical Lab.
+	</pre>
+	<pre>build -cz</pre>
+	<pre>delobj.cmd to clean the source tree</pre>
+
+<h2>Unrazzle</h2>
+
+<p>After building Windows you need to run the <pre>unrazzle.cmd</pre> and </pre>gacclean.cmd</pre></p>
+
+<h2>This topic provides examples of using BinPlace from the command-line.</h2>
+
+<p>First, you can set the root destination directory as follows:</p>
+
+<pre>set _NTTREE=d:\ProjectRoot</pre>
+
+<p>Then you can set the place file's path and file name in the following way:</p>
+
+<pre>set BINPLACE_PLACEFILE=d:\mystuff\myplacefile.txt</pre>
+
+<p>Let the contents of the file d:\mystuff\myplacefile.txt be as follows:</p>
+
+<pre>; This is a simple place file.
+commonmodule.dll   retail
+application.exe    files\bin
+mydriver.sys       *\drivertree
+extra.cab          appendix
+</pre>
+
+<p>Now you can run BinPlace with the following command:</p>
+
+<pre>binplace g:\somelocation\extra.cab</pre>
+
+<p>Because extra.cab is not an executable file, BinPlace will only move it. The root destination directory is d:\projectroot. The class directory for this file is specified in the place file as appendix. The file-type subdirectory is cab (the file name extension of the file being moved). Thus, this file is copied to the location d:\projectroot\appendix\cab\extra.cab.</p>
+
+<p>Now use BinPlace on the executable file and its symbol file. To do this, you specify the executable file name -- BinPlace will find the associated symbol file.</p>
+
+<p>When you pass an executable file name to BinPlace, it looks for its symbol files in the same directory as the executable file. If it does not find them there, it reads the CodeView record stored in the executable file; if it finds a symbol file path in that record, it looks for symbol files in that path.</p>
+
+<p>Note If you specify a symbol file name explicitly, BinPlace will merely move it, not process it.</p>
+
+<pre>binplace -a -x -s d:\stripped -n g:\full g:\builddir\application.exe</pre>
+
+<p>The executable file uses the same root destination directory as before. Its class directory is files\bin. Thus, it is placed in d:\projectroot\files\bin\application.exe.</p>
+
+<p>The symbol file is placed in two locations. The full symbol file (including both private and public symbols) goes to g:\full\files\bin\exe\application.pdb. The stripped symbol file (containing only public symbols) goes to d:\stripped\files\bin\exe\application.pdb.</p>
+
+<p>Now, use a similar command on commonmodule.dll:</p>
+
+<pre>binplace -a -x -s d:\stripped -n g:\full g:\builddir\commonmodule.dll</pre>
+
+<p>build individual projects</p>
+<pre>in the directory of a makefile with build -cz</pre>
+<p> or </p>
+<p> build the whole operating system </p>
+<pre>perl tools\timebuild.pl -NOCLEANBUILD -NOSYNC -NOSCORCH </pre>
+If you want to wait 6 to 12 hours for a new clean build you'll type this:
+<pre>perl tools\timebuild.pl -!NOCLEANBUILD -NOSYNC -NOSCORCH  -NOPOSTBUILD</pre>
+<pre>build -cz</pre>
+
+<img src="../screen/VirtualBox_Windows XP Professional_14_04_2023_21_49_34.png" alt="Windows VS ENV" width="600" height="300">
+<p>POSTBUILD:</p>
+
+<h2> Building the .NET Framework 1.1</h2>
+
+<p>Open a command prompt.</p>
+
+<p>To build the .NET Framework you need to run the post build script mknetfxcab.cmd after a complete build from a razzle window.</p>
+
+<img src="../screen/VirtualBox_Microsoft Windows XP 32-bit_12_01_2026_18_56_21.png" alt="Windows VS ENV" width="600" height="300">
+
+<pre>Template for the postbuild scripts:
+SD Location: %sdxroot%\tools\postbuildscripts
+1 Code section description:
+    PreMain  - Developer adaptable code. Use this model and add your script params
+    Main     - Developer code section. This is where your work gets done.
+    PostMain - Logging support code. No changes should be made here.
+2 GetParams.pm - Usage
+	run perl.exe GetParams.pm /? for complete usage
+3 Reserved Variables -
+        lang - The specified language. Defaults to USA.
+        logfile - The path and filename of the logs file.
+        logfile_bak - The path and filename of the logfile.
+        errfile - The path and filename of the error file.
+        tmpfile - The path and filename of the temp file.
+        errors - The scripts errorlevel.
+        script_name - The script name.
+        script_args - The arguments passed to the script.
+        CMD_LINE - The script name plus arguments passed to the script.
+        _NTPostBld - Abstracts the language from the files path that
+        postbuild operates on.
+4 Reserved Subs -
+        Usage - Use this sub to discribe the scripts usage.
+        ValidateParams - Use this sub to verify the parameters passed to the script.
+8 Do not turn echo off, copy the 3 lines from the beginning of the template
+    instead.
+9 Use setlocal/endlocal as in this template.
+10 Have your changes reviewed by a member of the US build team (ntbusa) and
+   by a member of the international build team (ntbintl).</pre>
+<p>We only create boot floppy images on fre compressed i386 builds. </p>
+<pre>tools\postbuildscripts\sanitycheckunicodefiles.cmd</pre>
+<p>Generate the winnt32.msi for different SKUs</p>
+<p>make a 'symbol' share with symbol and build subdirectories.</p>
+<pre>symbolcd.cmd</pre>
+<pre>setupw95.cmd</pre>
+<pre>tools\postbuildscripts\winnt32msi.cmd</pre>
+<pre>tools\postbuildscripts\makebuildname.cmd</pre>
+<pre>tools\postbuildscripts\cdimage.cmd -d Full -C Comp -l USA your langauge codes are in codes.txt</pre>
+<pre>tools\postbuildscripts\burncopy.cmd 2600 USA ....... you do need a release share which 
+well cover soon. The Build number is in Buildname.txt</pre>
+<pre>move delobj.cmd the the tools directory to the NT Root and clean the source tree by deleting all the object files. After the build</pre>
+<p>Close Razzle Window run the VC7 vcvars32.bat from the VCBuilt share and set _NTTREE environment variable. Which is the binaries directory.</p>
+<pre>path %path%;D:\binaries.x86fre\bldtools</pre>
+<p>Copy the 'copyddkfiles.cmd' the the NT\base\ddk directory for the tools directory run:</p>
+<pre>copyddkfiles.cmd ddk_base.ini ddk D:\NT\base</pre>
+<p >It should begin to copy the ddk files you will need to edit the ddk, hal, IFS INI files to fit your kit needs.</p>
+<p>You might want to learn how to make a service pack.</p>
+<pre>cd to D:\NT\tools\postbuildscripts\svcpack\ and open spcab.cmd and set the FILELIST CABNAME and EVENTNAME using the gold directory
+text files as a FILENAME</pre>
+<p >After the build run the post build batch file in the tools directory and read the error log you shouldn't get any errors in Windows XP/2003 Professional Edition. </p>
+<pre>certmgr.msc, go to Trusted Root Certification Authorities\Certificates and remove the Microsoft Test Root Authority certificate,
+Sign out and Sign in again. The 'For Testing Purposes' Watermark should now be removed.</pre>
+<p>It takes 6 hours to build a Free Build and 12 hrs a Checked.</p>
+<p>Themes</p>
+<pre>To test the defualt Visual Styles build and execute UXBUD.EXE in the shell->themes directory</pre>
+<p>Build packthem, cd to the themedir and build 'mallard' read the Powerpoints use Office XP, And Adobe CS2.</p>
+<p><a href="https://archive.org/details/winxp-mallard">Here's is a Mallard Screenshot</a></p>
+<p>After the build the Active Directory Migration Tools and Debugging Tools should be built. After the post build very edition and every supported language should be built. In the binaries directory the usa   default build should be revision 6000 leading up to Windows Embedded 2009. After the Windows 6000 revision source build you might want to use the SLD files in the 'mantis' folder with XP embedded and make a Embedded Windows repository and engineer 2003 revision 6000 which was released in Embedded 2009. You can compile the Operating System down to about 16 errors needing to remove the Longhorn additions in revision 6000 maybe look in Embedded 2009 for supported hardware and maybe learning what PCI hardware and coding the plug n' play to support in the NT Kernel. The PCI codes you can use now a days in 2024 is Linux and you might want to remove some of the cheap hardware.</p>
+
+<h2><a href="la/published/Runtime image.pdf">Building a Windows XP Embedded Runtime Image</a></h2>
+
+<p>To build MSMQ in NT->inetserv->MSMQ install Visual C++ 6.0 with MSDN Library put the Build Utlity from NT->tools->x86 in the exacutables PATH in the Options tab in Visual C++ 6.0 and set NTMAKEENV in the Control Panel to the 2003 DDK Bin. The Workspace is a Visual C++ 6.0 workspace. From the CMD Prompt run 'scortch.cmd' to set %FROOT%. Please make sure the SDXROOT is set. This Workspace has more environment varables to set and Microsoft used MINGW in the building of XP not PTC. Download GetGNUWin32-Legacy-Install from Sourceforge.<p><a href="https://sourceforge.net/projects/mingw/files/OldFiles/">here</a> to build MINGW 1.0 for source.</p>
+
+<p>The Boot Process for XP/2003 is:</p>
+<p>Use Bootsect to write MBR and boot sector.</p>
+<pre>bootsect /nt52. e:</pre>
+<p>NTLDR, Ntdetect.com, Ntbootdd.sys, Ntoskrnl.exe, hal.dll, smss.exe, winlogon.exe, Service Contol Manager SCM</p>
+<p>In a free build the kernel may not build you may have to to use the Windows Research Kernel. Microsoft does not give you the source to WinLogon even in the SSLIP. It's named Winlogon.exe.lc</p>
+
+<p>A build lab (or simply a <strong>lab</strong>) commonly refers to a <a target="_self" href="https://betawiki.net/wiki/Microsoft_Windows" data-test-app-aware-link="">Microsoft Windows</a> source code branch. By extension, it can also refer to the team that works on this branch. </p>
+<p> Microsoft has used multiple prefixes to refer to feature branches over time:</p>
+  
+<p><a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/microsoft-public-symbols">Setting up a Public Symbol Server</a></p>
+
+<pre>You can use the Symchk tool to check to see if the Symbol file is public or private.</pre>
+
+<pre>symstore add /p /l /r /g http://localhost:4000/Source/Symbols/*.* /x StoreIndex /a /d symlog.log /f http://localhost:4000/Source/Symbols/*.*</pre>
+
+<p>To get WMI support, you need at least the XP SP2 OPK CD. It has updated tools to build the source for WinPE.
+
+If you have this OPK CD, just add /WMI to the MKIMG command.</p>
+
+<p>To start migrating to Longhorn you need the 'Avalon' and 'Indigo' Tech Preview</p>
+
+<p><a href="https://archive.org/details/longhorn-transformation-pack">Longhorn Transformation Pack</a>
+
+<p>&copy; Jonathan Moore. All rights reserved. <a href="https://www.microsoft.com/en-us/legal">Microsoft Legal</a></p>
+
+</section>
+	</div> 
+		</div>
+			</div>
+				</div>
+				
+			</div>
+	
+			
+	</body>
+</html>
 
-  - title: Release Notes
-    output: web, pdf
-    folderitems:
-
-    - title: 6.0 Release notes
-      url: /mydoc_release_notes_60.html
-      output: web, pdf
-
-    - title: 5.0 Release notes
-      url: /mydoc_release_notes_50.html
-      output: web, pdf
-
-  - title: Installation
-    output: web, pdf
-    folderitems:
-
-    - title: About Ruby, Gems, Bundler, etc.
-      url: /mydoc_about_ruby_gems_etc.html
-      output: web, pdf
-
-    - title: Install Jekyll on Mac
-      url: /mydoc_install_jekyll_on_mac.html
-      output: web, pdf
-
-    - title: Install Jekyll on Windows
-      url: /mydoc_install_jekyll_on_windows.html
-      output: web, pdf
-```
-
-To accommodate the title page and table of contents in PDF outputs, each product sidebar must list these pages before any other:
-
-```yaml
-- title:
-  output: pdf
-  type: frontmatter
-  folderitems:
-  - title:
-    url: /titlepage
-    output: pdf
-    type: frontmatter
-  - title:
-    url: /tocpage
-    output: pdf
-    type: frontmatter
-```
-
-Leave the output as `output: pdf` for these frontmatter pages so that they don't appear in the web output.
-
-For more detail on the sidebar, see [Sidebar navigation][mydoc_sidebar_navigation] and [YAML tutorial][mydoc_yaml_tutorial].
-
-## Comments
-
-The theme integrates [Commento.io](https://commento.io/) for comments below pages and posts. (This commenting service doesn't inject controversial tracking ads like Disqus does.) You will need to Commento.io account + plan ($5/month) to authorize Commento with your domain (no other configuration should be required). If you don't want comments, in the \_config.yml file, change the `comments: true` properties (under `defaults`) to `comments: false` in every instance. Then in the commento.html include file (inside \_includes), the `{% raw %}{% unless page.comments == false %} ... {% endunless %}{% endraw %}` logic will not insert the Commentio form.
-
-## Relative links and offline viewing
-
-This theme uses relative links throughout so that you can view the site offline and not worry about which server or directory you're hosting it. It's common with tech docs to push content to an internal server for review prior to pushing the content to an external server for publication. Because of the need for seamless transferrence from one host to another, the site has to use relative links.
-
-To view pages locally on your machine (without the Jekyll preview server), they need to have the `.html` extension. The `permalink` property in the page's frontmatter (without surrounding slashes) is what pushes the files into the root directory when the site builds.
-
-## Page frontmatter
-
-When you write pages, include these same frontmatter properties with each page:
-
-```yaml
----
-title: "Some title"
-tags: [sample1, sample2]
-keywords: keyword1, keyword2, keyword3
-last_updated: Month day, year
-summary: "optional summary here"
-sidebar: sidebarname
-permalink: filename.html
----
-```
-
-(You will customize the values for each of these properties, of course.)
-
-For titles, surrounding the title in quotes is optional, but if you have a colon in the title, you must surround the title with quotation marks. If you have a quotation mark inside the title, escape it first with a backlash `\`.
-
-Values for `keywords` get populated into the metadata of the page for SEO.
-
-Values for `tags` must be defined in your \_data/tags.yml list. You also need a corresponding tag file inside the tags folder pages/tags/ that follows the same pattern as the other tag files shown in the tags folder. (Jekyll won't auto-create these tag files.)
-
-If you don't want the mini-TOC to show on a page (such as for the homepage or landing pages), add `toc: false` in the frontmatter.
-
-The `permalink` value should be the same as your filename and include the ".html" file extension.
-
-For more detail, see [Pages][mydoc_pages].
-
-## Where to store your documentation topics
-
-You can store your files for each product inside subfolders following the pattern shown in the theme. For example, product1, product2, etc, can be stored in their own subfolders inside the \_pages directory. Inside \_pages, you can store your topics inside sub-subfolders or sub-sub-folders to your heart's content. When Jekyll builds your site, it will pull the topics into the root directory and use the permalink for the URL.
-
-Note that product1, product2, and mydoc are all just sample content to demonstrate how to add multiple products into the theme. You can freely delete that content.
-
-For more information, see [Pages][mydoc_pages] and [Posts][mydoc_posts].
-
-## Configure the top navigation
-
-The top navigation bar's menu items are set through the \_data/topnav.yml file. Use the top navigation bar to provide links for navigating from one product to another, or to navigate to external resources.
-
-For external URLs, use `external_url` in the item property, as shown in the example topnav.yml file. For internal links, use `url` the same was you do in the sidebar data files.
-
-Note that the topnav has two sections: `topnav` and `topnav_dropdowns`. The topnav section contains single links, while the `topnav_dropdowns` section contains dropdown menus. The two sections are independent of each other.
-
-## Generating PDF
-
-If you want to generate PDF, you'll need a license for [Prince XML](http://www.princexml.com/). You will also need to [install Prince](http://www.princexml.com/doc/installing/).  You can generate PDFs by product (but not for every product on the site combined together into one massive PDF). Prince will work even without a license, but it will imprint a small Prince image on the first page, and you're supposed to buy the license to use it.
-
-If you're on Windows, install [Git Bash client](https://git-for-windows.github.io/) rather than using the default Windows command prompt.
-
-Open up the css/printstyles.css file and customize the email address (`youremail@domain.com`) that is listed there. This email address appears in the bottom left footer of the PDF output. You'll also need to create a PDF configuration file following the examples shown in the pdfconfigs folder, and also customize some build scripts following the same pattern shown in the root: pdf-product1.sh
-
-See the section on [Generating PDFs][mydoc_generating_pdfs] for more details about setting the theme up for this output.
-
-## Blogs / News
-
-For blog posts, create your markdown files in the \_posts folder following the sample formats. Post file names always begin with the date (YYYY-MM-DD-title).
-
-The news/news.html file displays the posts, and the news_archive.html file shows a yearly history of posts. In documentation, you might use the news to highlight product features outside of your documentation, or to provide release notes and other updates.
-
-See [Posts][mydoc_posts] for more information.
-
-## Markdown
-
-This theme uses [kramdown markdown](http://kramdown.gettalong.org/). kramdown is similar to Github-flavored Markdown, except that when you have text that intercepts list items, the spacing of the intercepting text must align with the spacing of the first character after the space of a numbered list item. Basically, with your list item numbering, use two spaces after the dot in the number, like this:
-
-```
-1.  First item
-2.  Second item
-3.  Third item
-```
-
-When you want to insert paragraphs, notes, code snippets, or other matter in between the list items, use four spaces to indent. The four spaces will line up with the first letter of the list item (the <b>F</b>irst or <b>S</b>econd or <b>T</b>hird).
-
-```
-1.  First item
-
-    ```
-    alert("hello");
-    ```
-
-2.  Second item
-
-    Some pig!
-
-3.  Third item
-```
-
-See the topics under "Formatting" in the sidebar for more information.
-
-## Automated links
-
-If you want to use an automated system for managing links, see [Automated Links][mydoc_hyperlinks.html#automatedlinks]. This approach automatically creates a list of Markdown references to simplify linking.
-
-## Other instructions
-
-The content here is just a getting started guide only. For other details in working with the theme, see the various sections in the sidebar.
 
 {% include links.html %}
