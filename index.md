@@ -437,17 +437,4 @@ If you have this OPK CD, just add /WMI to the MKIMG command.</p>
 
 <p>&copy; Jonathan Moore. All rights reserved. <a href="https://www.microsoft.com/en-us/legal">Microsoft Legal</a></p>
 
-</section>
-	</div> 
-		</div>
-			</div>
-				</div>
-				
-			</div>
-	
-			
-	</body>
-</html>
 
-
-{% include links.html %}
