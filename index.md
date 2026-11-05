@@ -3,39 +3,9 @@ title: "Microsoft Windows Build Instructions"
 keywords: sample homepage
 tags: [getting_started]
 sidebar: windows_sidebar
-theme: jekyll-theme-slate
 permalink: index.html
 summary: 
 ---
-
-		
- 		
-		 
-		<!--<script type="text/JavaScript">				
-				function killCopy(e){
-				return false
-				}
-				function reEnable(){
-				return true
-				}
-				document.onselectstart=new Function ("return false")
-					if (window.sidebar){
-						document.onmousedown=killCopy
-						document.onclick=reEnable
-				}
-        </script>-->
-
-	</head>
-	<body>
-		<div id="page-wrapper">
-			<!-- Main -->
-				<div id="main">
-					<div class="container">
-						<div class="row main-row">
-							<div class="col-12">
-								<section>			
-
-
 <h2>Internal Developer Server or Workstation for Windows Server 2000/2003</h2>
 
 
