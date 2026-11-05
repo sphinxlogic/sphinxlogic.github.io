@@ -1,5 +1,5 @@
 repository: sphinxlogic/documentation-theme-jekyll
-theme: jekyll-theme-slate
+
 
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
