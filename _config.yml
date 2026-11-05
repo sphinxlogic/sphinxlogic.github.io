@@ -49,7 +49,7 @@ feedback_email: tomjoht@gmail.com
 # if you uncomment the previous line, it changes where the feedback link points to
 
 highlighter: rouge
-# library used for syntax highlighting
+#library used for syntax highlighting
 
 markdown: kramdown
 kramdown:

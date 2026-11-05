@@ -8,12 +8,7 @@ permalink: index.html
 summary: 
 ---
 
-<html>
-	<head>
-		<title>System Intergrator Contract</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-				
+		
  		
 		 
 		<!--<script type="text/JavaScript">				
