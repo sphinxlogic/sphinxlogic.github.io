@@ -212,8 +212,7 @@ on Windows 10
 <pre>delobj.cmd to clean the source tree</pre>
 
 <h2>Lab05: The Component Object Model Stack Including the Common Language Infustructure</h2>
-<p>The Component Object Model
-The Component Object Model (COM) is a platform-independent, distributed, object-oriented, system for creating binary software components that can interact. COM is the foundation technology for Microsoft's OLE (compound documents), ActiveX (internet enabled components), as well as others.</p>
+<p>The Component Object Model The Component Object Model (COM) is a platform-independent, distributed, object-oriented, system for creating binary software components that can interact. COM is the foundation technology for Microsoft's OLE (compound documents), ActiveX (internet enabled components), as well as others.</p>
 
 <p>To understand COM (and therefore all COM-based technologies), it is crucial to bear in mind that it is not an object-oriented language, but a standard. Nor does COM specify how an application should be structured. Language, structure, and implementation details are left to the application programmer. COM does specify an object model and programming requirements that enable COM objects (also called COM components, or sometimes simply objects) to interact with other objects. These objects can be within a single process, in other processes, even on remote machines. They can have been written in other languages, and may be structurally quite dissimilar. That is why COM is referred to as a binary standard - it is a standard that applies after a program has been translated to binary machine code.</p>
 
@@ -224,27 +223,20 @@ The Component Object Model (COM) is a platform-independent, distributed, object-
 <p>Besides specifying the basic binary object standard, COM defines certain basic interfaces that provide functions common to all COM-based technologies. It also provides a small number of API functions that all components require. COM has now expanded its scope to define how objects work together over a distributed environment, and added security features to ensure system and component integrity.</p>
 
 <pre>However the Beta Wiki doesn't list a Lab 05 I believe it's either the SSCLI or the COM Stack. With the .NET Framework.</pre>
-	<pre>To build the SSCLI you need Visual Studio 2005 Professional or higher in a 2000 or 2003 Virtual Machine. And Active State 
-	Perl ActivePerl-5.16.3.1603-MSWin32-x86-296746.msi or ActivePerl-5.16.3.1603-MSWin32-x64-296746.msi for 64-Bit
-	</pre>
-	<pre>extract the sscli20_20060311.tgz for 2.0 or 1.0 sscli_20021101.tgz sscli_ref_20021101.tgz and and Gyro Genetrics with 1.0 
-	and execute env.bat at the root of the directory. To set the free or checked environment then execute buildall.cmd.</pre>
-	<pre>To build the COM stack run build -cz in the root of the COM directory or lab.</pre>
+<pre>To build the SSCLI you need Visual Studio 2005 Professional or higher in a 2000 or 2003 Virtual Machine. And Active State Perl ActivePerl-5.16.3.1603-MSWin32-x86-296746.msi or ActivePerl-5.16.3.1603-MSWin32-x64-296746.msi for 64-Bit </pre>
+<pre>extract the sscli20_20060311.tgz for 2.0 or 1.0 sscli_20021101.tgz sscli_ref_20021101.tgz and and Gyro Genetrics with 1.0 and execute env.bat at the root of the directory. To set the free or checked environment then execute buildall.cmd.</pre>
+<pre>To build the COM stack run build -cz in the root of the COM directory or lab.</pre>
 
 
 <h2>Lab06: User interface</h2>
-<pre>Copy NT\shell directory to Lab06. The UI Stack should build without error in the Virtual Lab.
-	 You might have issues in the Physical Lab. With the GNUmakfile
-</pre>
+<pre>Copy NT\shell directory to Lab06. The UI Stack should build without error in the Virtual Lab. You might have issues in the Physical Lab. With the GNUmakfile</pre>
 <pre>build -cz</pre>
 <pre>delobj.cmd to clean the source tree</pre>
 
 <h2>Lab07: Internet Information Services/COM+</h2>:  
-<pre>Copy NT\inetsrv directory to Lab07. The IIS Stack should build without error in the Virtual Lab.
-		You might have issues in the Physical Lab.
-	</pre>
-	<pre>build -cz</pre>
-	<pre>delobj.cmd to clean the source tree</pre>
+<pre>Copy NT\inetsrv directory to Lab07. The IIS Stack should build without error in the Virtual Lab. You might have issues in the Physical Lab.</pre>
+<pre>build -cz</pre>
+<pre>delobj.cmd to clean the source tree</pre>
 
 <h2>Unrazzle</h2>
 
