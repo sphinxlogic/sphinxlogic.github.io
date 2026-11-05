@@ -24,7 +24,7 @@ topnav_dropdowns:
           external_url: https://partner.microsoft.com/en-us/support/microsoft-services-premier-support
         - title: Microsoft WinUI 3 Gallery
           external_url: https://apps.microsoft.com/detail/9p3jfpwwdzrc?hl=en-US&gl=US
-         - title: Microsoft Dev Center
+        - title: Microsoft Dev Center
           external_url: https://apps.microsoft.com/detail/9nblggh4r5ws?hl=en-US&gl=US 
 
 # Copyright 2026 Google LLC
