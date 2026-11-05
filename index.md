@@ -7,8 +7,8 @@ summary:
 ---
 <h2>Internal Developer Server or Workstation for Windows Server 2000/2003</h2>
 
-<p>You need a 600 gigabyte virtual machine to complete this turorial. Windows 10 Enterprise LTSC 2019. In support until 2029, please check product lifecycle.</p><a href="2003VM.html">here</a></p>
-<p>I'm still reading all on the XP/2003 Batch files for all the shares and source depot views. You need Partiton Magic for XP from Win World or make you two partitions a build drive and your C Drive at the begining of Setup on XP/2003.</p>
+<p>You need a 600 gigabyte virtual machine to complete this turorial. Windows 10 Enterprise LTSC 2019. In support until 2029, please check product lifecycle.</p><a href="2003VM.html">here</a>
+<p>In the one zip file nt5src you can build Microsoft Windows NT build numbers between 1381 to 2480 I'm still reading all on the XP/2003 Batch files for all the shares and source depot views. You need Partiton Magic for XP from Win World or make you two partitions a build drive and your C Drive at the begining of Setup on XP/2003.</p>
 <p>The Original Code Center Priemium Site had a Site had a Source Directory. Put your Windows SDK's, DDK's, OPK's, AIK's in eack coresponding version from Windows 1.0 to 2022. Until Russia hacks Code Center Primeium some more. Or until Microsoft gives Sphinx Logic's Founder a MVP for Building XP/2003. We are taking courses in ethical hacking.</p>
 
 <h3>Microsoft UNIX Code Migration Guide</h3>
