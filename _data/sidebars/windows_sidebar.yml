@@ -19,32 +19,37 @@ entries:
       output: pdf
       type: frontmatter
 
-    - title: News
-      url: /news.html
-      output: web, pdf
+  - title: Overview
+    output: web, pdf
+    folderitems:
 
-    - title: Window Maker Desktop Instuctions
-      url: /mydoc_introduction.html
-      output: web, pdf
+     - title: Get started
+       url: /index.html
+       output: web, pdf
+       type: homepage
 
-    - title: GNUStep Build Istuctions
-      url: /p1_landing_page.html
-      output: web, pdf
+     - title: Window Maker Desktop Instuctions
+       url: /mydoc_introduction.html
+       output: web, pdf
 
-    - title: NetBSD pkgsrc Build Instructions
-      url: /p2_landing_page.html
-      output: web, pdf
+     - title: GNUStep Build Istuctions
+       url:
+       output: web, pdf
 
-    - title: Apple's Darwin Build Instructions
-      url: /p2_landing_page.html
-      output: web, pdf
+     - title: NetBSD pkgsrc Build Instructions
+       url: 
+       output: web, pdf
 
-    - title: Oracle/BEA Systems Middleware Instrctions
-      url: /p2_landing_page.html
-      output: web, pdf
+     - title: Apple's Darwin Build Instructions
+       url: 
+       output: web, pdf
 
-    - title: Microsoft Windows Build Instructions
-      url: /index.html
-      output: web, pdf			
+     - title: Oracle/BEA Systems Middleware Instrctions
+       url: 
+       output: web, pdf
+
+     - title: Microsoft Windows Build Instructions
+       url: /index.html
+       output: web, pdf			
 
 # Copyright 2026 Microsoft Partner (Sphinx Logic)
