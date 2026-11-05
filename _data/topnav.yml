@@ -7,6 +7,8 @@ topnav:
       external_url: https://github.com/xerox-os
     - title: News
       url: /news
+    - title: Sphinx Logic Devops
+      url: https://sphinxlogic.visualstudio.com
 
 #Topnav dropdowns
 topnav_dropdowns:
@@ -20,7 +22,9 @@ topnav_dropdowns:
           external_url: https://developer.microsoft.com/en-us/windows/support?tabs=Contact-us
         - title: Windows Priemer Support
           external_url: https://partner.microsoft.com/en-us/support/microsoft-services-premier-support
-        - title: Jekyll on my blog
-          external_url: http://idratherbewriting.com/category-jekyll/    
+        - title: Microsoft WinUI 3 Gallery
+          external_url: https://apps.microsoft.com/detail/9p3jfpwwdzrc?hl=en-US&gl=US
+         - title: Microsoft Dev Center
+          external_url: https://apps.microsoft.com/detail/9nblggh4r5ws?hl=en-US&gl=US 
 
 # Copyright 2026 Google LLC
