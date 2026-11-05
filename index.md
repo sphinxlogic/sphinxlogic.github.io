@@ -192,25 +192,24 @@ on Windows 10
 <pre>delobj.cmd to clean the source tree</pre>	
 
 <h2>Lab02: Networking</h2>
-<p>For OS/2-based servers, the Net functions supported by Microsoft LAN Manager provided much of the functionality required for a network operating system; this functionality was missing from the local operating system. Windows NT, Windows 95, and Windows 98 have much of this network functionality built in. Therefore, some of the original Net functions are no longer supported. </p>
+<p>For OS/2-based servers, the Net functions supported by Microsoft LAN Manager provided much of the functionality required for a network operating system; this functionality was missing from the local operating system. Windows NT, Windows 95, and Windows 98 have much of this network functionality built in. Therefore, some of the original Net functions are no longer supported.</p>
 
 <p>Windows NT, Windows 95, and Windows 98 support a variety of networking functions. The set of Net functions provide additional capability not covered by other networking functions. In addition, you may use these functions to monitor and administer OS/2-based LAN Manager servers</p>
 
-	<pre>Copy the NT\net directory to Lab02. The Network Stack or Lab will build without error in the Vitrual Lab. 
-     You might have issues in the Pysical Lab</pre>		
-	<pre>build -cz</pre>
-	<pre>delobj.cmd to clean the source tree</pre>	
+<pre>Copy the NT\net directory to Lab02. The Network Stack or Lab will build without error in the Vitrual Lab. You might have issues in the Pysical Lab</pre>
+<pre>build -cz</pre>
+<pre>delobj.cmd to clean the source tree</pre>	
+
 <h2>Lab03: Server</h2>
-	<pre>Copy the Entire Server folder from nt5src.7z to Lab03</pre>
-	<pre>The entire Server build should build with about 20 shipping errors and take about 6 hrs for a free build and 12 hrs for a checked.</pre>
-	<pre>build -cz</pre>
-	<pre>delobj.cmd to clean the source tree</pre>
+<pre>Copy the Entire Server folder from nt5src.7z to Lab03</pre>
+<pre>The entire Server build should build with about 20 shipping errors and take about 6 hrs for a free build and 12 hrs for a checked.</pre>
+<pre>build -cz</pre>
+<pre>delobj.cmd to clean the source tree</pre>
+
 <h2>Lab04: Terminal Services</h2>
-	<pre>Copy NT\termsrv directory to Lab04. The Terminal Services Stack should build without error in the Virtual Lab.
-	     You might have issues in the Physical Lab.
-	</pre>
-	<pre>build -cz</pre>
-	<pre>delobj.cmd to clean the source tree</pre>
+<pre>Copy NT\termsrv directory to Lab04. The Terminal Services Stack should build without error in the Virtual Lab. You might have issues in the Physical Lab.</pre>
+<pre>build -cz</pre>
+<pre>delobj.cmd to clean the source tree</pre>
 
 <h2>Lab05: The Component Object Model Stack Including the Common Language Infustructure</h2>
 <p>The Component Object Model
