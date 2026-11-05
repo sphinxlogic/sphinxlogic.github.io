@@ -41,7 +41,7 @@ entries:
        output: web, pdf
 
      - title: Apple's Darwin Build Instructions
-       url: windowsbuilding_darwin.html
+       url: /windowsbuilding_darwin.html
        output: web, pdf
 
      - title: Oracle/BEA Systems Middleware Instrctions
