@@ -1,14 +1,11 @@
 ---
 title: "Microsoft Windows Build Instructions"
 keywords: sample homepage
-tags: [getting_started]
 sidebar: windows_sidebar
 permalink: index.html
 summary: 
 ---
 <h2>Internal Developer Server or Workstation for Windows Server 2000/2003</h2>
-
-
 
 <p>You need a 600 gigabyte virtual machine to complete this turorial. Windows 10 Enterprise LTSC 2019. In support until 2029, please check product lifecycle.</p><a href="2003VM.html">here</a></p>
 <p>I'm still reading all on the XP/2003 Batch files for all the shares and source depot views. You need Partiton Magic for XP from Win World or make you two partitions a build drive and your C Drive at the begining of Setup on XP/2003.</p>
