@@ -37,7 +37,7 @@ entries:
        output: web, pdf
 
      - title: NetBSD pkgsrc Build Instructions
-       url: 
+       url:  /netbsd
        output: web, pdf
 
      - title: Apple Computer Building Darwin
