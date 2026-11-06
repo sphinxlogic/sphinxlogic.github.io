@@ -40,7 +40,7 @@ entries:
        url: 
        output: web, pdf
 
-     - title: Darwin
+     - title: Apple Computer Building Darwin
        url: /darwin
        output: web, pdf
 
