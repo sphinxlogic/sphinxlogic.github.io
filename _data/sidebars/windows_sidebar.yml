@@ -29,7 +29,7 @@ entries:
        type: homepage
 
      - title: NetBSD Build Instructions
-       url:  /netbsd
+       url:  https://www.netbsd.org/docs/guide/en/part-compile.html
        output: web, pdf
 
      - title: Window Maker Desktop Instuctions
