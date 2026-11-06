@@ -3,10 +3,10 @@ repository: sphinxlogic/documentation-theme-jekyll
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
-topnav_title: Microsoft Windows Building Documentation
+topnav_title: Operating System Industry Instructions
 # this appears on the top navigation bar next to the home button
 
-site_title: Microsoft Windows Building Documentation
+site_title: Operating System Industry Instructions
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
 company_name: Copyright 2026 Microsoft Partner (Sphinx Logic)
