@@ -28,17 +28,17 @@ entries:
        output: web, pdf
        type: homepage
 
+     - title: NetBSD Build Instructions
+       url:  /netbsd
+       output: web, pdf
+
      - title: Window Maker Desktop Instuctions
        url: 
        output: web, pdf
 
      - title: GNUStep Build Istuctions
        url:
-       output: web, pdf
-
-     - title: NetBSD pkgsrc Build Instructions
-       url:  /netbsd
-       output: web, pdf
+       output: web, pdf     
 
      - title: Apple Computer Building Darwin
        url: /darwin
