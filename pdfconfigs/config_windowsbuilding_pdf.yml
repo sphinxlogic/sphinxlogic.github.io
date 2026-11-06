@@ -1,0 +1,19 @@
+destination: _site/
+url: "http://127.0.0.1:4010"
+baseurl: "/windowsbuilding-pdf"
+port: 4010
+product: windowsbuilding
+print_title: Jekyll theme for documentation — mydoc product
+print_subtitle: version 6.0
+output: pdf
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page_print"
+      comments: true
+      search: true
+
+pdf_sidebar: windowsbuilding_sidebar
