@@ -40,7 +40,7 @@ entries:
        url: 
        output: web, pdf
 
-     - title: Apple's Darwin Build Instructions
+     - title: Darwin
        url: /darwin
        output: web, pdf
 
