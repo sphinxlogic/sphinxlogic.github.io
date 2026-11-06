@@ -7,500 +7,7 @@ folder: netbsd
 <title>Chapter&nbsp;32.&nbsp;Obtaining the sources</title>
 
 <a href="https://www.netbsd.org/docs/guide/en/part-compile.html">Building the System</a>
-
-<style id="gvf-hud-theme">
-.gvf-hud {
-  --gvf-accent: #38bdf8; --gvf-accent-2: #7dd3fc; --gvf-accent-glow: rgba(56,189,248,0.45);
-  box-sizing: border-box !important;
-  color-scheme: dark;
-  background: linear-gradient(180deg, rgba(30,31,40,0.95), rgba(15,16,22,0.95)) !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  border-radius: 16px !important;
-  padding: 10px !important;
-  gap: 2px !important;
-  opacity: 1 !important;
-  color: #e9e9f1;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06) !important;
-  scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.18) transparent;
-}
-.gvf-hud::-webkit-scrollbar { width: 8px; }
-.gvf-hud::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.16); border-radius: 8px; }
-.gvf-hud.gvf-video-overlay-grade { --gvf-accent: #8b5cf6; --gvf-accent-2: #a78bfa; --gvf-accent-glow: rgba(139,92,246,0.45); }
-.gvf-hud.gvf-video-overlay-io { --gvf-accent: #3b82f6; --gvf-accent-2: #60a5fa; --gvf-accent-glow: rgba(59,130,246,0.45); }
-
-.gvf-hud .gvf-head {
-  background: transparent !important; box-shadow: none !important; border-radius: 0 !important;
-  padding: 2px 4px 9px !important; margin-bottom: 4px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-.gvf-hud .gvf-title {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.02em; color: #f5f5fa !important;
-}
-.gvf-hud .gvf-title::before {
-  content: ''; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--gvf-accent); box-shadow: 0 0 8px var(--gvf-accent-glow);
-}
-.gvf-hud .gvf-tag {
-  font-size: 10px !important; font-weight: 700 !important; letter-spacing: 0.06em;
-  color: rgba(235,235,245,0.6) !important; opacity: 1 !important;
-  padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,0.06);
-}
-.gvf-hud .gvf-sep { background: rgba(255,255,255,0.07) !important; margin: 6px 4px !important; }
-
-.gvf-hud .gvf-row {
-  background: transparent !important; box-shadow: none !important;
-  padding: 4px 6px !important; border-radius: 10px !important; gap: 10px !important; margin-top: 0 !important;
-  transition: background 0.15s ease;
-}
-.gvf-hud .gvf-row:hover { background: rgba(255,255,255,0.045) !important; }
-.gvf-hud .gvf-lbl {
-  font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.02em;
-  color: var(--gvf-lbl-color, rgba(235,235,245,0.72)) !important; text-align: left !important;
-}
-.gvf-hud .gvf-val {
-  box-sizing: border-box; width: auto !important; min-width: 46px;
-  padding: 4px 6px; border-radius: 6px; background: rgba(255,255,255,0.06);
-  font: 600 11px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
-  font-variant-numeric: tabular-nums; text-align: right !important;
-  color: var(--gvf-val-color, #f5f5fa) !important;
-}
-
-.gvf-hud input.gvf-range {
-  -webkit-appearance: none; appearance: none;
-  height: 18px !important; margin: 0; padding: 0; background: transparent !important; cursor: pointer;
-}
-.gvf-hud input.gvf-range:focus { outline: none; }
-.gvf-hud input.gvf-range::-webkit-slider-runnable-track {
-  height: 4px; border-radius: 4px;
-  background: linear-gradient(to right,
-    rgba(255,255,255,0.12) 0 var(--gvf-a, 0%),
-    var(--gvf-accent) var(--gvf-a, 0%) var(--gvf-b, 0%),
-    rgba(255,255,255,0.12) var(--gvf-b, 0%) 100%);
-}
-.gvf-hud input.gvf-range::-moz-range-track {
-  height: 4px; border-radius: 4px;
-  background: linear-gradient(to right,
-    rgba(255,255,255,0.12) 0 var(--gvf-a, 0%),
-    var(--gvf-accent) var(--gvf-a, 0%) var(--gvf-b, 0%),
-    rgba(255,255,255,0.12) var(--gvf-b, 0%) 100%);
-}
-.gvf-hud input.gvf-range::-webkit-slider-thumb {
-  -webkit-appearance: none; appearance: none;
-  width: 14px; height: 14px; margin-top: -5px; border: none; border-radius: 50%; background: #fff;
-  box-shadow: 0 0 0 2px var(--gvf-accent), 0 2px 6px rgba(0,0,0,0.5);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
-}
-.gvf-hud input.gvf-range::-moz-range-thumb {
-  width: 14px; height: 14px; border: none; border-radius: 50%; background: #fff;
-  box-shadow: 0 0 0 2px var(--gvf-accent), 0 2px 6px rgba(0,0,0,0.5);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
-}
-.gvf-hud input.gvf-range:hover::-webkit-slider-thumb { transform: scale(1.15); box-shadow: 0 0 0 2px var(--gvf-accent), 0 0 10px var(--gvf-accent-glow); }
-.gvf-hud input.gvf-range:hover::-moz-range-thumb { transform: scale(1.15); box-shadow: 0 0 0 2px var(--gvf-accent), 0 0 10px var(--gvf-accent-glow); }
-.gvf-hud input.gvf-range:active::-webkit-slider-thumb { transform: scale(1.25); }
-.gvf-hud input.gvf-range:active::-moz-range-thumb { transform: scale(1.25); }
-
-.gvf-hud .gvf-top { padding: 0 2px 8px !important; margin-bottom: 4px; border-bottom: 1px solid rgba(255,255,255,0.07); }
-.gvf-hud .gvf-chip {
-  width: 26px !important; height: 26px !important; border-radius: 8px !important;
-  font-size: 11px !important; font-weight: 700 !important; text-shadow: none !important;
-  background: rgba(255,255,255,0.05) !important; color: rgba(255,255,255,0.38) !important;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08) !important;
-  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
-}
-.gvf-hud .gvf-chip.is-on {
-  background: linear-gradient(180deg, var(--gvf-accent-2), var(--gvf-accent)) !important;
-  color: #04121c !important;
-  box-shadow: 0 0 12px var(--gvf-accent-glow), inset 0 1px 0 rgba(255,255,255,0.35) !important;
-}
-.gvf-hud .gvf-pill {
-  border-radius: 999px !important; padding: 4px 10px !important;
-  font-size: 10px !important; font-weight: 700 !important; letter-spacing: 0.05em;
-  background: rgba(255,255,255,0.06) !important;
-}
-
-.gvf-hud .gvf-select {
-  color-scheme: dark; /* native dropdown popup (Windows/Chrome) in dark instead of white */
-  background: #24252e !important; color: #ececf3 !important;
-  border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 8px !important;
-  padding: 5px 8px !important; font-size: 11px !important; font-weight: 600 !important;
-  outline: none; transition: border-color 0.15s ease;
-}
-.gvf-hud .gvf-select:hover, .gvf-hud .gvf-select:focus { border-color: var(--gvf-accent) !important; }
-.gvf-hud .gvf-select option, .gvf-hud .gvf-select optgroup {
-  background: #1b1c24 !important; background-color: #1b1c24 !important; color: #ececf3 !important;
-}
-.gvf-hud .gvf-select optgroup { color: #9a9aab !important; font-weight: 700; }
-.gvf-hud .gvf-select option:checked { background: #3a3550 !important; color: #fff !important; }
-/* Scopes HUD (Ctrl+Alt+S) */
-.gvf-hud.gvf-video-overlay-scopes {
-  --gvf-accent: #10b981; --gvf-accent-2: #34d399; --gvf-accent-glow: rgba(16,185,129,0.45);
-  padding: 10px !important;
-}
-.gvf-hud.gvf-video-overlay-scopes .gvf-head { backdrop-filter: none !important; padding-bottom: 8px !important; }
-.gvf-hud .gvf-live { display: inline-flex; align-items: center; gap: 5px; color: #6ee7b7 !important; }
-.gvf-hud .gvf-live::before {
-  content: ''; width: 6px; height: 6px; border-radius: 50%; background: #34d399;
-  box-shadow: 0 0 6px rgba(52,211,153,0.8); animation: gvf-live-pulse 1.6s ease-in-out infinite;
-}
-@keyframes gvf-live-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-.gvf-hud .gvf-scope-content {
-  background: transparent !important; box-shadow: none !important; backdrop-filter: none !important;
-  padding: 2px !important; gap: 10px !important;
-}
-.gvf-hud .gvf-scope-title {
-  font-size: 10px !important; font-weight: 700 !important; letter-spacing: 0.08em !important;
-  color: rgba(235,235,245,0.55) !important; margin-bottom: 3px;
-}
-.gvf-hud .gvf-scope-box {
-  background: rgba(0,0,0,0.35) !important; border-radius: 8px !important;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
-}
-.gvf-hud .gvf-scope-luma { padding: 2px 4px !important; gap: 2px !important; } /* bars grow up to 36px in a 40px box */
-.gvf-hud .gvf-scope-luma > div { background: linear-gradient(180deg, #6ee7b7, #059669) !important; border-radius: 2px 2px 1px 1px !important; }
-.gvf-hud .gvf-scope-rgb { padding: 6px !important; gap: 6px !important; }
-.gvf-hud .gvf-scope-red, .gvf-hud .gvf-scope-green, .gvf-hud .gvf-scope-blue { gap: 2px !important; }
-.gvf-hud .gvf-scope-red > div { background: linear-gradient(180deg, #fca5a5, #ef4444) !important; border-radius: 2px 2px 1px 1px !important; }
-.gvf-hud .gvf-scope-green > div { background: linear-gradient(180deg, #86efac, #22c55e) !important; border-radius: 2px 2px 1px 1px !important; }
-.gvf-hud .gvf-scope-blue > div { background: linear-gradient(180deg, #93c5fd, #3b82f6) !important; border-radius: 2px 2px 1px 1px !important; }
-.gvf-hud .gvf-scope-ch { font-size: 9px !important; font-weight: 700 !important; margin-bottom: 2px; }
-.gvf-hud .gvf-scope-sat-track { height: 6px !important; background: rgba(255,255,255,0.08) !important; border-radius: 6px !important; }
-.gvf-hud .gvf-scope-sat-fill { background: linear-gradient(90deg, #fde047, #f59e0b, #f97316) !important; border-radius: 6px !important; }
-.gvf-hud .gvf-scope-box .gvf-val { min-width: 40px; }
-.gvf-hud .gvf-scope-stats { gap: 6px !important; margin-top: 0 !important; }
-.gvf-hud .gvf-scope-stat {
-  background: rgba(255,255,255,0.06) !important; border-radius: 6px !important; padding: 4px 2px !important;
-  font: 600 10px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
-  font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.8) !important;
-}
-/* ---------- Windows / modals (Config, LUT manager, Custom SVG, Expert, Profile edit) ---------- */
-#gvf-config-menu, #gvf-userProf-edit-window { --gvf-accent: #3b82f6; --gvf-accent-glow: rgba(59,130,246,0.35); }
-#gvf-lut-config-menu { --gvf-accent: #f59e0b; --gvf-accent-glow: rgba(245,158,11,0.35); }
-#gvf-custom-svg-modal { --gvf-accent: #38bdf8; --gvf-accent-glow: rgba(56,189,248,0.35); }
-#gvf-expert-modal { --gvf-accent: #8b5cf6; --gvf-accent-glow: rgba(139,92,246,0.35); }
-#gvf-config-menu,
-#gvf-lut-config-menu,
-#gvf-custom-svg-modal,
-#gvf-expert-modal,
-#gvf-userProf-edit-window {
-  color-scheme: dark;
-  background: linear-gradient(180deg, rgba(30,31,40,0.985), rgba(16,17,23,0.985)) !important;
-  border: 1px solid rgba(255,255,255,0.09) !important;
-  border-radius: 18px !important;
-  box-shadow: 0 28px 70px rgba(0,0,0,0.6), inset 0 3px 0 var(--gvf-accent), inset 0 1px 0 rgba(255,255,255,0.06) !important;
-  backdrop-filter: none !important;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
-  color: #e9e9f1 !important;
-  scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.18) transparent;
-}
-#gvf-config-menu *,
-#gvf-lut-config-menu *,
-#gvf-custom-svg-modal *,
-#gvf-expert-modal *,
-#gvf-userProf-edit-window * {
-  text-shadow: none !important;
-  scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.18) transparent;
-}
-#gvf-config-menu ::-webkit-scrollbar,
-#gvf-lut-config-menu ::-webkit-scrollbar,
-#gvf-custom-svg-modal ::-webkit-scrollbar,
-#gvf-expert-modal ::-webkit-scrollbar,
-#gvf-userProf-edit-window ::-webkit-scrollbar,
-#gvf-config-menu::-webkit-scrollbar,
-#gvf-lut-config-menu::-webkit-scrollbar,
-#gvf-custom-svg-modal::-webkit-scrollbar,
-#gvf-expert-modal::-webkit-scrollbar,
-#gvf-userProf-edit-window::-webkit-scrollbar { width: 8px; height: 8px; }
-#gvf-config-menu ::-webkit-scrollbar-thumb,
-#gvf-lut-config-menu ::-webkit-scrollbar-thumb,
-#gvf-custom-svg-modal ::-webkit-scrollbar-thumb,
-#gvf-expert-modal ::-webkit-scrollbar-thumb,
-#gvf-userProf-edit-window ::-webkit-scrollbar-thumb,
-#gvf-config-menu::-webkit-scrollbar-thumb,
-#gvf-lut-config-menu::-webkit-scrollbar-thumb,
-#gvf-custom-svg-modal::-webkit-scrollbar-thumb,
-#gvf-expert-modal::-webkit-scrollbar-thumb,
-#gvf-userProf-edit-window::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.16); border-radius: 8px; }
-#gvf-config-menu ::-webkit-scrollbar-track,
-#gvf-lut-config-menu ::-webkit-scrollbar-track,
-#gvf-custom-svg-modal ::-webkit-scrollbar-track,
-#gvf-expert-modal ::-webkit-scrollbar-track,
-#gvf-userProf-edit-window ::-webkit-scrollbar-track { background: transparent; }
-
-/* header line: thin and neutral instead of the thick colored line */
-#gvf-config-menu > div:first-child,
-#gvf-lut-config-menu > div:first-child,
-#gvf-custom-svg-modal > div:first-child,
-#gvf-expert-modal > div:first-child,
-#gvf-userProf-edit-window > div:first-child {
-  border-bottom-width: 1px !important; border-bottom-color: rgba(255,255,255,0.08) !important;
-}
-
-/* calmer typography: the very heavy 900 weight becomes semi-bold */
-#gvf-config-menu [style*="font-weight:900"],
-#gvf-lut-config-menu [style*="font-weight:900"],
-#gvf-custom-svg-modal [style*="font-weight:900"],
-#gvf-expert-modal [style*="font-weight:900"],
-#gvf-userProf-edit-window [style*="font-weight:900"],
-#gvf-config-menu [style*="font-weight: 900"],
-#gvf-lut-config-menu [style*="font-weight: 900"],
-#gvf-custom-svg-modal [style*="font-weight: 900"],
-#gvf-expert-modal [style*="font-weight: 900"],
-#gvf-userProf-edit-window [style*="font-weight: 900"] { font-weight: 650 !important; }
-#gvf-config-menu [style*="font-weight:800"],
-#gvf-lut-config-menu [style*="font-weight:800"],
-#gvf-custom-svg-modal [style*="font-weight:800"],
-#gvf-expert-modal [style*="font-weight:800"],
-#gvf-userProf-edit-window [style*="font-weight:800"],
-#gvf-config-menu [style*="font-weight: 800"],
-#gvf-lut-config-menu [style*="font-weight: 800"],
-#gvf-custom-svg-modal [style*="font-weight: 800"],
-#gvf-expert-modal [style*="font-weight: 800"],
-#gvf-userProf-edit-window [style*="font-weight: 800"] { font-weight: 600 !important; }
-
-/* buttons: same colors as before, modern shape + motion */
-#gvf-config-menu button,
-#gvf-lut-config-menu button,
-#gvf-custom-svg-modal button,
-#gvf-expert-modal button,
-#gvf-userProf-edit-window button {
-  border-radius: 9px !important; border-width: 1px !important; font-family: inherit !important;
-  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease !important;
-}
-#gvf-config-menu button:not(:disabled):hover,
-#gvf-lut-config-menu button:not(:disabled):hover,
-#gvf-custom-svg-modal button:not(:disabled):hover,
-#gvf-expert-modal button:not(:disabled):hover,
-#gvf-userProf-edit-window button:not(:disabled):hover { transform: translateY(-1px); }
-#gvf-config-menu button:not(:disabled):active,
-#gvf-lut-config-menu button:not(:disabled):active,
-#gvf-custom-svg-modal button:not(:disabled):active,
-#gvf-expert-modal button:not(:disabled):active,
-#gvf-userProf-edit-window button:not(:disabled):active { transform: translateY(0) scale(0.97); }
-#gvf-config-menu button:focus-visible,
-#gvf-lut-config-menu button:focus-visible,
-#gvf-custom-svg-modal button:focus-visible,
-#gvf-expert-modal button:focus-visible,
-#gvf-userProf-edit-window button:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--gvf-accent-glow) !important; }
-
-/* text fields, number fields, search, textareas, dropdowns */
-#gvf-config-menu input:not([type]),
-#gvf-lut-config-menu input:not([type]),
-#gvf-custom-svg-modal input:not([type]),
-#gvf-expert-modal input:not([type]),
-#gvf-userProf-edit-window input:not([type]),
-#gvf-config-menu input[type="text"],
-#gvf-lut-config-menu input[type="text"],
-#gvf-custom-svg-modal input[type="text"],
-#gvf-expert-modal input[type="text"],
-#gvf-userProf-edit-window input[type="text"],
-#gvf-config-menu input[type="search"],
-#gvf-lut-config-menu input[type="search"],
-#gvf-custom-svg-modal input[type="search"],
-#gvf-expert-modal input[type="search"],
-#gvf-userProf-edit-window input[type="search"],
-#gvf-config-menu input[type="number"],
-#gvf-lut-config-menu input[type="number"],
-#gvf-custom-svg-modal input[type="number"],
-#gvf-expert-modal input[type="number"],
-#gvf-userProf-edit-window input[type="number"],
-#gvf-config-menu input[type="url"],
-#gvf-lut-config-menu input[type="url"],
-#gvf-custom-svg-modal input[type="url"],
-#gvf-expert-modal input[type="url"],
-#gvf-userProf-edit-window input[type="url"],
-#gvf-config-menu textarea,
-#gvf-lut-config-menu textarea,
-#gvf-custom-svg-modal textarea,
-#gvf-expert-modal textarea,
-#gvf-userProf-edit-window textarea,
-#gvf-config-menu select,
-#gvf-lut-config-menu select,
-#gvf-custom-svg-modal select,
-#gvf-expert-modal select,
-#gvf-userProf-edit-window select {
-  background-color: rgba(0,0,0,0.3) !important;
-  border: 1px solid rgba(255,255,255,0.1) !important;
-  border-radius: 9px !important;
-  color: #ececf3 !important;
-  outline: none !important;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
-}
-#gvf-config-menu input:focus,
-#gvf-lut-config-menu input:focus,
-#gvf-custom-svg-modal input:focus,
-#gvf-expert-modal input:focus,
-#gvf-userProf-edit-window input:focus,
-#gvf-config-menu textarea:focus,
-#gvf-lut-config-menu textarea:focus,
-#gvf-custom-svg-modal textarea:focus,
-#gvf-expert-modal textarea:focus,
-#gvf-userProf-edit-window textarea:focus,
-#gvf-config-menu select:focus,
-#gvf-lut-config-menu select:focus,
-#gvf-custom-svg-modal select:focus,
-#gvf-expert-modal select:focus,
-#gvf-userProf-edit-window select:focus {
-  border-color: var(--gvf-accent) !important;
-  box-shadow: 0 0 0 3px var(--gvf-accent-glow) !important;
-}
-#gvf-config-menu input::placeholder,
-#gvf-lut-config-menu input::placeholder,
-#gvf-custom-svg-modal input::placeholder,
-#gvf-expert-modal input::placeholder,
-#gvf-userProf-edit-window input::placeholder,
-#gvf-config-menu textarea::placeholder,
-#gvf-lut-config-menu textarea::placeholder,
-#gvf-custom-svg-modal textarea::placeholder,
-#gvf-expert-modal textarea::placeholder,
-#gvf-userProf-edit-window textarea::placeholder { color: rgba(235,235,245,0.38) !important; }
-#gvf-config-menu input[type="range"],
-#gvf-lut-config-menu input[type="range"],
-#gvf-custom-svg-modal input[type="range"],
-#gvf-expert-modal input[type="range"],
-#gvf-userProf-edit-window input[type="range"],
-#gvf-config-menu input[type="checkbox"],
-#gvf-lut-config-menu input[type="checkbox"],
-#gvf-custom-svg-modal input[type="checkbox"],
-#gvf-expert-modal input[type="checkbox"],
-#gvf-userProf-edit-window input[type="checkbox"],
-#gvf-config-menu input[type="radio"],
-#gvf-lut-config-menu input[type="radio"],
-#gvf-custom-svg-modal input[type="radio"],
-#gvf-expert-modal input[type="radio"],
-#gvf-userProf-edit-window input[type="radio"] { accent-color: var(--gvf-accent) !important; }
-
-/* ---------- Notifications (toast) ---------- */
-#gvf-profile-notification.gvf-toast {
-  position: fixed; top: 20px; left: 20px; z-index: 2147483647;
-  display: none; align-items: center; gap: 12px;
-  min-width: 220px; max-width: min(420px, calc(100vw - 40px));
-  padding: 10px 16px 12px 10px; box-sizing: border-box; overflow: hidden;
-  background: linear-gradient(180deg, rgba(30,31,40,0.96), rgba(16,17,23,0.96));
-  border: 1px solid rgba(255,255,255,0.09); border-radius: 14px;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
-  color: #f5f5fa; pointer-events: none;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  opacity: 0; transform: translateY(-8px) scale(0.98);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-#gvf-profile-notification.gvf-toast.is-in { opacity: 1; transform: translateY(0) scale(1); }
-#gvf-profile-notification .gvf-toast-icon {
-  flex: 0 0 auto; width: 32px; height: 32px; border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 15px; font-weight: 800; line-height: 1;
-  color: var(--gvf-toast-accent, #3b82f6);
-  background: color-mix(in srgb, var(--gvf-toast-accent, #3b82f6) 18%, transparent);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gvf-toast-accent, #3b82f6) 35%, transparent);
-}
-#gvf-profile-notification[data-kind="info"] .gvf-toast-icon { font-size: 16px; }
-#gvf-profile-notification .gvf-toast-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-#gvf-profile-notification .gvf-toast-title {
-  font-size: 13px; font-weight: 650; letter-spacing: 0.01em; color: #f5f5fa;
-  line-height: 1.3; overflow-wrap: anywhere;
-}
-#gvf-profile-notification .gvf-toast-detail {
-  font-size: 12px; font-weight: 500; color: var(--gvf-toast-accent, rgba(235,235,245,0.7));
-  line-height: 1.35; overflow-wrap: anywhere;
-  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
-}
-#gvf-profile-notification[data-kind="info"] .gvf-toast-detail { color: rgba(235,235,245,0.72); }
-#gvf-profile-notification .gvf-toast-bar {
-  position: absolute; left: 0; bottom: 0; height: 2px; width: 100%;
-  background: var(--gvf-toast-accent, #3b82f6); opacity: 0.85; transform-origin: left center;
-}
-@keyframes gvf-toast-time { from { transform: scaleX(1); } to { transform: scaleX(0); } }
-
-/* own dropdown list for HUD selects (replaces the native popup) */
-.gvf-hud-popup {
-  position: fixed; z-index: 2147483647; box-sizing: border-box;
-  display: flex; flex-direction: column; gap: 6px; padding: 6px;
-  background: #1b1c24; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
-  color: #e9e9f1; color-scheme: dark; user-select: none;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-}
-.gvf-hud-popup .gvf-pop-search {
-  box-sizing: border-box; width: 100%; padding: 7px 10px; border-radius: 8px; outline: none;
-  border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.06);
-  color: #ececf3; font-family: inherit; font-size: 12px; font-weight: 500;
-}
-.gvf-hud-popup .gvf-pop-search:focus { border-color: var(--gvf-accent, #8b5cf6); }
-.gvf-hud-popup .gvf-pop-list {
-  overflow-y: auto; min-height: 0; flex: 1 1 auto;
-  scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.18) transparent;
-}
-.gvf-hud-popup .gvf-pop-list::-webkit-scrollbar { width: 8px; }
-.gvf-hud-popup .gvf-pop-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.16); border-radius: 8px; }
-.gvf-hud-popup .gvf-pop-group {
-  padding: 8px 10px 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  color: rgba(235,235,245,0.45);
-}
-.gvf-hud-popup .gvf-pop-item {
-  padding: 6px 10px; border-radius: 7px; cursor: pointer;
-  font-size: 12px; font-weight: 500; color: #e9e9f1;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  transition: background 0.12s ease;
-}
-.gvf-hud-popup .gvf-pop-item.in-group { padding-left: 18px; }
-.gvf-hud-popup .gvf-pop-item:hover { background: rgba(255,255,255,0.07); }
-.gvf-hud-popup .gvf-pop-item.is-sel {
-  background: rgba(255,255,255,0.1); color: #fff;
-  box-shadow: inset 3px 0 0 var(--gvf-accent, #8b5cf6);
-}
-.gvf-hud-popup .gvf-pop-item.is-disabled { opacity: 0.4; cursor: default; }
-/* every dropdown of the script (HUDs + Config / LUT / Custom SVG / Expert windows): dark native popup */
-.gvf-hud select, [id^="gvf-"] select { color-scheme: dark; }
-.gvf-hud select option, .gvf-hud select optgroup,
-[id^="gvf-"] select option, [id^="gvf-"] select optgroup {
-  background-color: #1b1c24 !important; color: #ececf3 !important;
-}
-.gvf-hud .gvf-row .gvf-select { flex: 1 1 auto; min-width: 0; width: auto !important; }
-.gvf-hud .gvf-row input.gvf-range { flex: 1 1 auto; min-width: 80px; }
-.gvf-hud .gvf-row .gvf-lbl, .gvf-hud .gvf-row .gvf-val, .gvf-hud .gvf-row .gvf-icon-btn { flex: 0 0 auto; }
-.gvf-hud .gvf-icon-btn { width: 28px !important; height: 26px !important; border-radius: 8px !important; }
-
-.gvf-hud .gvf-box { background: transparent !important; box-shadow: none !important; padding: 2px !important; }
-.gvf-hud .gvf-io-text {
-  box-sizing: border-box !important;
-  background: rgba(0,0,0,0.35) !important; color: #dfe7f1 !important;
-  border: 1px solid rgba(255,255,255,0.08) !important; border-radius: 12px !important;
-  padding: 10px !important; transition: border-color 0.15s ease;
-}
-.gvf-hud .gvf-io-text:focus { border-color: var(--gvf-accent) !important; }
-.gvf-hud .gvf-btn {
-  border-radius: 9px !important; padding: 6px 11px !important; border-width: 1px !important;
-  font-size: 11px !important; font-weight: 600 !important; letter-spacing: 0.01em;
-  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease !important;
-}
-.gvf-hud .gvf-btn:not(:disabled):hover { transform: translateY(-1px); }
-.gvf-hud .gvf-btn:not(:disabled):active { transform: translateY(0) scale(0.97); }
-.gvf-hud .gvf-status { font-size: 11px !important; font-weight: 500 !important; color: rgba(235,235,245,0.62) !important; padding: 0 2px; }
-</style><style id="global-video-filter-style">
-      video {
-        will-change: filter;
-        transform: translateZ(0);
-        filter: url("#gvf_sm") brightness(1.02) contrast(1.05) saturate(1.15) !important;
-        outline: none !important;
-      }
-    </style></head>
-<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <div class="navheader">
-<table width="100%" summary="Navigation header">
-<tr>
-<td width="20%" align="left">
-</td>
-</tr>
-</tbody></table>
-<hr>
-</div>
-<div class="chapter">
-<div class="titlepage"><div><div><h2 class="title">
-
-
-
 <p>To read the NetBSD sources from your local disk or to build
     the system, you need to download the NetBSD
     sources. This chapter explains a number of different ways to obtain
@@ -510,21 +17,21 @@ folder: netbsd
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="chap-fetch-dirs"></a>32.1.&nbsp;Preparing directories</h2></div></div></div>
 <p>Traditionally, the NetBSD kernel and userland sources are placed in
-      <code class="filename">/usr/src</code>. This directory is not present by
+      <code class="filename">/usr/src</pre>. This directory is not present by
       default in the NetBSD installation and you will need to create it
       first. As it is in a system directory, you will need root access
       to create the directory and make sure  your normal user account
       can write to it. For demonstration purposes, it is assumed that
-      the non-root login is <em class="replaceable"><code>carlo</code></em>. 
+      the non-root login is <em class="replaceable"><pre>carlo</pre></em>. 
       Please replace it with a valid login name on your system:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>su</code></strong>
-Password: <strong class="userinput"><code>********</code></strong>
-<code class="prompt">#</code> <strong class="userinput"><code>mkdir /usr/src</code></strong>
-<code class="prompt">#</code> <strong class="userinput"><code>chown <em class="replaceable"><code>&lt;carlo&gt;</code></em> /usr/src</code></strong></pre>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>su</pre></strong>
+Password: <strong class="userinput"><pre>********</pre></strong>
+<code class="prompt">#</pre> <strong class="userinput"><pre>mkdir /usr/src</pre></strong>
+<code class="prompt">#</pre> <strong class="userinput"><pre>chown <em class="replaceable"><pre>&lt;carlo&gt;</pre></em> /usr/src</pre></strong></pre>
 <p>If you want the sources to the X Window System, you should prepare
-      <code class="filename">/usr/xsrc</code> as well:</p>
-<pre class="screen"><code class="prompt">#</code> <strong class="userinput"><code>mkdir /usr/xsrc</code></strong>
-<code class="prompt">#</code> <strong class="userinput"><code>chown <em class="replaceable"><code>&lt;carlo&gt;</code></em> /usr/xsrc</code></strong></pre>
+      <code class="filename">/usr/xsrc</pre> as well:</p>
+<pre class="screen"><code class="prompt">#</pre> <strong class="userinput"><pre>mkdir /usr/xsrc</pre></strong>
+<code class="prompt">#</pre> <strong class="userinput"><pre>chown <em class="replaceable"><pre>&lt;carlo&gt;</pre></em> /usr/xsrc</pre></strong></pre>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
 <h3 class="title">Note</h3>
 <p>Please note that for the subsequent
@@ -533,8 +40,8 @@ Password: <strong class="userinput"><code>********</code></strong>
       (and should) be done as normal user, so relinquish your root 
       privileges:
       </p>
-<pre class="screen"><code class="prompt">#</code> <strong class="userinput"><code>exit</code></strong>
-<code class="prompt">$</code> </pre>
+<pre class="screen"><code class="prompt">#</pre> <strong class="userinput"><pre>exit</pre></strong>
+<code class="prompt">$</pre> </pre>
 <p>
   </p>
 </div>
@@ -554,7 +61,7 @@ Password: <strong class="userinput"><code>********</code></strong>
 <p>It is sometimes faster to begin by downloading a source tarball.
       You can download tarballs (see <a class="citerefentry" href="https://man.netbsd.org/NetBSD-11.1/tar.1"><span class="citerefentry"><span class="refentrytitle">tar</span>(1)</span></a>) from ftp.NetBSD.org
       (or any other mirror) for a number of releases or
-      branches.  These tarballs include the <code class="filename">CVS</code>
+      branches.  These tarballs include the <code class="filename">CVS</pre>
       directories, so you can continue to update your source tree using
       <a class="citerefentry" href="https://man.netbsd.org/NetBSD-11.1/cvs.1"><span class="citerefentry"><span class="refentrytitle">cvs</span>(1)</span></a>, as explained in the CVS section.</p>
 <p>Note that source tarballs for stable branches are only
@@ -566,58 +73,58 @@ Password: <strong class="userinput"><code>********</code></strong>
         has been made.</p>
 <p>The tarballs for the sources of a specific release are 
       available under
-      <code class="filename">/pub/NetBSD/NetBSD-<em class="replaceable"><code>&lt;RELEASE-NUMBER&gt;</code></em>/source/sets/</code> 
+      <code class="filename">/pub/NetBSD/NetBSD-<em class="replaceable"><pre>&lt;RELEASE-NUMBER&gt;</pre></em>/source/sets/</pre> 
       on ftp.NetBSD.org (or a mirror), 
-      where <em class="replaceable"><code>&lt;RELEASE-NUMBER&gt;</code></em> is the release you want to 
+      where <em class="replaceable"><pre>&lt;RELEASE-NUMBER&gt;</pre></em> is the release you want to 
       fetch (for example, 11.1).</p>
 <p>To fetch the sources of a NetBSD release using tarballs, simply do:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>ftp -i ftp://ftp.NetBSD.org/pub/NetBSD/NetBSD-11.1/source/sets/</code></strong>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>ftp -i ftp://ftp.NetBSD.org/pub/NetBSD/NetBSD-11.1/source/sets/</pre></strong>
 Trying 2001:470:a085:999::21:21 ...
 Connected to ftp.NetBSD.org.
 220 ftp.NetBSD.org FTP server (NetBSD-ftpd 20180428) ready.
 331 Guest login ok, type your name as password.
 [...]
 250 CWD command successful.
-ftp&gt; <strong class="userinput"><code>mget *.tgz</code></strong>
+ftp&gt; <strong class="userinput"><pre>mget *.tgz</pre></strong>
 local: gnusrc.tgz remote: gnusrc.tgz
 229 Entering Extended Passive Mode (|||61968|)
 150 Opening BINARY mode data connection for 'gnusrc.tgz' (152604808 bytes).
 [...]
-ftp&gt; <strong class="userinput"><code>quit</code></strong>
+ftp&gt; <strong class="userinput"><pre>quit</pre></strong>
 221-
 221 Thank you for using the FTP service on ftp.NetBSD.org.</pre>
 <p>You should now have 5 files:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>ls *.tgz</code></strong>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>ls *.tgz</pre></strong>
 gnusrc.tgz      sharesrc.tgz    src.tgz         syssrc.tgz      xsrc.tgz</pre>
 <p>You now must extract them all:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>for file in *.tgz</code></strong>
-&gt; <strong class="userinput"><code>do</code></strong>
-&gt; <strong class="userinput"><code>tar -xzf $file -C /</code></strong>
-&gt; <strong class="userinput"><code>done</code></strong>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>for file in *.tgz</pre></strong>
+&gt; <strong class="userinput"><pre>do</pre></strong>
+&gt; <strong class="userinput"><pre>tar -xzf $file -C /</pre></strong>
+&gt; <strong class="userinput"><pre>done</pre></strong>
 </pre>
 </div>
 <div class="sect2">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="chap-fetch-tarball-netbsd-stable"></a>32.3.2.&nbsp;Downloading sources for a NetBSD stable branch</h3></div></div></div>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>ftp -i ftp://ftp.NetBSD.org/pub/NetBSD/NetBSD-release-10/tar_files/src/</code></strong>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>ftp -i ftp://ftp.NetBSD.org/pub/NetBSD/NetBSD-release-10/tar_files/src/</pre></strong>
 Trying 2001:470:a085:999::21:21 ...
 Connected to ftp.NetBSD.org.
 220 ftp.NetBSD.org FTP server (NetBSD-ftpd 20180428) ready.
 331 Guest login ok, type your name as password.
 [...]
 250 CWD command successful.
-ftp&gt; <strong class="userinput"><code>mget *.tar.gz</code></strong>
+ftp&gt; <strong class="userinput"><pre>mget *.tar.gz</pre></strong>
 local: bin.tar.gz remote: bin.tar.gz
 229 Entering Extended Passive Mode (|||56011|)
 150 Opening BINARY mode data connection for 'bin.tar.gz' (996075 bytes).
 [...]
-ftp&gt; <strong class="userinput"><code>quit</code></strong>
+ftp&gt; <strong class="userinput"><pre>quit</pre></strong>
 221-
     Data traffic for this session was 429024351 bytes in 25 files.
     Total traffic for this session was 429035139 bytes in 26 transfers.
 221 Thank you for using the FTP service on ftp.NetBSD.org.</pre>
 <p>You should now have 25 files:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>ls *.tar.gz</code></strong>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>ls *.tar.gz</pre></strong>
 bin.tar.gz          doc.tar.gz          libexec.tar.gz      tools.tar.gz
 common.tar.gz       etc.tar.gz          regress.tar.gz      top-level.tar.gz
 compat.tar.gz       external.tar.gz     rescue.tar.gz       usr.bin.tar.gz
@@ -626,23 +133,23 @@ crypto.tar.gz       games.tar.gz        share.tar.gz
 dist.tar.gz         include.tar.gz      sys.tar.gz
 distrib.tar.gz      lib.tar.gz          tests.tar.gz</pre>
 <p>You now must extract them all:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>for file in *.tar.gz</code></strong>
-&gt; <strong class="userinput"><code>do</code></strong>
-&gt; <strong class="userinput"><code>tar -xzf $file -C /usr</code></strong>
-&gt; <strong class="userinput"><code>done</code></strong>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>for file in *.tar.gz</pre></strong>
+&gt; <strong class="userinput"><pre>do</pre></strong>
+&gt; <strong class="userinput"><pre>tar -xzf $file -C /usr</pre></strong>
+&gt; <strong class="userinput"><pre>done</pre></strong>
 </pre>
 </div>
 <div class="sect2">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="chap-fetch-tarball-netbsd-current"></a>32.3.3.&nbsp;Downloading sources for a NetBSD-current development branch</h3></div></div></div>
 <p>To download the NetBSD-current tarballs, located under
-	<code class="filename">/pub/NetBSD/NetBSD-current/tar_files/src</code>,
+	<code class="filename">/pub/NetBSD/NetBSD-current/tar_files/src</pre>,
 	just follow the same steps as in
 	<a class="xref" href="https://www.netbsd.org/docs/guide/en/chap-fetch.html#chap-fetch-tarball-netbsd-stable" title="32.3.2.&nbsp;Downloading sources for a NetBSD stable branch">Section&nbsp;32.3.2, “Downloading sources for a NetBSD stable branch”</a>, but
 	using this path.</p>
 <p>You may also want to fetch the X Window System sources, available
         under:
-	<code class="filename">/pub/NetBSD/NetBSD-current/tar_files/xsrc</code>.</p>
+	<code class="filename">/pub/NetBSD/NetBSD-current/tar_files/xsrc</pre>.</p>
 </div>
 </div>
 <div class="sect1">
@@ -654,7 +161,7 @@ distrib.tar.gz      lib.tar.gz          tests.tar.gz</pre>
       sources.  There are two main source modules available through 
       <a class="citerefentry" href="https://man.netbsd.org/NetBSD-11.1/cvs.1"><span class="citerefentry"><span class="refentrytitle">cvs</span>(1)</span></a>, <span class="quote">“<span class="quote">src</span>”</span> and <span class="quote">“<span class="quote">xsrc</span>”</span>.</p>
 <p>The list of currently maintained branches is available under
-      <a href="https://cvsweb.netbsd.org/bsdweb.cgi/src/doc/BRANCHES?rev=HEAD&amp;content-type=text/x-cvsweb-markup" target="_top"><code class="filename">src/doc/BRANCHES</code></a> (see the
+      <a href="https://cvsweb.netbsd.org/bsdweb.cgi/src/doc/BRANCHES?rev=HEAD&amp;content-type=text/x-cvsweb-markup" target="_top"><code class="filename">src/doc/BRANCHES</pre></a> (see the
       <span class="quote">“<span class="quote">Status</span>”</span> entry on the <span class="quote">“<span class="quote">Release branches</span>”</span>
       section).</p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
@@ -665,13 +172,13 @@ distrib.tar.gz      lib.tar.gz          tests.tar.gz</pre>
 </div>
 <p>Before you can do an initial (full) checkout of the NetBSD 
       sources via <span class="emphasis"><em>anonymous CVS</em></span>, you 
-      must set the <code class="varname">CVSROOT</code> environment variable, which
+      must set the <code class="varname">CVSROOT</pre> environment variable, which
       tells <a class="citerefentry" href="https://man.netbsd.org/NetBSD-11.1/cvs.1"><span class="citerefentry"><span class="refentrytitle">cvs</span>(1)</span></a> where to fetch the files from:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>export CVSROOT="anoncvs@anoncvs.NetBSD.org:/cvsroot"</code></strong></pre>
-<p>Make sure that the environment variable <code class="varname">CVS_RSH</code>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>export CVSROOT="anoncvs@anoncvs.NetBSD.org:/cvsroot"</pre></strong></pre>
+<p>Make sure that the environment variable <code class="varname">CVS_RSH</pre>
       is set to <span class="quote">“<span class="quote">ssh</span>”</span>.</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>export CVS_RSH="ssh"</code></strong></pre>
-<p>In the examples below, we use the <code class="option">-P</code> option,
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>export CVS_RSH="ssh"</pre></strong></pre>
+<p>In the examples below, we use the <code class="option">-P</pre> option,
       which tells CVS to prune empty directories.</p>
 <div class="sect2">
 <div class="titlepage"><div><div><h3 class="title">
@@ -680,19 +187,19 @@ distrib.tar.gz      lib.tar.gz          tests.tar.gz</pre>
         has been made.</p>
 <p>To get the NetBSD (kernel and userland) sources for a specific
         release, run the following command after setting
-        <code class="varname">CVSROOT</code> as shown above:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>cd /usr</code></strong>
-<code class="prompt">$</code> <strong class="userinput"><code>cvs checkout -r <em class="replaceable"><code>&lt;TAG&gt;</code></em> -P src</code></strong></pre>
-<p>Where <em class="replaceable"><code>&lt;TAG&gt;</code></em> is the release tag
+        <code class="varname">CVSROOT</pre> as shown above:</p>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>cd /usr</pre></strong>
+<code class="prompt">$</pre> <strong class="userinput"><pre>cvs checkout -r <em class="replaceable"><pre>&lt;TAG&gt;</pre></em> -P src</pre></strong></pre>
+<p>Where <em class="replaceable"><pre>&lt;TAG&gt;</pre></em> is the release tag
         to be checked out, e.g., <span class="quote">“<span class="quote">netbsd-11-1-RELEASE</span>”</span>.  If you
         want to fetch a later patchlevel, you would use, e.g.,
 	<span class="quote">“<span class="quote">netbsd-11-1-RELEASE</span>”</span>.</p>
 <p>For example, in order to fetch the sources for NetBSD 11.1, you
         would use the <span class="quote">“<span class="quote">netbsd-11-1-RELEASE</span>”</span> tag:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>cvs checkout -r netbsd-11-1-RELEASE -P src</code></strong></pre>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>cvs checkout -r netbsd-11-1-RELEASE -P src</pre></strong></pre>
 <p>To fetch the X Window System source, just <span class="quote">“<span class="quote">checkout</span>”</span>
         the <span class="quote">“<span class="quote">xsrc</span>”</span> module. For example:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>cvs checkout -r netbsd-11-1-RELEASE -P xsrc</code></strong></pre>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>cvs checkout -r netbsd-11-1-RELEASE -P xsrc</pre></strong></pre>
 </div>
 <div class="sect2">
 <div class="titlepage"><div><div><h3 class="title">
@@ -701,49 +208,49 @@ distrib.tar.gz      lib.tar.gz          tests.tar.gz</pre>
 	  branches</span>”</span>. Please consult the 
 	<a class="xref" href="https://www.netbsd.org/docs/guide/en/chap-fetch.html#chap-fetch-term" title="32.2.&nbsp;Terminology">Section&nbsp;32.2, “Terminology”</a>.</p>
 <p>If you want to follow a stable branch, just pass the
-	branch name to the <a class="citerefentry" href="https://man.netbsd.org/NetBSD-11.1/cvs.1"><span class="citerefentry"><span class="refentrytitle">cvs</span>(1)</span></a> <code class="option">-r</code>
+	branch name to the <a class="citerefentry" href="https://man.netbsd.org/NetBSD-11.1/cvs.1"><span class="citerefentry"><span class="refentrytitle">cvs</span>(1)</span></a> <code class="option">-r</pre>
 	option.</p>
 <p>For example, if you want to fetch the most recent version of
 	<span class="quote">“<span class="quote">netbsd-9</span>”</span>, you just need to use that tag:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>cd /usr</code></strong>
-<code class="prompt">$</code> <strong class="userinput"><code>cvs checkout -r netbsd-9 -P src</code></strong></pre>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>cd /usr</pre></strong>
+<code class="prompt">$</pre> <strong class="userinput"><pre>cvs checkout -r netbsd-9 -P src</pre></strong></pre>
 <p>And for the <span class="quote">“<span class="quote">xsrc</span>”</span> module:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>cvs checkout -r netbsd-9 -P xsrc</code></strong></pre>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>cvs checkout -r netbsd-9 -P xsrc</pre></strong></pre>
 <p>If you have checked out sources from a stable branch in
-	<code class="filename">/usr/src</code> and want
+	<code class="filename">/usr/src</pre> and want
 	to update them to get the latest security and bug fixes, run:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>cd /usr/src</code></strong>
-<code class="prompt">$</code> <strong class="userinput"><code>cvs update -dP</code></strong></pre>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>cd /usr/src</pre></strong>
+<code class="prompt">$</pre> <strong class="userinput"><pre>cvs update -dP</pre></strong></pre>
 <p>The same applies to the <span class="quote">“<span class="quote">xsrc</span>”</span> module, but in
 	that case you will have to change your working directory to
-	<code class="filename">/usr/xsrc</code> first.</p>
+	<code class="filename">/usr/xsrc</pre> first.</p>
 </div>
 <div class="sect2">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="chap-fetch-cvs-netbsd-current"></a>32.4.3.&nbsp;Fetching the NetBSD-current development branch</h3></div></div></div>
 <p>To obtain the NetBSD-current source just omit
-	<span class="quote">“<span class="quote"><code class="option">-r</code> <em class="replaceable"><code>&lt;BRANCH&gt;</code></em></span>”</span>
-	and replace it with <span class="quote">“<span class="quote"><code class="option">-A</code></span>”</span>:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>cd /usr</code></strong>
-<code class="prompt">$</code> <strong class="userinput"><code>cvs checkout -A -P src</code></strong></pre>
+	<span class="quote">“<span class="quote"><code class="option">-r</pre> <em class="replaceable"><pre>&lt;BRANCH&gt;</pre></em></span>”</span>
+	and replace it with <span class="quote">“<span class="quote"><code class="option">-A</pre></span>”</span>:</p>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>cd /usr</pre></strong>
+<code class="prompt">$</pre> <strong class="userinput"><pre>cvs checkout -A -P src</pre></strong></pre>
 <p>The <span class="quote">“<span class="quote">xsrc</span>”</span> module is obtained the same way:</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>cd /usr</code></strong>
-<code class="prompt">$</code> <strong class="userinput"><code>cvs checkout -A -P xsrc</code></strong></pre>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>cd /usr</pre></strong>
+<code class="prompt">$</pre> <strong class="userinput"><pre>cvs checkout -A -P xsrc</pre></strong></pre>
 <p>To update your NetBSD-current source tree, add the 
-	<code class="option">-A</code> flag:
+	<code class="option">-A</pre> flag:
 	</p>
-<pre class="screen"><code class="prompt">$</code> <strong class="userinput"><code>cd /usr/src</code></strong>
-<code class="prompt">$</code> <strong class="userinput"><code>cvs update -A -dP</code></strong></pre>
+<pre class="screen"><code class="prompt">$</pre> <strong class="userinput"><pre>cd /usr/src</pre></strong>
+<code class="prompt">$</pre> <strong class="userinput"><pre>cvs update -A -dP</pre></strong></pre>
 <p>The same applies to the <span class="quote">“<span class="quote">xsrc</span>”</span> module, but in
         that case you will have to change your working directory to
-        <code class="filename">/usr/xsrc</code> first.</p>
+        <code class="filename">/usr/xsrc</pre> first.</p>
 </div>
 <div class="sect2">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="chap-fetch-cvs-cvsrc"></a>32.4.4.&nbsp;Saving some <a class="citerefentry" href="https://man.netbsd.org/NetBSD-11.1/cvs.1"><span class="citerefentry"><span class="refentrytitle">cvs</span>(1)</span></a> options</h3></div></div></div>
 <p>If you find yourself typing the same options to CVS over and over
 	again, you may want to make those options the default by adding them
-        to <code class="filename">.cvsrc</code> in your home directory. 
+        to <code class="filename">.cvsrc</pre> in your home directory. 
 	In the following example, <span class="command"><strong>cvs update</strong></span> will add any
         missing newly-added directories to your tree, as well as delete any
 	newly-empty directories.  Also shown are examples of how to make
@@ -751,7 +258,7 @@ distrib.tar.gz      lib.tar.gz          tests.tar.gz</pre>
         the unified <a class="citerefentry" href="https://man.netbsd.org/NetBSD-11.1/diff.1"><span class="citerefentry"><span class="refentrytitle">diff</span>(1)</span></a> format.  The final line in the example
         causes CVS to be a bit more quiet in its operation.</p>
 <div class="example">
-<a name="chap-fetch-cvs-cvsrc-example"></a><p class="title"><b>Example&nbsp;32.1.&nbsp;<code class="filename">.cvsrc</code></b></p>
+<a name="chap-fetch-cvs-cvsrc-example"></a><p class="title"><b>Example&nbsp;32.1.&nbsp;<code class="filename">.cvsrc</pre></b></p>
 <div class="example-contents"><pre class="screen">update  -dP
 rdiff   -u
 diff    -u
@@ -774,7 +281,7 @@ cvs     -q</pre></div>
 <tr>
 <td width="40%" align="left" valign="top">Part&nbsp;VI.&nbsp;Building the system&nbsp;</td>
 <td width="20%" align="center"><a accesskey="h" href="https://www.netbsd.org/docs/guide/en/index.html">Home</a></td>
-<td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;33.&nbsp;Crosscompiling NetBSD with <code class="filename">build.sh</code>
+<td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;33.&nbsp;Crosscompiling NetBSD with <code class="filename">build.sh</pre>
 </td>
 </tr>
 </tbody></table>
