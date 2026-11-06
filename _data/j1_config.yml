@@ -1,0 +1,3 @@
+rouge:
+  theme_light: uno.light
+  theme_dark: uno.dark
