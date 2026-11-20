@@ -1,0 +1,442 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Articles</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../rotor.css" />		
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<header id="header">
+									
+									
+											
+									</nav>
+								</header>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="container">
+						<div class="row main-row">
+							<div class="col-8 col-12-medium">
+								<section>
+
+<p><img src="https://github.com/microsoft/terminal/assets/91625426/333ddc76-8ab2-4eb4-a8c0-4d7b953b1179" alt="Windows Terminal project logos and branding image"></p>
+<p><a href="https://dev.azure.com/shine-oss/terminal/_build/latest?definitionId=1&amp;branchName=main"><img src="https://dev.azure.com/shine-oss/terminal/_apis/build/status%2FTerminal%20CI?branchName=main" alt="Terminal Build Status"></a></p>
+<h1 id="welcome-to-the-windows-terminal-console-and-command-line-repo">Welcome to the Windows Terminal, Console and Command-Line repo</h1>
+<details>
+  <summary><strong>Table of Contents</strong></summary>
+
+- <a href="#installing-and-running-windows-terminal">Installing and running Windows Terminal</a>
+  - <a href="#microsoft-store-recommended">Microsoft Store [Recommended]</a>
+  - <a href="#other-install-methods">Other install methods</a>
+    - <a href="#via-github">Via GitHub</a>
+    - <a href="#via-windows-package-manager-cli-aka-winget">Via Windows Package Manager CLI (aka winget)</a>
+    - <a href="#via-chocolatey-unofficial">Via Chocolatey (unofficial)</a>
+    - <a href="#via-scoop-unofficial">Via Scoop (unofficial)</a>
+- <a href="#installing-windows-terminal-canary">Installing Windows Terminal Canary</a>
+- <a href="#terminal--console-overview">Terminal \&amp; Console Overview</a>
+  - <a href="#windows-terminal">Windows Terminal</a>
+  - <a href="#the-windows-console-host">The Windows Console Host</a>
+  - <a href="#shared-components">Shared Components</a>
+  - <a href="#creating-the-new-windows-terminal">Creating the new Windows Terminal</a>
+- <a href="#resources">Resources</a>
+- <a href="#faq">FAQ</a>
+  - <a href="#i-built-and-ran-the-new-terminal-but-it-looks-just-like-the-old-console">I built and ran the new Terminal, but it looks just like the old console</a>
+- <a href="#documentation">Documentation</a>
+- <a href="#contributing">Contributing</a>
+- <a href="#communicating-with-the-team">Communicating with the Team</a>
+- <a href="#developer-guidance">Developer Guidance</a>
+- <a href="#prerequisites">Prerequisites</a>
+- <a href="#building-the-code">Building the Code</a>
+  - <a href="#building-in-powershell">Building in PowerShell</a>
+  - <a href="#building-in-cmd">Building in Cmd</a>
+- <a href="#running--debugging">Running \&amp; Debugging</a>
+  - <a href="#coding-guidance">Coding Guidance</a>
+- <a href="#code-of-conduct">Code of Conduct</a>
+
+</details>
+
+<p><br /></p>
+<p>This repository contains the source code for:</p>
+<ul>
+<li><a href="https://aka.ms/terminal">Windows Terminal</a></li>
+<li><a href="https://aka.ms/terminal-preview">Windows Terminal Preview</a></li>
+<li>The Windows console host (<code>conhost.exe</code>)</li>
+<li>Components shared between the two projects</li>
+<li><a href="./src/tools/ColorTool">ColorTool</a></li>
+<li><a href="./samples">Sample projects</a>
+that show how to consume the Windows Console APIs</li>
+</ul>
+<p>Related repositories include:</p>
+<ul>
+<li><a href="https://learn.microsoft.com/windows/terminal">Windows Terminal Documentation</a>
+(<a href="https://github.com/MicrosoftDocs/terminal">Repo: Contribute to the docs</a>)</li>
+<li><a href="https://github.com/MicrosoftDocs/Console-Docs">Console API Documentation</a></li>
+<li><a href="https://github.com/Microsoft/Cascadia-Code">Cascadia Code Font</a></li>
+</ul>
+<h2 id="installing-and-running-windows-terminal">Installing and running Windows Terminal</h2>
+<blockquote>
+<p>[!NOTE]
+Windows Terminal requires Windows 10 2004 (build 19041) or later</p>
+</blockquote>
+<h3 id="microsoft-store-recommended-">Microsoft Store [Recommended]</h3>
+<p>Install the <a href="https://aka.ms/terminal">Windows Terminal from the Microsoft Store</a>.
+This allows you to always be on the latest version when we release new builds
+with automatic upgrades.</p>
+<p>This is our preferred method.</p>
+<h3 id="other-install-methods">Other install methods</h3>
+<h4 id="via-github">Via GitHub</h4>
+<p>For users who are unable to install Windows Terminal from the Microsoft Store,
+released builds can be manually downloaded from this repository&#39;s <a href="https://github.com/microsoft/terminal/releases">Releases
+page</a>.</p>
+<p>Download the <code>Microsoft.WindowsTerminal_&lt;versionNumber&gt;.msixbundle</code> file from
+the <strong>Assets</strong> section. To install the app, you can simply double-click on the
+<code>.msixbundle</code> file, and the app installer should automatically run. If that
+fails for any reason, you can try the following command at a PowerShell prompt:</p>
+<pre><code class="lang-powershell"># NOTE: <span class="hljs-keyword">If</span> you are <span class="hljs-built_in">using</span> PowerShell <span class="hljs-number">7</span>+, please run
+# <span class="hljs-keyword">Import</span>-<span class="hljs-keyword">Module</span> Appx -UseWindowsPowerShell
+# <span class="hljs-built_in">before</span> <span class="hljs-built_in">using</span> <span class="hljs-keyword">Add</span>-AppxPackage.
+
+<span class="hljs-keyword">Add</span>-AppxPackage Microsoft.WindowsTerminal_&lt;versionNumber&gt;.msixbundle
+</code></pre>
+<blockquote>
+<p>[!NOTE]
+If you install Terminal manually:</p>
+<ul>
+<li>You may need to install the <a href="https://learn.microsoft.com/troubleshoot/cpp/c-runtime-packages-desktop-bridge#how-to-install-and-update-desktop-framework-packages">VC++ v14 Desktop Framework Package</a>.
+This should only be necessary on older builds of Windows 10 and only if you get an error about missing framework packages.</li>
+<li>Terminal will not auto-update when new builds are released so you will need
+to regularly install the latest Terminal release to receive all the latest
+fixes and improvements!</li>
+</ul>
+</blockquote>
+<h4 id="via-windows-package-manager-cli-aka-winget-">Via Windows Package Manager CLI (aka winget)</h4>
+<p><a href="https://github.com/microsoft/winget-cli">winget</a> users can download and install
+the latest Terminal release by installing the <code>Microsoft.WindowsTerminal</code>
+package:</p>
+<pre><code class="lang-powershell">winget <span class="hljs-keyword">install</span> <span class="hljs-comment">--id Microsoft.WindowsTerminal -e</span>
+</code></pre>
+<blockquote>
+<p>[!NOTE]
+Dependency support is available in WinGet version <a href="https://github.com/microsoft/winget-cli/releases">1.6.2631 or later</a>. To install the Terminal stable release 1.18 or later, please make sure you have the updated version of the WinGet client.</p>
+</blockquote>
+<h4 id="via-chocolatey-unofficial-">Via Chocolatey (unofficial)</h4>
+<p><a href="https://chocolatey.org">Chocolatey</a> users can download and install the latest
+Terminal release by installing the <code>microsoft-windows-terminal</code> package:</p>
+<pre><code class="lang-powershell">choco <span class="hljs-keyword">install</span> microsoft-windows-terminal
+</code></pre>
+<p>To upgrade Windows Terminal using Chocolatey, run the following:</p>
+<pre><code class="lang-powershell"><span class="hljs-attribute">choco upgrade microsoft-windows-terminal</span>
+</code></pre>
+<p>If you have any issues when installing/upgrading the package please go to the
+<a href="https://chocolatey.org/packages/microsoft-windows-terminal">Windows Terminal package
+page</a> and follow the
+<a href="https://chocolatey.org/docs/package-triage-process">Chocolatey triage process</a></p>
+<h4 id="via-scoop-unofficial-">Via Scoop (unofficial)</h4>
+<p><a href="https://scoop.sh">Scoop</a> users can download and install the latest Terminal
+release by installing the <code>windows-terminal</code> package:</p>
+<pre><code class="lang-powershell"><span class="hljs-keyword">scoop </span><span class="hljs-keyword">bucket </span><span class="hljs-keyword">add </span><span class="hljs-keyword">extras
+</span><span class="hljs-keyword">scoop </span><span class="hljs-keyword">install </span>windows-terminal
+</code></pre>
+<p>To update Windows Terminal using Scoop, run the following:</p>
+<pre><code class="lang-powershell"><span class="hljs-attribute">scoop update windows-terminal</span>
+</code></pre>
+<p>If you have any issues when installing/updating the package, please search for
+or report the same on the <a href="https://github.com/lukesampson/scoop-extras/issues">issues
+page</a> of Scoop Extras bucket
+repository.</p>
+<hr>
+<h2 id="installing-windows-terminal-canary">Installing Windows Terminal Canary</h2>
+<p>Windows Terminal Canary is a nightly build of Windows Terminal. This build has the latest code from our <code>main</code> branch, giving you an opportunity to try features before they make it to Windows Terminal Preview.</p>
+<p>Windows Terminal Canary is our least stable offering, so you may discover bugs before we have had a chance to find them.</p>
+<p>Windows Terminal Canary is available as an App Installer distribution and a Portable ZIP distribution.</p>
+<p>The App Installer distribution supports automatic updates. Due to platform limitations, this installer only works on Windows 11.</p>
+<p>The Portable ZIP distribution is a portable application. It will not automatically update and will not automatically check for updates. This portable ZIP distribution works on Windows 10 (19041+) and Windows 11.</p>
+<table>
+<thead>
+<tr>
+<th>Distribution</th>
+<th style="text-align:center">Architecture</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App Installer</td>
+<td style="text-align:center">x64, arm64, x86</td>
+<td><a href="https://aka.ms/terminal-canary-installer">Download</a></td>
+</tr>
+<tr>
+<td>Portable ZIP</td>
+<td style="text-align:center">x64</td>
+<td><a href="https://aka.ms/terminal-canary-zip-x64">Download</a></td>
+</tr>
+<tr>
+<td>Portable ZIP</td>
+<td style="text-align:center">ARM64</td>
+<td><a href="https://aka.ms/terminal-canary-zip-arm64">Download</a></td>
+</tr>
+<tr>
+<td>Portable ZIP</td>
+<td style="text-align:center">x86</td>
+<td><a href="https://aka.ms/terminal-canary-zip-x86">Download</a></td>
+</tr>
+</tbody>
+</table>
+<p><em>Learn more about the <a href="https://learn.microsoft.com/windows/terminal/distributions">types of Windows Terminal distributions</a>.</em></p>
+<hr>
+<h2 id="terminal-console-overview">Terminal &amp; Console Overview</h2>
+<p>Please take a few minutes to review the overview below before diving into the
+code:</p>
+<h3 id="windows-terminal">Windows Terminal</h3>
+<p>Windows Terminal is a new, modern, feature-rich, productive terminal application
+for command-line users. It includes many of the features most frequently
+requested by the Windows command-line community including support for tabs, rich
+text, globalization, configurability, theming &amp; styling, and more.</p>
+<p>The Terminal will also need to meet our goals and measures to ensure it remains
+fast and efficient, and doesn&#39;t consume vast amounts of memory or power.</p>
+<h3 id="the-windows-console-host">The Windows Console Host</h3>
+<p>The Windows Console host, <code>conhost.exe</code>, is Windows&#39; original command-line user
+experience. It also hosts Windows&#39; command-line infrastructure and the Windows
+Console API server, input engine, rendering engine, user preferences, etc. The
+console host code in this repository is the actual source from which the
+<code>conhost.exe</code> in Windows itself is built.</p>
+<p>Since taking ownership of the Windows command-line in 2014, the team added
+several new features to the Console, including background transparency,
+line-based selection, support for <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI / Virtual Terminal
+sequences</a>, <a href="https://devblogs.microsoft.com/commandline/24-bit-color-in-the-windows-console/">24-bit
+color</a>,
+a <a href="https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/">Pseudoconsole
+(&quot;ConPTY&quot;)</a>,
+and more.</p>
+<p>However, because Windows Console&#39;s primary goal is to maintain backward
+compatibility, we have been unable to add many of the features the community
+(and the team) have been wanting for the last several years including tabs,
+unicode text, and emoji.</p>
+<p>These limitations led us to create the new Windows Terminal.</p>
+<blockquote>
+<p>You can read more about the evolution of the command-line in general, and the
+Windows command-line specifically in <a href="https://devblogs.microsoft.com/commandline/windows-command-line-backgrounder/">this accompanying series of blog
+posts</a>
+on the Command-Line team&#39;s blog.</p>
+</blockquote>
+<h3 id="shared-components">Shared Components</h3>
+<p>While overhauling Windows Console, we modernized its codebase considerably,
+cleanly separating logical entities into modules and classes, introduced some
+key extensibility points, replaced several old, home-grown collections and
+containers with safer, more efficient <a href="https://docs.microsoft.com/en-us/cpp/standard-library/stl-containers?view=vs-2022">STL
+containers</a>,
+and made the code simpler and safer by using Microsoft&#39;s <a href="https://github.com/Microsoft/wil">Windows Implementation
+Libraries - WIL</a>.</p>
+<p>This overhaul resulted in several of Console&#39;s key components being available
+for re-use in any terminal implementation on Windows. These components include a
+new DirectWrite-based text layout and rendering engine, a text buffer capable of
+storing both UTF-16 and UTF-8, a VT parser/emitter, and more.</p>
+<h3 id="creating-the-new-windows-terminal">Creating the new Windows Terminal</h3>
+<p>When we started planning the new Windows Terminal application, we explored and
+evaluated several approaches and technology stacks. We ultimately decided that
+our goals would be best met by continuing our investment in our C++ codebase,
+which would allow us to reuse several of the aforementioned modernized
+components in both the existing Console and the new Terminal. Further, we
+realized that this would allow us to build much of the Terminal&#39;s core itself as
+a reusable UI control that others can incorporate into their own applications.</p>
+<p>The result of this work is contained within this repo and delivered as the
+Windows Terminal application you can download from the Microsoft Store, or
+<a href="https://github.com/microsoft/terminal/releases">directly from this repo&#39;s
+releases</a>.</p>
+<hr>
+<h2 id="resources">Resources</h2>
+<p>For more information about Windows Terminal, you may find some of these
+resources useful and interesting:</p>
+<ul>
+<li><a href="https://devblogs.microsoft.com/commandline">Command-Line Blog</a></li>
+<li><a href="https://devblogs.microsoft.com/commandline/windows-command-line-backgrounder/">Command-Line Backgrounder Blog
+Series</a></li>
+<li>Windows Terminal Launch: <a href="https://www.youtube.com/watch?v=8gw0rXPMMPE&amp;list=PLEHMQNlPj-Jzh9DkNpqipDGCZZuOwrQwR&amp;index=2&amp;t=0s">Terminal &quot;Sizzle
+Video&quot;</a></li>
+<li>Windows Terminal Launch: <a href="https://www.youtube.com/watch?v=KMudkRcwjCw">Build 2019
+Session</a></li>
+<li>Run As Radio: <a href="https://www.runasradio.com/Shows/Show/645">Show 645 - Windows Terminal with Richard
+Turner</a></li>
+<li>Azure DevOps Podcast: <a href="http://azuredevopspodcast.clear-measure.com/kayla-cinnamon-and-rich-turner-on-devops-on-the-windows-terminal-team-episode-54">Episode 54 - Kayla Cinnamon and Rich Turner on DevOps
+on the Windows
+Terminal</a></li>
+<li>Microsoft Ignite 2019 Session: <a href="https://myignite.techcommunity.microsoft.com/sessions/81329?source=sessions">The Modern Windows Command Line: Windows
+Terminal -
+BRK3321</a></li>
+</ul>
+<hr>
+<h2 id="faq">FAQ</h2>
+<h3 id="i-built-and-ran-the-new-terminal-but-it-looks-just-like-the-old-console">I built and ran the new Terminal, but it looks just like the old console</h3>
+<p>Cause: You&#39;re launching the incorrect solution in Visual Studio.</p>
+<p>Solution: Make sure you&#39;re building &amp; deploying the <code>CascadiaPackage</code> project in
+Visual Studio.</p>
+<blockquote>
+<p>[!NOTE]
+<code>OpenConsole.exe</code> is just a locally-built <code>conhost.exe</code>, the classic
+Windows Console that hosts Windows&#39; command-line infrastructure. OpenConsole
+is used by Windows Terminal to connect to and communicate with command-line
+applications (via
+<a href="https://devblogs.microsoft.com/commandline/windows-command-line-introducing-the-windows-pseudo-console-conpty/">ConPty</a>).</p>
+</blockquote>
+<hr>
+<h2 id="documentation">Documentation</h2>
+<p>All project documentation is located at <a href="https://aka.ms/terminal-docs">aka.ms/terminal-docs</a>. If you would like
+to contribute to the documentation, please submit a pull request on the <a href="https://github.com/MicrosoftDocs/terminal">Windows
+Terminal Documentation repo</a>.</p>
+<hr>
+<h2 id="contributing">Contributing</h2>
+<p>We are excited to work alongside you, our amazing community, to build and
+enhance Windows Terminal!</p>
+<p><strong><em>BEFORE you start work on a feature/fix</em></strong>, please read &amp; follow our
+<a href="./CONTRIBUTING.md">Contributor&#39;s
+Guide</a> to
+help avoid any wasted or duplicate effort.</p>
+<h2 id="communicating-with-the-team">Communicating with the Team</h2>
+<p>The easiest way to communicate with the team is via GitHub issues.</p>
+<p>Please file new issues, feature requests and suggestions, but <strong>DO search for
+similar open/closed preexisting issues before creating a new issue.</strong></p>
+<p>If you would like to ask a question that you feel doesn&#39;t warrant an issue
+(yet), please reach out to us via Twitter:</p>
+<ul>
+<li>Christopher Nguyen, Product Manager:
+<a href="https://twitter.com/nguyen_dows">@nguyen_dows</a></li>
+<li>Dustin Howett, Engineering Lead: <a href="https://twitter.com/DHowett">@dhowett</a></li>
+<li>Mike Griese, Senior Developer: <a href="https://mastodon.social/@zadjii">@zadjii@mastodon.social</a></li>
+<li>Carlos Zamora, Developer: <a href="https://twitter.com/cazamor_msft">@cazamor_msft</a></li>
+<li>Pankaj Bhojwani, Developer</li>
+<li>Leonard Hecker, Developer: <a href="https://twitter.com/LeonardHecker">@LeonardHecker</a></li>
+</ul>
+<h2 id="developer-guidance">Developer Guidance</h2>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You can configure your environment to build Terminal in one of two ways:</p>
+<h3 id="using-winget-configuration-file">Using WinGet configuration file</h3>
+<p>After cloning the repository, you can use a <a href="https://learn.microsoft.com/en-us/windows/package-manager/configuration/#use-a-winget-configuration-file-to-configure-your-machine">WinGet configuration file</a>
+to set up your environment. The <a href=".config/configuration.winget">default configuration file</a> installs Visual Studio 2026 Community &amp; rest of the required tools. There are two other variants of the configuration file available in the <a href=".config">.config</a> directory for Enterprise &amp; Professional editions of Visual Studio 2026. To run the default configuration file, you can either double-click the file from explorer or run the following command:</p>
+<pre><code class="lang-powershell"><span class="hljs-selector-tag">winget</span> <span class="hljs-selector-tag">configure</span> <span class="hljs-selector-class">.config</span>\<span class="hljs-selector-tag">configuration</span><span class="hljs-selector-class">.winget</span>
+</code></pre>
+<h3 id="manual-configuration">Manual configuration</h3>
+<ul>
+<li>You must be running Windows 10 2004 (build &gt;= 10.0.19041.0) or later to run
+Windows Terminal</li>
+<li>You must <a href="https://learn.microsoft.com/windows/uwp/get-started/enable-your-device-for-development">enable Developer Mode in the Windows Settings
+app</a>
+to locally install and run Windows Terminal</li>
+<li>You must have <a href="https://github.com/PowerShell/PowerShell/releases/latest">PowerShell 7 or later</a> installed</li>
+<li>You must have the <a href="https://developer.microsoft.com/windows/downloads/windows-sdk/">Windows 11 (10.0.26100) SDK</a> installed at version 10.0.26100.8249 or greater.</li>
+<li>You must have at least <a href="https://visualstudio.microsoft.com/downloads/">VS 2026</a> version 18.6 installed</li>
+<li>You must install the following Workloads via the VS Installer. Note: Opening
+the solution will <a href="https://devblogs.microsoft.com/setup/configure-visual-studio-across-your-organization-with-vsconfig/">prompt you to install missing components automatically</a>:<ul>
+<li>Desktop Development with C++</li>
+<li>WinUI application development</li>
+</ul>
+</li>
+<li>You must install the <a href="https://learn.microsoft.com/dotnet/framework/install/guide-for-developers#to-install-the-net-framework-developer-pack-or-targeting-pack">.NET Framework 4.7.2 Targeting Pack</a> to build test projects</li>
+</ul>
+<h2 id="building-the-code">Building the Code</h2>
+<p>OpenConsole.slnx may be built from within Visual Studio or from the command-line
+using a set of convenience scripts &amp; tools in the <strong>/tools</strong> directory:</p>
+<h3 id="building-in-powershell">Building in PowerShell</h3>
+<pre><code class="lang-powershell"><span class="hljs-keyword">Import</span>-<span class="hljs-keyword">Module</span> .\tools\OpenConsole.psm1
+<span class="hljs-keyword">Set</span>-MsBuildDevEnvironment
+Invoke-OpenConsoleBuild
+</code></pre>
+<h3 id="building-in-cmd">Building in Cmd</h3>
+<pre><code class="lang-shell">.\tools\razzle<span class="hljs-selector-class">.cmd</span>
+bcz
+</code></pre>
+<h2 id="running-debugging">Running &amp; Debugging</h2>
+<p>To debug the Windows Terminal in VS, right click on <code>CascadiaPackage</code> (in the
+Solution Explorer) and go to properties. In the Debug menu, change &quot;Application
+process&quot; and &quot;Background task process&quot; to &quot;Native Only&quot;.</p>
+<p>You should then be able to build &amp; debug the Terminal project by hitting
+<kbd>F5</kbd>. Make sure to select either the &quot;x64&quot; or the &quot;x86&quot; platform - the
+Terminal doesn&#39;t build for &quot;Any Cpu&quot; (because the Terminal is a C++ application,
+not a C# one).</p>
+<blockquote>
+<p>👉 You will <em>not</em> be able to launch the Terminal directly by running the
+WindowsTerminal.exe. For more details on why, see
+<a href="https://github.com/microsoft/terminal/issues/926">#926</a>,
+<a href="https://github.com/microsoft/terminal/issues/4043">#4043</a></p>
+</blockquote>
+<h3 id="coding-guidance">Coding Guidance</h3>
+<p>Please review these brief docs below about our coding practices.</p>
+<blockquote>
+<p>👉 If you find something missing from these docs, feel free to contribute to
+any of our documentation files anywhere in the repository (or write some new
+ones!)</p>
+</blockquote>
+<p>This is a work in progress as we learn what we&#39;ll need to provide people in
+order to be effective contributors to our project.</p>
+<ul>
+<li><a href="./doc/STYLE.md">Coding Style</a></li>
+<li><a href="./doc/ORGANIZATION.md">Code Organization</a></li>
+<li><a href="./doc/EXCEPTIONS.md">Exceptions in our legacy codebase</a></li>
+<li><a href="./doc/WIL.md">Helpful smart pointers and macros for interfacing with Windows in WIL</a></li>
+</ul>
+<hr>
+<h2 id="code-of-conduct">Code of Conduct</h2>
+<p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of
+Conduct</a>. For more information see the <a href="https://opensource.microsoft.com/codeofconduct/faq/">Code of Conduct
+FAQ</a> or contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with any
+additional questions or comments.</p>
+<p>This is some basic, sample markdown.</p>
+<h2 id="second-heading">Second Heading</h2>
+<ul>
+<li>Unordered lists, and:<ol>
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+</ol>
+</li>
+<li>More</li>
+</ul>
+<blockquote>
+<p>Blockquote</p>
+</blockquote>
+<p>And <strong>bold</strong>, <em>italics</em>, and even <em>italics and later <strong>bold</strong></em>. Even <del>strikethrough</del>. <a href="https://markdowntohtml.com">A link</a> to somewhere.</p>
+<p>And code highlighting:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> foo = <span class="hljs-string">'bar'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">baz</span><span class="hljs-params">(s)</span> </span>{
+   <span class="hljs-keyword">return</span> foo + <span class="hljs-string">':'</span> + s;
+}
+</code></pre>
+<p>Or inline code like <code>var foo = &#39;bar&#39;;</code>.</p>
+<p>Or an image of bears</p>
+<p><img src="http://placebear.com/200/200" alt="bears"></p>
+<p>The end ...</p>
+
+
+
+</section>
+
+								
+		</div>
+					</div>
+
+		
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
